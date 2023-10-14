@@ -18,12 +18,11 @@ public class PlannerUI : MonoBehaviour
     {
         _gameProgressManager = GameProgressManager.Instance;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        PlannerUIUpdate();
     }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += LoadPlannerScene;
@@ -41,19 +40,50 @@ public class PlannerUI : MonoBehaviour
 
     private void PlannerUIUpdate()
     {
-        Image curDayMask = grayMasks[(int)_gameProgressManager.CurDay];
+        ChangeAlphaGrayMask();
+
+        LoadGameSlots();
+
+        LoadGameIcons();
+    }
+
+    private void ChangeAlphaGrayMask()
+    {
         Color newColor = Color.white;
         newColor.a = 0;
-        curDayMask.color = newColor;
+        for(int i = 0;i<= (int)_gameProgressManager.CurDay; i++)
+        {
+            grayMasks[i].color = newColor;
+        }
+    }
 
+    private void LoadGameSlots() //리팩토링하기
+    {
+
+        Image curDayMask = grayMasks[(int)_gameProgressManager.CurDay];
         GameObject curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/Planner/PlannerGameSlot"));
         curSlot.transform.SetParent(backGround.transform);
         curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
-        LoadGameIcons();
+        int dayIndex = 0;
+        foreach (var gamePair in _gameProgressManager.UsingGames)
+        {
+            curDayMask = grayMasks[dayIndex];
+            curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/Planner/PlannerGameSlot"));
+            curSlot.transform.SetParent(backGround.transform);
+            curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
+            PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
+            slot.GameImage.sprite = Resources.Load<Sprite>(gamePair.Value);
+            slot.enabled = false;
+            for(int i = 0; i < 3; i++)
+            {
+                slot.StarImage[i].gameObject.SetActive(true);
+                if(i<_gameProgressManager.GameStars[dayIndex]) slot.StarImage[i].sprite = Resources.Load<Sprite>("Sprites/Planner/filledStar");
+            }
 
-
+            dayIndex++;
+        }
     }
 
     private void LoadGameIcons()
@@ -74,7 +104,7 @@ public class PlannerUI : MonoBehaviour
             PlannerGameIcon plannerGameIcon = _gameIcons[index].gameObject.GetComponent<PlannerGameIcon>();
             plannerGameIcon.GameIcon.sprite = Resources.Load<Sprite>(gamePair.Value);
             plannerGameIcon.GameScene = gamePair.Key;
-            plannerGameIcon.StartPosition = gameIconPosition.anchoredPosition + new Vector2(1.8f * index * (_gameIcons[index].sizeDelta.x), 0);
+            plannerGameIcon.StartPosition = gameIconPosition.anchoredPosition + new Vector2(1.4f * index * (_gameIcons[index].sizeDelta.x), 0);
             plannerGameIcon.GoStartPosition();
             index++;
         }

@@ -22,7 +22,11 @@ public class GameProgressManager : Singleton<GameProgressManager>
     public Day CurDay = Day.Monday;
     public GameScene CurGame = GameScene.Null;
     public Dictionary<GameScene, string> RemainingGames;
+    public Dictionary<GameScene, string> UsingGames;
+    public List<int> GameStars;
+    public int CurStar; // 씬 넘어가기 전에 게임 끝내고 0~3값 대입
     private string[] _gameIconPath = { "game1Image", "game2Image", "game3Image", "game4Image", "game5Image" };
+
     private GameProgressManager() { }
 
     private void Awake()
@@ -32,29 +36,21 @@ public class GameProgressManager : Singleton<GameProgressManager>
         {
             RemainingGames.Add((GameScene)(i + 1), $"Sprites/plannerTest/{_gameIconPath[i]}");
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        UsingGames = new Dictionary<GameScene, string>();
+        GameStars = new List<int>();
     }
 
     public void LoadGameScene()
     {
         SceneManager.LoadScene(CurGame.ToString());
         RemainingGames.Remove(CurGame);
-        CurDay = (Day)((int)CurDay + 1);
+        UsingGames.Add(CurGame, $"Sprites/plannerTest/{_gameIconPath[(int)CurGame - 1]}");
+        if (CurDay != Day.Friday) CurDay = (Day)((int)CurDay + 1);
+        //여기 마지막 날 추가 처리하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
     }
     public void LoadPlannerScene()
     {
+        GameStars.Add(CurStar);
         //SceneManager.LoadScene("StartScene");
         SceneManager.LoadScene("YCYMainSceneUIPrefab");
 

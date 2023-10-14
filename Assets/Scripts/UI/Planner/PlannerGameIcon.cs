@@ -44,12 +44,10 @@ public class PlannerGameIcon : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
         _canvasGroup.blocksRaycasts = true;
-        if(!setSlot) { GoStartPosition(); }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if(!setSlot) { GoStartPosition();}
+        else
+        {
+            GetComponent<Image>().raycastTarget = false;
+        }
     }
 }
