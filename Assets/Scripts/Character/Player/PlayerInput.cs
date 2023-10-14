@@ -9,9 +9,11 @@ public class PlayerInput : MonoBehaviour
     public PlayerInputActions.PlayerActions PlayerActions { get; private set; }
 
     public CinemachineVirtualCamera virtualCamera;
+
     public float zoomSpeed = 5.0f;
     public float minFov = 20.0f;
     public float maxFov = 50.0f; 
+
     private void Awake()
     {
         InputActions = new PlayerInputActions();
@@ -32,7 +34,7 @@ public class PlayerInput : MonoBehaviour
     {
         float scrollInput = InputActions.Player.CameraZoom.ReadValue<float>();
 
-        if (scrollInput != 0)
+        if (virtualCamera != null && scrollInput != 0)
         {
             virtualCamera.m_Lens.FieldOfView += scrollInput * zoomSpeed; 
             virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView,minFov, maxFov);
