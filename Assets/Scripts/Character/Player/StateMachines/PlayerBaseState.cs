@@ -110,7 +110,7 @@ public class PlayerBaseState : IState
     {
         float movementSpeed = GetMovementSpeed();
         playerStateMachine.Player.CharacterController.Move(
-               (movementDirection * movementSpeed) * Time.deltaTime
+               ((movementDirection * movementSpeed) + playerStateMachine.Player.ForceReceiver.Movement) * Time.deltaTime
             );
 
     }
