@@ -1,22 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class Singletone<T> : MonoBehaviour where T : MonoBehaviour
+public class testbtn : MonoBehaviour
 {
-    private static T _instance;
-
-    public static T Instance
+    public void click()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                GameObject go = new GameObject(typeof(T).Name);
-                _instance = go.AddComponent<T>();
-
-                DontDestroyOnLoad(_instance);
-            }
-            return _instance;
-        }
+        GameProgressManager.Instance.LoadPlannerScene();
     }
 }
