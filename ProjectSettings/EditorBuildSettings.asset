@@ -8,4 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/DevScene/YCYMainSceneUIPrefab.unity
+    guid: 45eea5b058e7d1a488403e514161407d
+  - enabled: 1
+    path: Assets/Scenes/DevScene/YCYTestScene.unity
+    guid: 4bd1ff654b794ee48975360b99a1e18c
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Game1.unity
+    guid: 8a230de45db2da74aa43303c4fdc1301
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Game2.unity
+    guid: 66fe3a97e0667b1499d9310f8549ff3e
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Game3.unity
+    guid: 9a721d525f1fa8f499ad5ad26b539ebc
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Game4.unity
+    guid: 8b7140be094ed0946b10540f8e74f48a
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Game5.unity
+    guid: 9070ca7983934094997f0a7ddfcf3990
   m_configObjects: {}
