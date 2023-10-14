@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlannerGameSlot : MonoBehaviour, IDropHandler
 {
-    public Button _exitButton;
-    public Button _startButton;
+    [SerializeField] private Button _exitButton;
+    [SerializeField] private Button _startButton;
     public Image GameImage;
+    public Image[] StarImage;
 
     private GameProgressManager _progressManager;
     private RectTransform _rectTransform;
@@ -28,17 +30,21 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
         _startButton.onClick.AddListener(() => { OnClickStartButton(); });
         _exitButton.gameObject.SetActive(false);
         _startButton.gameObject.SetActive(false);
+        foreach(var starImg in StarImage) 
+        {
+            starImg.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        Destroy(this);
     }
 
     private void OnClickExitButton()
     {
         _progressManager.CurGame = GameScene.Null;
-        if (_curSlotGame != null)
-        {
-            PlannerGameIcon prev = _curSlotGame.GetComponent<PlannerGameIcon>();
-            prev.GoStartPosition();
-            prev.setSlot = false;
-        }
+        GoStartPointPrevSlot();
 
         _exitButton.gameObject.SetActive(false);
         _startButton.gameObject.SetActive(false);
@@ -52,31 +58,31 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
         }
     }
 
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
-
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag != null)
         {
-            if(_curSlotGame != null)
-            {
-                PlannerGameIcon prev = _curSlotGame.GetComponent<PlannerGameIcon>();
-                prev.GoStartPosition();
-                prev.setSlot = false;
-            }
+            GoStartPointPrevSlot();
+
             _curSlotGame = eventData.pointerDrag;
             _curSlotGame.GetComponent<RectTransform>().anchoredPosition = _rectTransform.anchoredPosition;
             _curSlotGame.GetComponent<PlannerGameIcon>().setSlot = true;
             _progressManager.CurGame = _curSlotGame.GetComponent<PlannerGameIcon>().GameScene;
-            Debug.Log(_progressManager.CurGame);
 
             _exitButton.gameObject.SetActive(true);
             _startButton.gameObject.SetActive(true);
         }
     }
+
+    private void GoStartPointPrevSlot()
+    {
+        if (_curSlotGame != null)
+        {
+            PlannerGameIcon prev = _curSlotGame.GetComponent<PlannerGameIcon>();
+            prev.GoStartPosition();
+            prev.setSlot = false;
+            prev.GetComponent<Image>().raycastTarget = true;
+        }
+    }
+
 }
