@@ -11,4 +11,8 @@ public class PlayerGroundData
 
     [field: Header("WalkData")]
     [field: SerializeField] public float WalkSpeedModifier { get; private set; } = 1f;
+
+    [field: Header("RunData")]
+    [field: SerializeField] public float RunSpeedModifier { get; private set; } = 3f;
+
 }

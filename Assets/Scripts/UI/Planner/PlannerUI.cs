@@ -18,22 +18,8 @@ public class PlannerUI : MonoBehaviour
     {
         _gameProgressManager = GameProgressManager.Instance;
     }
-    private void Start()
-    {
-        PlannerUIUpdate();
-    }
 
     private void OnEnable()
-    {
-        SceneManager.sceneLoaded += LoadPlannerScene;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= LoadPlannerScene;
-    }
-
-    private void LoadPlannerScene(Scene scene, LoadSceneMode mode)
     {
         PlannerUIUpdate();
     }
@@ -75,6 +61,7 @@ public class PlannerUI : MonoBehaviour
 
             PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
             slot.GameImage.sprite = Resources.Load<Sprite>(gamePair.Value);
+            slot.IsDestoryed = false;
             slot.enabled = false;
             for(int i = 0; i < 3; i++)
             {

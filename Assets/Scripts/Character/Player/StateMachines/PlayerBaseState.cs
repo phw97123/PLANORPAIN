@@ -46,14 +46,19 @@ public class PlayerBaseState : IState
     {
         PlayerInput input = playerStateMachine.Player.Input;
         input.PlayerActions.Movement.canceled += OnMovementCanceled;
+        input.PlayerActions.Run.started += OnRunStarted;
     }
 
     protected virtual void RemoveActionsCallbacks()
     {
         PlayerInput input = playerStateMachine.Player.Input;
         input.PlayerActions.Movement.canceled -= OnMovementCanceled;
+        input.PlayerActions.Run.started -= OnRunStarted;
     }
+    protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    {
 
+    }
     protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
     {
 
