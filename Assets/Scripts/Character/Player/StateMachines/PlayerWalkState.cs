@@ -22,4 +22,10 @@ public class PlayerWalkState : PlayerGroundState
         base.Exit();
         StopAnimation(playerStateMachine.Player.AnimationData.WalkParameterHash);
     }
+
+    protected override void OnRunStarted(InputAction.CallbackContext context)
+    {
+        base.OnRunStarted(context);
+        playerStateMachine.ChangeState(playerStateMachine.RunState);
+    }
 }

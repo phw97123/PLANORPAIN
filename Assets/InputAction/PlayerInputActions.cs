@@ -53,6 +53,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Value"",
+                    ""id"": ""8e09e332-6a49-4df8-bd80-2eabce11d2cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,61 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""CameraZoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88194d6e-6bda-4e9d-9cb5-72d4e8ba847a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5a7c9de-540e-4373-aed4-6a91ef67f86d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d5a7927-7ec7-4a95-bef0-a44c867580aa"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4aca603a-53d8-4470-a789-74e15dac406b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ee01ec1-bc91-4f18-9f89-893ef421551c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +207,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_CameraZoom = m_Player.FindAction("CameraZoom", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +272,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_CameraZoom;
+    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -214,6 +280,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @CameraZoom => m_Wrapper.m_Player_CameraZoom;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +299,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CameraZoom.started += instance.OnCameraZoom;
             @CameraZoom.performed += instance.OnCameraZoom;
             @CameraZoom.canceled += instance.OnCameraZoom;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +315,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CameraZoom.started -= instance.OnCameraZoom;
             @CameraZoom.performed -= instance.OnCameraZoom;
             @CameraZoom.canceled -= instance.OnCameraZoom;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +340,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnCameraZoom(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
 }

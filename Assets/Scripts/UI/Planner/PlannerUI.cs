@@ -61,6 +61,7 @@ public class PlannerUI : MonoBehaviour
 
             PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
             slot.GameImage.sprite = Resources.Load<Sprite>(gamePair.Value);
+            slot.IsDestoryed = false;
             slot.enabled = false;
             for(int i = 0; i < 3; i++)
             {

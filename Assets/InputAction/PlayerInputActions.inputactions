@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Run",
+                    "type": "Value",
+                    "id": "8e09e332-6a49-4df8-bd80-2eabce11d2cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -108,6 +117,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88194d6e-6bda-4e9d-9cb5-72d4e8ba847a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5a7c9de-540e-4373-aed4-6a91ef67f86d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d5a7927-7ec7-4a95-bef0-a44c867580aa",
+                    "path": "<Keyboard>/s",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4aca603a-53d8-4470-a789-74e15dac406b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ee01ec1-bc91-4f18-9f89-893ef421551c",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
