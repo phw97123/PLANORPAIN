@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
-    public CharacterController CharacterController { get; private set; }
     public PlayerInput Input { get; private set; }
 
     public ForceReceiver ForceReceiver { get; private set; }
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
 
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
-        CharacterController = GetComponent<CharacterController>();
         Input = GetComponent<PlayerInput>();
         ForceReceiver = GetComponent<ForceReceiver>();
 
