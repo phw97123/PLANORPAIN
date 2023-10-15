@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public PlayerInputActions InputActions { get; private set; }
-    public PlayerInputActions.PlayerActions PlayerActions { get; private set; }
+    public PlayerInputActionsTest InputActions { get; private set; } // Test 버전 적용
+    public PlayerInputActionsTest.PlayerActions PlayerActions { get; private set; } // Test 버전 적용
 
     public CinemachineVirtualCamera virtualCamera;
 
@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        InputActions = new PlayerInputActions();
+        InputActions = new PlayerInputActionsTest(); // Test 버전 적용
         PlayerActions = InputActions.Player;
     }
 
