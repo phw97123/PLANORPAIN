@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState
 {
+    public readonly AttackInfoData AttackInfoData;
     public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
-
+   
     public override void Enter()
     {
         playerStateMachine.MovementSpeedModifier = 0;
