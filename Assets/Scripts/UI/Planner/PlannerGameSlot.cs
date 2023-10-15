@@ -38,7 +38,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnDisable()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private void OnClickExitButton()
