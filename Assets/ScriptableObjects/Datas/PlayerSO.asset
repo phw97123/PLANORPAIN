@@ -16,3 +16,27 @@ MonoBehaviour:
     <BaseSpeed>k__BackingField: 5
     <BaseRotationDamping>k__BackingField: 8
     <WalkSpeedModifier>k__BackingField: 0.2
+    <RunSpeedModifier>k__BackingField: 3
+  <AttackData>k__BackingField:
+    <AttackInfoDatas>k__BackingField:
+    - <AttackName>k__BackingField: PunchCombo_1
+      <AttackTypeIndex>k__BackingField: 0
+      <ComboStateIndex>k__BackingField: 1
+      <ComboTransitionTime>k__BackingField: 0.473
+      <ForceTransitionTime>k__BackingField: 1.37
+      <Force>k__BackingField: -0.8
+      <Damage>k__BackingField: 5
+    - <AttackName>k__BackingField: PunchCombo_2
+      <AttackTypeIndex>k__BackingField: 0
+      <ComboStateIndex>k__BackingField: 2
+      <ComboTransitionTime>k__BackingField: 0.473
+      <ForceTransitionTime>k__BackingField: 1.37
+      <Force>k__BackingField: -0.8
+      <Damage>k__BackingField: 5
+    - <AttackName>k__BackingField: PunchCombo_3
+      <AttackTypeIndex>k__BackingField: 0
+      <ComboStateIndex>k__BackingField: -1
+      <ComboTransitionTime>k__BackingField: 0.473
+      <ForceTransitionTime>k__BackingField: 1.37
+      <Force>k__BackingField: 4.2
+      <Damage>k__BackingField: 10
