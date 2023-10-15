@@ -18,22 +18,8 @@ public class PlannerUI : MonoBehaviour
     {
         _gameProgressManager = GameProgressManager.Instance;
     }
-    private void Start()
-    {
-        PlannerUIUpdate();
-    }
 
     private void OnEnable()
-    {
-        SceneManager.sceneLoaded += LoadPlannerScene;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= LoadPlannerScene;
-    }
-
-    private void LoadPlannerScene(Scene scene, LoadSceneMode mode)
     {
         PlannerUIUpdate();
     }
