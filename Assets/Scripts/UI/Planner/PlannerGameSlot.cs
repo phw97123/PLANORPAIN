@@ -13,6 +13,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
     [SerializeField] private Button _startButton;
     public Image GameImage;
     public Image[] StarImage;
+    public bool IsDestoryed = true;
 
     private GameProgressManager _progressManager;
     private RectTransform _rectTransform;
@@ -38,7 +39,8 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnDisable()
     {
-        Destroy(gameObject);
+        if (IsDestoryed) Destroy(gameObject);
+        else IsDestoryed = true;
     }
 
     private void OnClickExitButton()
