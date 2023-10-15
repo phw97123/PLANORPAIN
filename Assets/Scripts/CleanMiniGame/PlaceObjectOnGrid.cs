@@ -7,11 +7,9 @@ using UnityEngine;
 public class PlaceObjectOnGrid : MonoBehaviour
 {
     public Transform gridCellPrefab;
-    public Transform cube;
 
     [SerializeField] private int height;
     [SerializeField] private int width;
-
 
     void Start()
     {
@@ -30,7 +28,7 @@ public class PlaceObjectOnGrid : MonoBehaviour
                 Vector3 worldPosition = new Vector3(i * cellSize.x * 2f, 0, j * cellSize.z * 2f);
                 Transform obj = Instantiate(gridCellPrefab, worldPosition * 2, Quaternion.identity);
 
-                obj.name = "Cell" + name;
+                obj.name = "Floor" + name;
                 name++;
             }
         }
