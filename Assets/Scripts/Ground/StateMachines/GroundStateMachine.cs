@@ -10,6 +10,7 @@ public class GroundStateMachine : StateMachine
     public GroundFallState FallState { get; }
 
     public bool IsShivering { get; set; }
+    public bool IsShiverStarted { get; set; }
     
     public GroundStateMachine(Ground ground)
     {

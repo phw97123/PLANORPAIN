@@ -11,6 +11,8 @@ public class GroundFallState : GroundBaseState
     }
 
     public Transform GroundTransform;
+    public GameObject thisObject;
+    public bool isReadyToDestroy;
 
     public override void Enter()
     {
@@ -22,6 +24,8 @@ public class GroundFallState : GroundBaseState
     {
         base.Exit();
         // 오브젝트 파괴시키는 메서드
+        thisObject = groundStateMachine.Ground.gameObject;
+        DestroyGameObject( thisObject );
     }
 
     public override void Update()
@@ -30,6 +34,19 @@ public class GroundFallState : GroundBaseState
         while (GroundTransform.position.y > -3.5f)
         {
             GroundTransform.Translate(Vector3.down * Time.deltaTime * 0.5f); // 임시속도 : 0.5f
+        }
+        if (GroundTransform.position.y < -3.49f)
+        {
+            isReadyToDestroy = true;
+            Exit();
+        }
+    }
+
+    public void DestroyGameObject(GameObject go)
+    {
+        if (go != null)
+        {
+            Object.Destroy(go);
         }
     }
 }

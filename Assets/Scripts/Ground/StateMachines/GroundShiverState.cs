@@ -12,6 +12,7 @@ public class GroundShiverState : GroundBaseState
     {
         base.Enter();
         StartAnimation(groundStateMachine.Ground.AnimationData.ShiverParameterHash);
+        groundStateMachine.IsShiverStarted = true;
     }
 
     public override void Exit()

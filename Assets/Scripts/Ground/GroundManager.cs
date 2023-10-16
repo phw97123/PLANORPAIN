@@ -66,5 +66,4 @@ public class GroundManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         isDelay = false;
     }
-
 }
