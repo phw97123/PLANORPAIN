@@ -11,7 +11,7 @@ public class GroundIdleState : GroundBaseState
     public override void Enter()
     {
         base.Enter();
-        StartAnimation(groundStateMachine.Ground.AnimationData.IdleParameterHash);
+        //StartAnimation(groundStateMachine.Ground.AnimationData.IdleParameterHash);
     }
 
     public override void Exit()

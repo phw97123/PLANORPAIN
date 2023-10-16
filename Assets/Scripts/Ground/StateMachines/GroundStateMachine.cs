@@ -11,9 +11,10 @@ public class GroundStateMachine : StateMachine
 
     public bool IsShivering { get; set; }
     
-    public GroundStateMachine()
+    public GroundStateMachine(Ground ground)
     {
-        this.Ground = Ground;
+        this.Ground = ground;
+
         IdleState = new GroundIdleState(this);
         ShiverState = new GroundShiverState(this);
         FallState = new GroundFallState(this);

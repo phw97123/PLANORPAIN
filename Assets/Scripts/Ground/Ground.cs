@@ -5,15 +5,22 @@ using UnityEngine;
 public class Ground : MonoBehaviour
 {
     [field: Header("Animation")]
-    [field: SerializeField] public GroundAnimationData AnimationData { get; private set; } // GroundAnimationData AnimationData
+    [field: SerializeField] public GroundAnimationData AnimationData { get; private set; } 
 
     public Animator Animator { get; private set; }
 
     public GroundStateMachine groundStateMachine { get; private set; }
 
+    [field: SerializeField] public bool isShivering;
+
     private void Awake()
     {
-        groundStateMachine = GetComponent<GroundStateMachine>();
+        AnimationData.Initialize();
+
+        Animator = GetComponent<Animator>();
+
+        groundStateMachine = new GroundStateMachine(this);
+        isShivering = groundStateMachine.IsShivering;
     }
 
     private void Start()
@@ -24,6 +31,7 @@ public class Ground : MonoBehaviour
     private void Update()
     {
         groundStateMachine.Update();
+        isShivering = groundStateMachine.IsShivering;
     }
     private void FixedUpdate()
     {
