@@ -9,7 +9,12 @@ public class ChangeCell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Invoke("Change", 1.0f); 
+    }
+
+    private void Change()
+    {
         DustFloor.SetActive(false);
         CleanFloor.SetActive(true);
-    }
+    } 
 }
