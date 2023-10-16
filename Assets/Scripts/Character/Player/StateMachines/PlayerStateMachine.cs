@@ -10,6 +10,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerIdleState IdleState {get;}
     public PlayerWalkState WalkState {get;}
     public PlayerRunState RunState { get; }
+    public PlayerComboAttackState ComboAttackState { get; }
 
     public Transform MainCameraTransform { get; set; }
 
@@ -18,6 +19,9 @@ public class PlayerStateMachine : StateMachine
     public float MovementSpeedModifier { get; set; } = 1f;
     public float RotationDamping { get; private set; }
 
+    public bool IsAttacking { get; set; }
+    public int ComboIndex { get; set; }
+    public int AttackTypeIndex { get; set; }
     public PlayerStateMachine(Player player)
     {
         this.Player = player;
@@ -25,6 +29,7 @@ public class PlayerStateMachine : StateMachine
         IdleState = new PlayerIdleState(this);
         WalkState = new PlayerWalkState(this);
         RunState = new PlayerRunState(this);
+        ComboAttackState = new PlayerComboAttackState(this);
 
         MainCameraTransform = Camera.main.transform;
 
