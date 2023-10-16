@@ -7,7 +7,6 @@ public class Node : MonoBehaviour
     private const int INACTIVE = 0;
     private const int ACTIVE = 1;
 
-    [SerializeField] private GameObject _interactPanelUI;
     [SerializeField] private bool _isActive;
     [SerializeField] private Material[] matList;
 
@@ -22,6 +21,10 @@ public class Node : MonoBehaviour
         _nodeNum = int.Parse((name[name.Length - 1]).ToString());
         _meshRenderer = GetComponent<MeshRenderer>();
         _graph = GetComponentInParent<Graph>();
+    }
+
+    private void Start()
+    {
         _uiPopup = UIManager.Instance.GetUIComponent<UI_Popup>();
     }
 
