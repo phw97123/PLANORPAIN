@@ -1051,12 +1051,12 @@ GameObject:
   - component: {fileID: 728477222}
   - component: {fileID: 728477226}
   m_Layer: 5
-  m_Name: CleanGameOverPanelUI
+  m_Name: CleanGameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &728477222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,7 +1572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1034332556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startUI: {fileID: 2003715133}
   logicUI: {fileID: 1034332560}
-  gameOverPanelUI: {fileID: 728477226}
+  gameOverUI: {fileID: 728477226}
   playerInput: {fileID: 1696773453}
 --- !u!4 &1977120919
 Transform:

@@ -7,24 +7,24 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum CleanGameState
+public enum CleaningGameState
 {
     NotStarted, InProgress, GameOver
 }
 
 
-public class CleanGameManager : MonoBehaviour
+public class CleaningGameManager : MonoBehaviour
 {
-    public static CleanGameManager Instance;
+    public static CleaningGameManager Instance;
 
     //UI매니저 생기면 리팩토링 예정
-    [SerializeField] private CleanGameStartUI startUI;
-    [SerializeField] private CleanGameLogicUI logicUI;
-    [SerializeField] private CleanGameOverPanelUI gameOverPanelUI;
+    [SerializeField] private CleaningGameStartUI startUI;
+    [SerializeField] private CleaningGameLogicUI logicUI;
+    [SerializeField] private CleaningGameOverUI gameOverUI;
 
     [SerializeField] private PlayerInput playerInput;
 
-    private CleanGameState _gameState; 
+    private CleaningGameState _gameState; 
 
     private float _time = 60;
     private int _score = 0;
@@ -39,7 +39,8 @@ public class CleanGameManager : MonoBehaviour
 
     private void Start()
     {
-        // playerInput.OnDisable();
+        //playerInput.OnDisable();
+        SetGameState(CleaningGameState.NotStarted);
         startUI.OnStartBttonClicked += HandleStartButtonClicked;
     }
 
@@ -47,55 +48,11 @@ public class CleanGameManager : MonoBehaviour
     {
         switch(_gameState)
         {
-            case CleanGameState.InProgress:
+            case CleaningGameState.InProgress:
                 UpdateGameInProgress();
                 break;
-            case CleanGameState.GameOver:
+            case CleaningGameState.GameOver:
                 HandleGameOver();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void HandleGameOver()
-    {
-        gameOverPanelUI.GameOver(CurrentScore);
-    }
-
-    private void HandleStartButtonClicked()
-    {
-        InitStartGame();
-        SetGameState(CleanGameState.InProgress);
-    }
-
-    private void UpdateGameInProgress()
-    {
-        if (TimeRemaining > 0)
-            _time -= Time.deltaTime;
-        else
-        {
-            _time = 0;
-            SetGameState(CleanGameState.GameOver); 
-        }
-        logicUI.UpdateTimer(TimeRemaining);
-    }
-
-    private void SetGameState(CleanGameState newState)
-    {
-        _gameState = newState;
-
-        switch(_gameState)
-        {
-            case CleanGameState.NotStarted:
-                break;
-            case CleanGameState.InProgress:
-                logicUI.gameObject.SetActive(true);
-                startUI.gameObject.SetActive(false);
-                break;
-            case CleanGameState.GameOver:
-                logicUI.gameObject.SetActive(false);
-                gameOverPanelUI.gameObject.SetActive(true);
                 break;
             default:
                 break;
@@ -111,6 +68,56 @@ public class CleanGameManager : MonoBehaviour
 
         logicUI.UpdateScore(CurrentScore);
         logicUI.UpdateTimer(TimeRemaining);
+    }
+
+    private void HandleStartButtonClicked()
+    {
+        InitStartGame();
+        SetGameState(CleaningGameState.InProgress);
+    }
+
+    private void HandleGameOver()
+    {
+        gameOverUI.GameOver(CurrentScore);
+    }
+
+    private void UpdateGameInProgress()
+    {
+        if (TimeRemaining > 0)
+            _time -= Time.deltaTime;
+        else
+        {
+            _time = 0;
+            SetGameState(CleaningGameState.GameOver); 
+        }
+        logicUI.UpdateTimer(TimeRemaining);
+    }
+
+    private void SetGameState(CleaningGameState newState)
+    {
+        _gameState = newState;
+
+        switch(_gameState)
+        {
+            case CleaningGameState.NotStarted:
+                SetActiveUI(startUI); 
+                break;
+            case CleaningGameState.InProgress:
+                SetActiveUI(logicUI); 
+                break;
+            case CleaningGameState.GameOver:
+                SetActiveUI(gameOverUI); 
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SetActiveUI(MonoBehaviour activeUI)
+    {
+        startUI.gameObject.SetActive(activeUI == startUI);
+        logicUI.gameObject.SetActive(activeUI == logicUI);
+        gameOverUI.gameObject.SetActive(activeUI == gameOverUI);
     }
 
     public void IncreaseScore()

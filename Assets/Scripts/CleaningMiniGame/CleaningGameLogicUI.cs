@@ -5,7 +5,7 @@ using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CleanGameLogicUI : MonoBehaviour
+public class CleaningGameLogicUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerTxt;
     [SerializeField] private TMP_Text scoreTxt;

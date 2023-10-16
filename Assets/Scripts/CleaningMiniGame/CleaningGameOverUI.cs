@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class CleanGameOverPanelUI : MonoBehaviour
+public class CleaningGameOverUI : MonoBehaviour
 {
     [SerializeField] private Button confirmBtn;
     [SerializeField] private TMP_Text scoreTxt;

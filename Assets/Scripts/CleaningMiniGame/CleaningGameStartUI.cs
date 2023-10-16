@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CleanGameStartUI : MonoBehaviour
+public class CleaningGameStartUI : MonoBehaviour
 {
     public event Action OnStartBttonClicked;
 
