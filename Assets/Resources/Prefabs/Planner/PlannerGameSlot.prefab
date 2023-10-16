@@ -935,6 +935,7 @@ MonoBehaviour:
   - {fileID: 5834266417662735791}
   - {fileID: 6351707518385459221}
   - {fileID: 4067295320281981141}
+  IsDestoryed: 1
 --- !u!1 &8269505465476236991
 GameObject:
   m_ObjectHideFlags: 0
