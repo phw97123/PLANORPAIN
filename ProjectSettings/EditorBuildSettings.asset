@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: f71987462ae9a17408107da4f7786ff1
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 2ff239ca09a599943972fcbdbf60759e
+  - enabled: 1
+    path: Assets/Scenes/DevScene/CreateDevelopGameScene_kjm.unity
+    guid: a3c78e559f300ae4a8f8823cd94872b6
+  - enabled: 1
     path: Assets/Scenes/DevScene/YCYMainSceneUIPrefab.unity
     guid: 45eea5b058e7d1a488403e514161407d
   - enabled: 0
