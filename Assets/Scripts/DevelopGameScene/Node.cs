@@ -15,12 +15,14 @@ public class Node : MonoBehaviour
     private MeshRenderer _meshRenderer;
 
     private Graph _graph;
+    private UI_Popup _uiPopup;
 
     private void Awake()
     {
         _nodeNum = int.Parse((name[name.Length - 1]).ToString());
         _meshRenderer = GetComponent<MeshRenderer>();
         _graph = GetComponentInParent<Graph>();
+        _uiPopup = UIManager.Instance.GetUIComponent<UI_Popup>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,10 +30,15 @@ public class Node : MonoBehaviour
         // TODO "Player" Tag 추가 후 Tag 비교로 변경
         if (other.gameObject.name == "Player" && !_isActive)
         {
-            if (_graph.SearchNode(_nodeNum))
-            {
-                SetNodeActive(true);
-            }
+            _uiPopup.ShowPopup(name, "활성화", "취소", () => SearchThisNode(), null);
+        }
+    }
+
+    private void SearchThisNode()
+    {
+        if (_graph.SearchNode(_nodeNum))
+        {
+            SetNodeActive(true);
         }
     }
 
