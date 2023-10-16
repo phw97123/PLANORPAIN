@@ -30,7 +30,7 @@ public class InteractGymPoint : MonoBehaviour, IInteractable
     IEnumerator LoadSceneCO()
     {
         yield return new WaitForSecondsRealtime(1f);
-        //SceneManager.LoadScene("GymScene");
+        SceneManager.LoadScene("GymScene");
         Debug.Log("LoadScene : GymScene");
     }
 }

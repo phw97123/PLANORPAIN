@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DevScene/Game5.unity
     guid: 9070ca7983934094997f0a7ddfcf3990
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Outdoor/DrivingScene.unity
+    guid: 712d418d4b0b05a44963c6b73ea4f564
+  - enabled: 1
+    path: Assets/Scenes/DevScene/Outdoor/GymScene.unity
+    guid: 30ed6bab6c8ede0499dcfc596e039332
   m_configObjects: {}
