@@ -16,5 +16,7 @@ public class ChangeCell : MonoBehaviour
     {
         DustFloor.SetActive(false);
         CleanFloor.SetActive(true);
+
+        CleanGameManager.Instance.IncreaseScore(); 
     } 
 }
