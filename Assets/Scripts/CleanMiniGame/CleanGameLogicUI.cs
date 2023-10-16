@@ -5,7 +5,7 @@ using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class CleanLogicUI : MonoBehaviour
+public class CleanGameLogicUI : MonoBehaviour
 {
     [SerializeField] private Button startBtn;
     [SerializeField] private TMP_Text timerTxt;
@@ -15,8 +15,11 @@ public class CleanLogicUI : MonoBehaviour
 
     private void Awake()
     {
-        _cleanGameManager = CleanGameManager.Instance;
+    }
 
+    private void Start()
+    {
+        _cleanGameManager = CleanGameManager.Instance;
         startBtn.onClick.AddListener(StartGame); 
     }
 
