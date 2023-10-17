@@ -3,30 +3,17 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractGymMinigame : MonoBehaviour
 {
-    [SerializeField] private GameObject _miniGameUI;
-    [SerializeField] private GameObject _playerHand;
-    [SerializeField] private Animator _playerAnimator;
-    [SerializeField] private AnimatorController _animController;
+    [SerializeField] private BackSquatMiniGameUI _gameUI;
     private Outline _outline;
-    private Transform _transform;
-    
+    private bool _isStartMiniGame = false;
 
     private void Awake()
     {
         _outline = GetComponent<Outline>();
-        _transform = GetComponent<Transform>();
-    }
-
-    private void Update()
-    {
-    }
-
-    private void FollowPlayerHand()
-    {
-        _transform.position = _playerHand.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +22,7 @@ public class InteractGymMinigame : MonoBehaviour
         {
             _outline.OutlineWidth = 6f;
             SceneVisibilityManager.instance.TogglePicking(gameObject, true);
+            _isStartMiniGame = true;
             Debug.Log("Interact : On");
         }
     }
@@ -44,13 +32,21 @@ public class InteractGymMinigame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _outline.OutlineWidth = 0f;
+            _isStartMiniGame = false;
             Debug.Log("Interact : Off");
         }
     }
 
-    public void OnInteract()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.Log("Interact : TestObject");
-        _miniGameUI.SetActive(true);
+        if (context.phase == InputActionPhase.Started)
+        {
+            if (_isStartMiniGame)
+            {
+                Debug.Log("Interact : TestObject");
+                _gameUI.StartMiniGame();
+                _outline.OutlineWidth = 0f;
+            }
+        }
     }
 }
