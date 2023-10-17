@@ -8,7 +8,7 @@ public class LoadingSceneTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LoadingSceneController.LoadScene("CreateDevelopGameScene_kjm");
+            SceneManagerEx.Instance.LoadScene(Scenes.LoadingScene, Scenes.CreateDevelopGameScene_kjm);
         }
     }
 }

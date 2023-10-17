@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingSceneController : MonoBehaviour
+public class UI_LoadingScene : UIBase
 {
     [SerializeField] private Image _progressBarImage;
 
-    private static string _nextScene;
+    private Scenes _nextSceneType = Scenes.Unknown;
 
     private void Start()
     {
-        StartCoroutine(LoadSceneProcess());
+        _nextSceneType = SceneManagerEx.Instance.NextSceneType;
+        if (_nextSceneType != Scenes.Unknown) StartCoroutine(LoadSceneProcess());
     }
 
     IEnumerator LoadSceneProcess()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync(_nextScene);
+        AsyncOperation op = SceneManagerEx.Instance.LoadSceneAsync(_nextSceneType);
         op.allowSceneActivation = false;
 
         float timer = 0f;
@@ -39,11 +40,5 @@ public class LoadingSceneController : MonoBehaviour
                 }
             }
         }
-    }
-
-    public static void LoadScene(string sceneName)
-    {
-        _nextScene = sceneName;
-        SceneManager.LoadScene("LoadingScene");
     }
 }

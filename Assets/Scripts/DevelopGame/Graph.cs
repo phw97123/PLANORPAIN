@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Graph : MonoBehaviour
 {
-    // TODO GameManager를 통해 접근하도록 수정
-    [SerializeField] private DevelopGameManager _developGameManager;
+    private DevelopGameManager _developGameManager;
 
     private int _curOrderIdx = 1;
     private int[] _searchOrder = new int[] { 1, 2, 7, 6, 8, 3, 4, 5 };
@@ -16,6 +15,7 @@ public class Graph : MonoBehaviour
     private void Awake()
     {
         nodeList = GetComponentsInChildren<Node>();
+        _developGameManager = GameManager.Instance.GetMiniGameManager<DevelopGameManager>();
     }
 
     public bool SearchNode(int nodeNum)

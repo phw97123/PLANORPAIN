@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(MaskableGraphic))]
-public class ScreenFader : MonoBehaviour
+public class UI_MainScene : UIBase
 {
+    [SerializeField] private GameObject _screenFader;
     private MaskableGraphic[] images;
 
     private void Awake()
     {
-        images = GetComponentsInChildren<MaskableGraphic>();
+        images = _screenFader.GetComponentsInChildren<MaskableGraphic>();
     }
 
     private void Start()
     {
-        float fadeOffTime = 3f;
+        float fadeOffTime = 2f;
         foreach (MaskableGraphic image in images)
         {
             image?.CrossFadeAlpha(0f, fadeOffTime, true);
