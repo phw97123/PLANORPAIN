@@ -32,7 +32,8 @@ public class Node : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !_isActive)
         {
-            _uiPopup.ShowPopup(name, "활성화", "취소", () => SearchThisNode(), null);
+            _uiPopup.ShowPopup(name, Strings.PopupButtons.CONFIRM_ACTIVE, Strings.PopupButtons.CANCEL, () => SearchThisNode(), null);
+            _uiPopup.SetContextFontSize(80);
         }
     }
 
