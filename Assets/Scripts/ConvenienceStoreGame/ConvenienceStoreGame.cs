@@ -65,7 +65,7 @@ public class ConvenienceStoreGame : MonoBehaviour
         ConvenienceNotifyUI notifyUI = UIManager.Instance.GetUIComponent<ConvenienceNotifyUI>();
         notifyUI.ShowPopup();
         ConvenienceUI gameUI = UIManager.Instance.GetUIComponent<ConvenienceUI>();
-        gameUI.ShowPopup();
+        gameUI.OpenUI();
     }
 
     private void Update()
