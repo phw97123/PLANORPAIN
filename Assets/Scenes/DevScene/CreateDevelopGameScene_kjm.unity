@@ -1713,6 +1713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1863001521}
+  - {fileID: 1622075163}
   - {fileID: 1395473358}
   - {fileID: 1738842827}
   - {fileID: 338282385}
@@ -17785,6 +17786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eaf6624b6067a499beb328b09c5ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerSpawnPosition: {fileID: 1863001521}
 --- !u!1001 &1402934017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20593,6 +20595,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3000007, y: 2, z: 2.3000004}
   m_Center: {x: 0.14999983, y: 0, z: 0.15}
+--- !u!1 &1622075162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1622075163}
+  - component: {fileID: 1622075164}
+  - component: {fileID: 1622075165}
+  m_Layer: 0
+  m_Name: CheckFall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1622075163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622075162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79201252}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1622075164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622075162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 200, y: 0.1, z: 200}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1622075165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622075162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c384e332ae3d99043970fef54a3713f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerSpawnPosition: {fileID: 1863001521}
 --- !u!1001 &1626071528
 PrefabInstance:
   m_ObjectHideFlags: 0
