@@ -25,9 +25,4 @@ public class ConvenienceUI : UIBase
             stars[i].color = color;
         }
     }
-
-    public void ShowPopup()
-    {
-        gameObject.SetActive(true);
-    }
 }

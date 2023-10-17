@@ -65,7 +65,7 @@ public class ConvenienceStoreGame : MonoBehaviour
         ConvenienceNotifyUI notifyUI = UIManager.Instance.GetUIComponent<ConvenienceNotifyUI>();
         notifyUI.ShowPopup();
         ConvenienceUI gameUI = UIManager.Instance.GetUIComponent<ConvenienceUI>();
-        gameUI.ShowPopup();
+        gameUI.OpenUI();
     }
 
     private void Update()
@@ -87,7 +87,7 @@ public class ConvenienceStoreGame : MonoBehaviour
                 {
                     if (isEating)
                     {
-                        ConveniencePopupUI popupUI = UIManager.Instance.GetUIComponent<ConveniencePopupUI>();
+                        UI_Popup popupUI = UIManager.Instance.GetUIComponent<UI_Popup>();
                         popupUI.ShowPopup("아직 씹고 있습니다");
                         return;
                     }
@@ -98,7 +98,7 @@ public class ConvenienceStoreGame : MonoBehaviour
 
                     if (isWithinNPCZone)
                     {
-                        ConveniencePopupUI popupUI = UIManager.Instance.GetUIComponent<ConveniencePopupUI>();
+                        UI_Popup popupUI = UIManager.Instance.GetUIComponent<UI_Popup>();
                         popupUI.ShowPopup("손님이 부스럭대는 소리를\r\n들었습니다");
                         ChangeScore(-1);
                     }
