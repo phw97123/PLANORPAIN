@@ -50,6 +50,8 @@ public class PlayerBaseState : IState
 
         input.PlayerActions.Attack.performed += OnAttackPerformed;
         input.PlayerActions.Attack.canceled += OnAttackCanceled;
+
+        input.PlayerActions.Jump.started += OnJumpStarted;
     }
 
     protected virtual void RemoveActionsCallbacks()
@@ -60,6 +62,8 @@ public class PlayerBaseState : IState
 
         input.PlayerActions.Attack.performed -= OnAttackPerformed;
         input.PlayerActions.Attack.canceled -= OnAttackCanceled;
+
+        input.PlayerActions.Jump.started -= OnJumpStarted;
     }
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
     {
@@ -80,6 +84,10 @@ public class PlayerBaseState : IState
         playerStateMachine.IsAttacking = false;
     }
 
+    protected virtual void OnJumpStarted(InputAction.CallbackContext context)
+    {
+
+    }
 
     private void ReadMovementInput()
     {
