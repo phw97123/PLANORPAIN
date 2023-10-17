@@ -134,12 +134,12 @@ public class UI_Popup : UIBase
     }
 
     // 버튼 없는 알림 팝업
-    public void ShowPopup(string notification)
+    public void ShowPopup(string content)
     {
         SetPopupAttributes(PopupButtonType.NOTIFY);
         SetButtonActive(PopupButtonType.NOTIFY);
 
-        _contentText.text = notification;
+        _contentText.text = content;
 
         OpenUI();
         CloseUIWithDelay();
