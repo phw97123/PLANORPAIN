@@ -51,8 +51,7 @@ public class GameProgressManager : Singleton<GameProgressManager>
     public void LoadPlannerScene()
     {
         GameStars.Add(CurStar);
-        //SceneManager.LoadScene("StartScene");
-        SceneManager.LoadScene("YCYMainSceneUIPrefab");
+        SceneManager.LoadScene("MainScene");
 
     }
 }
