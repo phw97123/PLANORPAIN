@@ -5,18 +5,18 @@ using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CleaningGameLogicUI : MonoBehaviour
+public class CleaningGameSceneUI : UIBase
 {
     [SerializeField] private TMP_Text timerTxt;
     [SerializeField] private TMP_Text scoreTxt;
 
     public void UpdateTimer(float time)
     {
-        timerTxt.text = Mathf.Ceil(time).ToString();
+        timerTxt.text ="TIME\n" + Mathf.Ceil(time).ToString();
     }
 
     public void UpdateScore(int score)
     {
-        scoreTxt.text = "Score" + score;
+        scoreTxt.text = "SCORE\n" + score;
     }
 }
