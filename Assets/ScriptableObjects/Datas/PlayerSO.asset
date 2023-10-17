@@ -41,3 +41,4 @@ MonoBehaviour:
         <ForceTransitionTime>k__BackingField: 1.466
         <Force>k__BackingField: 0
         <Damage>k__BackingField: 10
+  MaxHp: 100
