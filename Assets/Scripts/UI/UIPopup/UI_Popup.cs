@@ -40,7 +40,6 @@ public class UI_Popup : UIBase
         _cancelButtonText.text = cancelButtonText;
         callbackConfirm = ConfirmAction;
         callbackCancel = CancelAction;
-        Time.timeScale = 0f;
         OpenUI();
     }
 
@@ -48,7 +47,6 @@ public class UI_Popup : UIBase
     {
         if (buttonType == PopupButtonType.CONFIRM) callbackConfirm?.Invoke();
         else callbackCancel?.Invoke();
-        Time.timeScale = 1f;
         CloseUI();
     }
 }
