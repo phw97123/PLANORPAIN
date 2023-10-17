@@ -136,11 +136,12 @@ public class PlayerBaseState : IState
         }
     }
 
-    private void Move(Vector3 movementDirection) // ¿©±â¼­ µ¿ÀÛÀ» ÇÏ¸é¼­, rigidbody¸¦ ¸·°í ÀÖÀ½. velocity¸¦ ÀÓÀÇ·Î Á¶ÀÛÇÏ¸é¼­ »ı±â´Â ¹®Á¦. // velocity º¸´Ù´Â AddForce¸¦ ÀÌ¿ë. Áß·Â°£ÀÇ ¿µÇâÀ» ÁÖ´Â °É ÄÚµå·Î ¼³Á¤..
+    private void Move(Vector3 movementDirection) // ì—¬ê¸°ì„œ ë™ì‘ì„ í•˜ë©´ì„œ, rigidbodyë¥¼ ë§‰ê³  ìˆìŒ. velocityë¥¼ ì„ì˜ë¡œ ì¡°ì‘í•˜ë©´ì„œ ìƒê¸°ëŠ” ë¬¸ì œ. // velocity ë³´ë‹¤ëŠ” AddForceë¥¼ ì´ìš©. ì¤‘ë ¥ê°„ì˜ ì˜í–¥ì„ ì£¼ëŠ” ê±¸ ì½”ë“œë¡œ ì„¤ì •..
     {
         Player player = playerStateMachine.Player;
         float movementSpeed = GetMovementSpeed();
         player.Rigidbody.MovePosition(player.transform.position + movementDirection * movementSpeed * Time.deltaTime);
+
     }
 
     private float GetMovementSpeed()

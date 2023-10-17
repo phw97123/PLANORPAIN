@@ -6,25 +6,29 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 public enum CleaningGameState
 {
     NotStarted, InProgress, GameOver
 }
 
-
 public class CleaningGameManager : MonoBehaviour
 {
     public static CleaningGameManager Instance;
 
-    //UI매니저 생기면 리팩토링 예정
     [SerializeField] private CleaningGameStartUI startUI;
     [SerializeField] private CleaningGameLogicUI logicUI;
     [SerializeField] private CleaningGameOverUI gameOverUI;
 
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private Cat cat; 
 
-    private CleaningGameState _gameState; 
+    [SerializeField] private PlayableDirector playableDirector;
+
+    private bool _isTimelinePlay = false;
+
+    private CleaningGameState _gameState;
 
     private float _time = 60;
     private int _score = 0;
@@ -42,14 +46,22 @@ public class CleaningGameManager : MonoBehaviour
         //playerInput.OnDisable();
         SetGameState(CleaningGameState.NotStarted);
         startUI.OnStartBttonClicked += HandleStartButtonClicked;
+
+        playableDirector.Stop();
+        cat.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        switch(_gameState)
+        switch (_gameState)
         {
             case CleaningGameState.InProgress:
                 UpdateGameInProgress();
+                if (TimeRemaining <= 30f && !_isTimelinePlay)
+                {
+                    playableDirector.Play();
+                    _isTimelinePlay = true;
+                }
                 break;
             case CleaningGameState.GameOver:
                 HandleGameOver();
@@ -88,7 +100,7 @@ public class CleaningGameManager : MonoBehaviour
         else
         {
             _time = 0;
-            SetGameState(CleaningGameState.GameOver); 
+            SetGameState(CleaningGameState.GameOver);
         }
         logicUI.UpdateTimer(TimeRemaining);
     }
@@ -97,16 +109,16 @@ public class CleaningGameManager : MonoBehaviour
     {
         _gameState = newState;
 
-        switch(_gameState)
+        switch (_gameState)
         {
             case CleaningGameState.NotStarted:
-                SetActiveUI(startUI); 
+                SetActiveUI(startUI);
                 break;
             case CleaningGameState.InProgress:
-                SetActiveUI(logicUI); 
+                SetActiveUI(logicUI);
                 break;
             case CleaningGameState.GameOver:
-                SetActiveUI(gameOverUI); 
+                SetActiveUI(gameOverUI);
                 break;
             default:
                 break;
@@ -125,4 +137,16 @@ public class CleaningGameManager : MonoBehaviour
         _score++;
         logicUI.UpdateScore(CurrentScore);
     }
+
+    public void DecreaseScore()
+    {
+        _score--;
+        logicUI.UpdateScore(CurrentScore);
+    }
+    public void ChangeScore(int amount)
+    {
+        _score += amount;
+        logicUI.UpdateScore(CurrentScore);
+    }
+
 }

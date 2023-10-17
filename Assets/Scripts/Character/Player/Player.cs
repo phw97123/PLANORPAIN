@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
-
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
@@ -19,7 +18,9 @@ public class Player : MonoBehaviour
 
     public ForceReceiver ForceReceiver { get; private set; }
 
-    private PlayerStateMachine playerStateMachine; 
+    private PlayerStateMachine playerStateMachine;
+
+    public GameObject Mop; 
 
     private void Awake()
     {

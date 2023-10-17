@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ChangeCell : MonoBehaviour
 {
@@ -9,14 +10,27 @@ public class ChangeCell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Invoke("Change", 1.0f); 
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(ChangeCellCoroutine(DustFloor, CleanFloor,1));
+        }
+
+        if (collision.gameObject.CompareTag("Cat"))
+        {
+            StartCoroutine(ChangeCellCoroutine(CleanFloor, DustFloor,-1));
+        }
     }
 
-    private void Change()
+    private IEnumerator ChangeCellCoroutine(GameObject fromCell, GameObject toCell, int amount)
     {
-        DustFloor.SetActive(false);
-        CleanFloor.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
 
-        CleaningGameManager.Instance.IncreaseScore(); 
-    } 
+        if (fromCell.activeSelf)
+        {
+            fromCell.SetActive(false);
+            toCell.SetActive(true);
+
+            CleaningGameManager.Instance.ChangeScore(amount);
+        }
+    }
 }
