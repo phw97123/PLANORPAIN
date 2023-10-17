@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vehicle
   - Interactable
+  - lava
   layers:
   - Default
   - TransparentFX
