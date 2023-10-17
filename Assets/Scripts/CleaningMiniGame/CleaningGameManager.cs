@@ -125,4 +125,10 @@ public class CleaningGameManager : MonoBehaviour
         _score++;
         logicUI.UpdateScore(CurrentScore);
     }
+
+    public void DecreaseScore()
+    {
+        _score--;
+        logicUI.UpdateScore(CurrentScore);
+    }
 }

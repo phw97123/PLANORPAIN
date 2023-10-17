@@ -9,14 +9,32 @@ public class ChangeCell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Invoke("Change", 1.0f); 
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            Invoke("ChangeCellForPlayer", 0.8f);
+        }
+
+        if (collision.gameObject.CompareTag("Cat"))
+        {
+            Debug.Log("Cat");
+            Invoke("ChangeCellForCat", 0.8f);
+        }
     }
 
-    private void Change()
+    private void ChangeCellForPlayer()
     {
         DustFloor.SetActive(false);
         CleanFloor.SetActive(true);
 
-        CleaningGameManager.Instance.IncreaseScore(); 
-    } 
+        CleaningGameManager.Instance.IncreaseScore();
+    }
+
+    private void ChangeCellForCat()
+    {
+        DustFloor.SetActive(true);
+        CleanFloor.SetActive(false);
+
+        CleaningGameManager.Instance.DecreaseScore();
+    }
 }
