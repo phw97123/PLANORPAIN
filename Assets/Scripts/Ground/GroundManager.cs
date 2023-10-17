@@ -46,7 +46,7 @@ public class GroundManager : MonoBehaviour
 
     public void Update()
     {
-        if (!isDelay)
+        if (!isDelay && grounds.Count() > 0)
         {
             isDelay = true;
             StartCoroutine(ShiverGround());

@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
-        ForceReceiver = GetComponent<ForceReceiver>();
+        //ForceReceiver = GetComponent<ForceReceiver>();
 
         playerStateMachine = new PlayerStateMachine(this); 
     }
