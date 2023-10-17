@@ -64,4 +64,10 @@ public class PlayerGroundState : PlayerBaseState
     {
         playerStateMachine.ChangeState(playerStateMachine.ComboAttackState);
     }
+
+
+    protected override void OnJumpStarted(InputAction.CallbackContext context)
+    {
+        playerStateMachine.ChangeState(playerStateMachine.JumpState);
+    }
 }

@@ -12,6 +12,9 @@ public class PlayerStateMachine : StateMachine
     public PlayerRunState RunState { get; }
      public PlayerCleaningState CleaningState { get;}
     public PlayerComboAttackState ComboAttackState { get; }
+    public PlayerJumpState JumpState { get; }
+    public PlayerFallState FallState { get; }
+
 
     public Transform MainCameraTransform { get; set; }
 
@@ -32,6 +35,7 @@ public class PlayerStateMachine : StateMachine
         RunState = new PlayerRunState(this);
         CleaningState = new PlayerCleaningState(this);
         ComboAttackState = new PlayerComboAttackState(this);
+        JumpState = new PlayerJumpState(this);
 
         MainCameraTransform = Camera.main.transform;
 
