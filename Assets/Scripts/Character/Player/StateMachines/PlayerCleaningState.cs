@@ -12,7 +12,7 @@ public class PlayerCleaningState : PlayerGroundState
     {
         playerStateMachine.MovementSpeedModifier = groundData.WalkSpeedModifier;
         base.Enter();
-        StartAnimation(playerStateMachine.Player.AnimationData.CleaningParameterHash); 
+        StartAnimation(playerStateMachine.Player.AnimationData.CleaningParameterHash);
     }
 
     public override void Exit()

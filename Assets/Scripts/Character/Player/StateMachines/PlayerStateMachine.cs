@@ -10,6 +10,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerIdleState IdleState {get;}
     public PlayerWalkState WalkState {get;}
     public PlayerRunState RunState { get; }
+     public PlayerCleaningState CleaningState { get;}
     public PlayerComboAttackState ComboAttackState { get; }
 
     public Transform MainCameraTransform { get; set; }
@@ -29,6 +30,7 @@ public class PlayerStateMachine : StateMachine
         IdleState = new PlayerIdleState(this);
         WalkState = new PlayerWalkState(this);
         RunState = new PlayerRunState(this);
+        CleaningState = new PlayerCleaningState(this);
         ComboAttackState = new PlayerComboAttackState(this);
 
         MainCameraTransform = Camera.main.transform;

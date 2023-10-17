@@ -50,7 +50,14 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnMove()
     {
-        playerStateMachine.ChangeState(playerStateMachine.WalkState);
+        if (playerStateMachine.Player.Mop.activeSelf)
+        {
+            playerStateMachine.ChangeState(playerStateMachine.CleaningState);
+        }
+        else
+        {
+            playerStateMachine.ChangeState(playerStateMachine.WalkState);
+        }
     }
 
     protected virtual void OnAttack()
