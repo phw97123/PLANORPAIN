@@ -12,6 +12,8 @@ public class Ground : MonoBehaviour
     public GroundStateMachine groundStateMachine { get; private set; }
 
     [field: SerializeField] public bool isShivering;
+    [field: SerializeField] public bool isFalling;
+
 
     private void Awake()
     {
@@ -32,6 +34,10 @@ public class Ground : MonoBehaviour
     {
         groundStateMachine.Update();
         isShivering = groundStateMachine.IsShivering;
+        if (isShivering)
+        {
+            StartCoroutine(ChangeToFallState());
+        }
     }
     private void FixedUpdate()
     {
@@ -41,5 +47,12 @@ public class Ground : MonoBehaviour
     public void OnDestroyObject()
     {
         Destroy(groundStateMachine.Ground.gameObject);
+    }
+
+    IEnumerator ChangeToFallState()
+    {
+        yield return new WaitForSeconds(5f);
+        isFalling = true;
+        isShivering = false;
     }
 }

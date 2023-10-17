@@ -31,7 +31,7 @@ public class GroundFallState : GroundBaseState
     public override void Update()
     {
         base.Update();
-        while (GroundTransform.position.y > -3.5f)
+        if (GroundTransform.position.y > -3.5f)
         {
             GroundTransform.Translate(Vector3.down * Time.deltaTime * 0.5f); // 임시속도 : 0.5f
         }
