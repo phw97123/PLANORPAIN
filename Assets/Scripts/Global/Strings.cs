@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Strings
 {
-    public class PopupContext
+    public class PopupContent
     {
         public const string DEVELOP_GAME_NOTIFICATION = "WASD로 움직이면서\n모든 노드를 순서대로 \n활성화 시키세요!";
     }
