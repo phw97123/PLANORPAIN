@@ -7,7 +7,6 @@ TagManager:
   - Vehicle
   - Interactable
   - Cat
-  - lava
   layers:
   - Default
   - TransparentFX
