@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vehicle
   - Interactable
+  - Cat
   - lava
   layers:
   - Default

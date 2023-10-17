@@ -51,13 +51,13 @@ public class DodgeManager : MonoBehaviour
         }
         if (currentHp < 0 || float.Parse(uiDodgeGameScene.timerText.text) < 0.1f)
         {
-            Time.timeScale = 0;
             GameOver();
         }
     }
     public void GameOver()
     {
         uiDodgeGameScene.timerText.text = "0";
+        Time.timeScale = 0;
         uiGameEndPopup.SetScore(uiDodgeGameScene.GetScore());
         uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
     }
