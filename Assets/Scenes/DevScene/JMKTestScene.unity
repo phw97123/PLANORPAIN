@@ -526,6 +526,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &21853770
 Animator:
   serializedVersion: 5
@@ -1153,6 +1154,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &60490603
 Animator:
   serializedVersion: 5
@@ -2719,6 +2721,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &325458349
 Animator:
   serializedVersion: 5
@@ -3511,6 +3514,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &430397049
 Animator:
   serializedVersion: 5
@@ -4138,6 +4142,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &513771995
 Animator:
   serializedVersion: 5
@@ -4854,6 +4859,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &722676932
 Animator:
   serializedVersion: 5
@@ -4885,6 +4891,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4309486305704226078, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309486305704226078, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+        type: 3}
       propertyPath: m_Mass
       value: 30
       objectReference: {fileID: 0}
@@ -4911,7 +4922,7 @@ PrefabInstance:
     - target: {fileID: 8302515573067989922, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8302515573067989922, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
@@ -5361,6 +5372,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &752259024
 Animator:
   serializedVersion: 5
@@ -6191,6 +6203,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &865124232
 Animator:
   serializedVersion: 5
@@ -7044,6 +7057,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &904933043
 Animator:
   serializedVersion: 5
@@ -7633,6 +7647,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1024027181
 Animator:
   serializedVersion: 5
@@ -8298,6 +8313,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1109539444
 Animator:
   serializedVersion: 5
@@ -8887,6 +8903,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1219495102
 Animator:
   serializedVersion: 5
@@ -9349,6 +9366,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1228893181
 Animator:
   serializedVersion: 5
@@ -9768,6 +9786,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!43 &1280504738
 Mesh:
   m_ObjectHideFlags: 0
@@ -10412,6 +10431,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1280984692
 Animator:
   serializedVersion: 5
@@ -10857,6 +10877,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!1 &1330780626
 GameObject:
   m_ObjectHideFlags: 0
@@ -11830,6 +11851,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1463476287
 Animator:
   serializedVersion: 5
@@ -12275,6 +12297,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!1 &1486248301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12678,6 +12701,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1486248309
 Animator:
   serializedVersion: 5
@@ -13064,6 +13088,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1516085536
 Animator:
   serializedVersion: 5
@@ -13615,6 +13640,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1538417165
 Animator:
   serializedVersion: 5
@@ -14369,6 +14395,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1636754662
 Animator:
   serializedVersion: 5
@@ -14831,6 +14858,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1658583831
 Animator:
   serializedVersion: 5
@@ -15293,6 +15321,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1679637061
 Animator:
   serializedVersion: 5
@@ -15717,6 +15746,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1687458944
 Animator:
   serializedVersion: 5
@@ -16293,6 +16323,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1722314118
 Animator:
   serializedVersion: 5
@@ -16844,6 +16875,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1762832278
 Animator:
   serializedVersion: 5
@@ -17974,6 +18006,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!43 &1906497213
 Mesh:
   m_ObjectHideFlags: 0
@@ -18618,6 +18651,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &1964773154
 Animator:
   serializedVersion: 5
@@ -19118,6 +19152,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &2033389145
 Animator:
   serializedVersion: 5
@@ -19669,6 +19704,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &2053923066
 Animator:
   serializedVersion: 5
@@ -20537,6 +20573,7 @@ MonoBehaviour:
     ShiverParameterName: Shiver
     FallParameterName: Fall
   isShivering: 0
+  isFalling: 0
 --- !u!95 &2123098145
 Animator:
   serializedVersion: 5
