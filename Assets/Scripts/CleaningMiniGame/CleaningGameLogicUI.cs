@@ -10,10 +10,6 @@ public class CleaningGameLogicUI : MonoBehaviour
     [SerializeField] private TMP_Text timerTxt;
     [SerializeField] private TMP_Text scoreTxt;
 
-    private void Start()
-    {
-    }
-
     public void UpdateTimer(float time)
     {
         timerTxt.text = Mathf.Ceil(time).ToString();

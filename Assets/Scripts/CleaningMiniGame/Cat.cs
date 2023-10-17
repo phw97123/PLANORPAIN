@@ -7,6 +7,9 @@ using UnityEngine.InputSystem.Android;
 public class Cat : MonoBehaviour
 {
     private NavMeshAgent agent;
+
+    private const float RandomDestinationRadius = 10f;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -14,7 +17,8 @@ public class Cat : MonoBehaviour
 
     private void Update()
     {
-        if(!agent.pathPending && agent.remainingDistance<0.5f)
+        //경로 계산을 하고 있지 않고, 목적지에 거의 도착했다면 ( remainingDistance은 정확한 0을 잡지 못함 )  
+        if (!agent.pathPending && agent.remainingDistance<0.5f)
         {
             SetRandomDestination();
         }
@@ -22,7 +26,7 @@ public class Cat : MonoBehaviour
 
     private void SetRandomDestination()
     {
-        Vector3 randomPos = RandomNavMeshPosition(10f); 
+        Vector3 randomPos = RandomNavMeshPosition(RandomDestinationRadius); 
          agent.SetDestination(randomPos);
     }
 

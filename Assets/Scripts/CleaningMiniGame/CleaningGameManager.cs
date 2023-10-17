@@ -12,12 +12,10 @@ public enum CleaningGameState
     NotStarted, InProgress, GameOver
 }
 
-
 public class CleaningGameManager : MonoBehaviour
 {
     public static CleaningGameManager Instance;
 
-    //UI매니저 생기면 리팩토링 예정
     [SerializeField] private CleaningGameStartUI startUI;
     [SerializeField] private CleaningGameLogicUI logicUI;
     [SerializeField] private CleaningGameOverUI gameOverUI;
@@ -131,4 +129,10 @@ public class CleaningGameManager : MonoBehaviour
         _score--;
         logicUI.UpdateScore(CurrentScore);
     }
+    public void ChangeScore(int amount)
+    {
+        _score += amount;
+        logicUI.UpdateScore(CurrentScore);
+    }
+
 }

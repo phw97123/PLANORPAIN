@@ -132,7 +132,6 @@ public class PlayerBaseState : IState
     {
         float movementSpeed = GetMovementSpeed();
         playerStateMachine.Player.Rigidbody.velocity = movementDirection * movementSpeed;
-
     }
 
     private float GetMovementSpeed()
