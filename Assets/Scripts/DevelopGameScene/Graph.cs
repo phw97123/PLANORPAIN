@@ -12,9 +12,18 @@ public class Graph : MonoBehaviour
 
     private int tryCount = 1;
 
+    private UI_GameEndPopup _uiGameEndPopup;
+    private UI_DevelopGameScene _uiDevelopGameScene;
+
     private void Awake()
     {
         nodeList = GetComponentsInChildren<Node>();
+    }
+
+    private void Start()
+    {
+        _uiGameEndPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+        _uiDevelopGameScene = UIManager.Instance.GetUIComponent<UI_DevelopGameScene>();
     }
 
     public bool SearchNode(int nodeNum)
@@ -24,9 +33,8 @@ public class Graph : MonoBehaviour
             _curOrderIdx++;
             if (_curOrderIdx == _searchOrder.Length)
             {
-                UI_GameEndPopup popup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
-                popup.SetScore(GetScore());
-                popup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
+                _uiGameEndPopup.SetScore(GetScore());
+                _uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
             }
             return true;
         } else
@@ -37,6 +45,7 @@ public class Graph : MonoBehaviour
                 nodeList[i].SetNodeActive(false);
             }
             tryCount++;
+            _uiDevelopGameScene.SetSearchTryCountText(tryCount);
             return false;
         }
     }
