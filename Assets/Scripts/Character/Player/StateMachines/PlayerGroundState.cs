@@ -50,9 +50,12 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnMove()
     {
-        if (playerStateMachine.Player.Mop.activeSelf)
+        if(playerStateMachine.Player.Mop != null)
         {
-            playerStateMachine.ChangeState(playerStateMachine.CleaningState);
+            if (playerStateMachine.Player.Mop.activeSelf)
+            {
+                playerStateMachine.ChangeState(playerStateMachine.CleaningState);
+            }
         }
         else
         {
@@ -64,7 +67,6 @@ public class PlayerGroundState : PlayerBaseState
     {
         playerStateMachine.ChangeState(playerStateMachine.ComboAttackState);
     }
-
 
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
