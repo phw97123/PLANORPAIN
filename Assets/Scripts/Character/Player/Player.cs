@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
 
-    public LayerMask groundLayerMask { get; private set; } 
+    [field: SerializeField]  public LayerMask groundLayerMask { get; private set; }
+    [field: SerializeField]  public LayerMask LavaLayerMask { get; private set; }
 
     public ForceReceiver ForceReceiver { get; private set; }
 
@@ -60,6 +61,27 @@ public class Player : MonoBehaviour
         for (int i = 0; i < rays.Length; i++)
         {
             if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool IsJumping()
+    {
+        Ray[] rays = new Ray[4]
+{
+            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+};
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask) || Physics.Raycast(rays[i], 0.1f, LavaLayerMask))
             {
                 return true;
             }
