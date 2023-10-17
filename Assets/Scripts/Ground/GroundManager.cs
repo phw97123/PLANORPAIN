@@ -19,6 +19,8 @@ public class GroundManager : MonoBehaviour
 
     public LayerMask groundLayerMask;
 
+    public int score;
+
     // 싱글톤
     private void Awake()
     {
@@ -50,6 +52,10 @@ public class GroundManager : MonoBehaviour
         {
             isDelay = true;
             StartCoroutine(ShiverGround());
+        }
+        if (!isCollided && grounds.Count() > 0)
+        { 
+            isCollided = true;
             StartCoroutine(CheckPlayerOnGround());
         }
     }
@@ -68,8 +74,9 @@ public class GroundManager : MonoBehaviour
         groundStateMachine.IsShivering = true;
 
         // 배열 다시 원래대로
+        score += 30;
         grounds.Remove(groundPiece);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         isDelay = false;
     }
 
@@ -90,7 +97,9 @@ public class GroundManager : MonoBehaviour
             grounds.Remove(groundObject);
         }
 
-        yield return null;
+        score += 30;
+        yield return new WaitForSeconds(2f);
+        isCollided = false;
     }
 
 }
