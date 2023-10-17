@@ -30,8 +30,7 @@ public class Node : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // TODO "Player" Tag 추가 후 Tag 비교로 변경
-        if (other.gameObject.name == "Player" && !_isActive)
+        if (other.gameObject.CompareTag("Player") && !_isActive)
         {
             _uiPopup.ShowPopup(name, "활성화", "취소", () => SearchThisNode(), null);
         }
