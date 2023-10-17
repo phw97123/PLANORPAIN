@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Graph : MonoBehaviour
 {
+    // TODO GameManager를 통해 접근하도록 수정
+    [SerializeField] private DevelopGameManager _developGameManager;
+
     private int _curOrderIdx = 1;
     private int[] _searchOrder = new int[] { 1, 2, 7, 6, 8, 3, 4, 5 };
 
@@ -19,6 +23,10 @@ public class Graph : MonoBehaviour
         if (nodeNum == _searchOrder[_curOrderIdx])
         {
             _curOrderIdx++;
+            if (_curOrderIdx == _searchOrder.Length)
+            {
+                _developGameManager.GameOver();
+            }
             return true;
         } else
         {
@@ -27,6 +35,9 @@ public class Graph : MonoBehaviour
             {
                 nodeList[i].SetNodeActive(false);
             }
+            _developGameManager.Respawn();
+            _developGameManager.UpdateTryCount();
+
             return false;
         }
     }

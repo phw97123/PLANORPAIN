@@ -7,7 +7,6 @@ public class Node : MonoBehaviour
     private const int INACTIVE = 0;
     private const int ACTIVE = 1;
 
-    [SerializeField] private GameObject _interactPanelUI;
     [SerializeField] private bool _isActive;
     [SerializeField] private Material[] matList;
 
@@ -22,15 +21,19 @@ public class Node : MonoBehaviour
         _nodeNum = int.Parse((name[name.Length - 1]).ToString());
         _meshRenderer = GetComponent<MeshRenderer>();
         _graph = GetComponentInParent<Graph>();
+    }
+
+    private void Start()
+    {
         _uiPopup = UIManager.Instance.GetUIComponent<UI_Popup>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // TODO "Player" Tag 추가 후 Tag 비교로 변경
-        if (other.gameObject.name == "Player" && !_isActive)
+        if (other.gameObject.CompareTag("Player") && !_isActive)
         {
-            _uiPopup.ShowPopup(name, "활성화", "취소", () => SearchThisNode(), null);
+            _uiPopup.ShowPopup(name, Strings.PopupButtons.CONFIRM_ACTIVE, Strings.PopupButtons.CANCEL, () => SearchThisNode(), null);
+            _uiPopup.SetContextFontSize(80);
         }
     }
 
