@@ -33,10 +33,10 @@ public class SoundManager : Singleton<SoundManager>
     }
 
     // 배경 음악 또는 효과음 재생
-    // 배경 음악 재생 : SoundManager.Instance.Play("오디오 클립 이름");
-    // 효과음 재생 : SoundManager.Instance.Play("오디오 클립 이름", AudioType.EFFECT);
+    // 배경 음악 재생 : SoundManager.Instance.Play("오디오 클립 이름", AudioType.BGM);
+    // 효과음 재생 : SoundManager.Instance.Play("오디오 클립 이름");
     // pitch 조절 필요할 시 pitch 값도 전달
-    public void Play(string audioClipName, AudioType audioType = AudioType.BGM, float pitch = 1.0f)
+    public void Play(string audioClipName, AudioType audioType = AudioType.EFFECT, float pitch = 1.0f)
     {
         AudioClip audioClip = LoadAudioClip(audioClipName);
         
