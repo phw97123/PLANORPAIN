@@ -10,7 +10,7 @@ public class MainScene : BaseScene
 
         SceneType = Scenes.MainScene;
         UIManager.Instance.GetUIComponent<UI_MainScene>();
-
+        SoundManager.Instance.Play("MainSceneBGM");
         return true;
     }
 
