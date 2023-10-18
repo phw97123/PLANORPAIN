@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class Player : MonoBehaviour
         Collider = GetComponent<CapsuleCollider>();
         //ForceReceiver = GetComponent<ForceReceiver>();
 
-        playerStateMachine = new PlayerStateMachine(this); 
+        playerStateMachine = new PlayerStateMachine(this);
+
     }
 
     private void Start()
@@ -46,9 +48,23 @@ public class Player : MonoBehaviour
         playerStateMachine.HandleInput();
         playerStateMachine.Update();
     }
+
     private void FixedUpdate()
     {
         playerStateMachine.PhysicsUpdate();
+    }
+
+    public void EnableActions(params InputActions[] actionNames)
+    {
+        Input.OnDisable(); 
+        foreach (InputActions actionName in actionNames)
+        {
+            InputAction action = Input.InputActions.FindAction(actionName.ToString());
+            if (action != null)
+                action.Enable();
+            else
+                Debug.LogError($"{action} 는 존재하지 않습니다."); 
+        }
     }
 
     public bool IsGrounded()
