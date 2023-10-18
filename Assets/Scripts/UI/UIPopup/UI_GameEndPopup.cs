@@ -38,6 +38,7 @@ public class UI_GameEndPopup : UI_BasePopup
         {
             _filledStars[i].SetActive(true);
         }
+        GameManager.Instance.CurStar = score;
     }
 
     public void ShowPopup(string content = DEFAULT_CONTENT, int fontSize = DEFAULT_FONT_SIZE)
@@ -48,7 +49,7 @@ public class UI_GameEndPopup : UI_BasePopup
 
     public void ClosePopup()
     {
-        GameProgressManager.Instance.LoadPlannerScene();
+        GameManager.Instance.LoadPlannerScene();
         CloseUI();
     }
 }

@@ -112,7 +112,6 @@ public class ConvenienceStoreGameManager : MonoBehaviour
 
                         Time.timeScale = 0;
 
-                        GameProgressManager.Instance.CurStar = score;
                         _endingUI.SetScore(score);
                     }
                 }
