@@ -27,7 +27,7 @@ public class UI_DodgeGameScene : UIBase
 
     private void Awake()
     {
-        player = DodgeManager.DInstance.player.GetComponent<Player>();
+        player = DodgeGameManager.DInstance.player.GetComponent<Player>();
         maxHp = player.Data.MaxHp;
         
         maxTime = float.Parse(timerText.text);
@@ -36,7 +36,7 @@ public class UI_DodgeGameScene : UIBase
 
     private void Update()
     {
-        currentHp = DodgeManager.DInstance.currentHp;
+        currentHp = DodgeGameManager.DInstance.currentHp;
         hpbar.value = currentHp / maxHp;
         maxTime -= Time.deltaTime;
         timerText.text = maxTime.ToString("F2");
