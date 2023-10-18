@@ -45,7 +45,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnClickExitButton()
     {
-        _progressManager.CurGame = GameScene.Null;
+        _progressManager.CurGame = Scenes.Unknown;
         GoStartPointPrevSlot();
 
         _exitButton.gameObject.SetActive(false);
@@ -54,7 +54,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnClickStartButton()
     {
-        if(_progressManager.CurGame != GameScene.Null)
+        if(_progressManager.CurGame != Scenes.Unknown)
         {
             _progressManager.LoadGameScene();
         }
