@@ -50,14 +50,23 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnMove()
     {
-        playerStateMachine.ChangeState(playerStateMachine.WalkState);
+        if(playerStateMachine.Player.Mop != null)
+        {
+            if (playerStateMachine.Player.Mop.activeSelf)
+            {
+                playerStateMachine.ChangeState(playerStateMachine.CleaningState);
+            }
+        }
+        else
+        {
+            playerStateMachine.ChangeState(playerStateMachine.WalkState);
+        }
     }
 
     protected virtual void OnAttack()
     {
         playerStateMachine.ChangeState(playerStateMachine.ComboAttackState);
     }
-
 
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {

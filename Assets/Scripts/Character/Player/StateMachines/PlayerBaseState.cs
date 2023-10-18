@@ -136,10 +136,11 @@ public class PlayerBaseState : IState
         }
     }
 
-    private void Move(Vector3 movementDirection)
+    private void Move(Vector3 movementDirection) // 여기서 동작을 하면서, rigidbody를 막고 있음. velocity를 임의로 조작하면서 생기는 문제. // velocity 보다는 AddForce를 이용. 중력간의 영향을 주는 걸 코드로 설정..
     {
+        Player player = playerStateMachine.Player;
         float movementSpeed = GetMovementSpeed();
-        playerStateMachine.Player.Rigidbody.velocity = movementDirection * movementSpeed;
+        player.Rigidbody.MovePosition(player.transform.position + movementDirection * movementSpeed * Time.deltaTime);
 
     }
 
