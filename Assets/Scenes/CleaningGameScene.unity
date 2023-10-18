@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 294048667}
   m_Layer: 0
   m_Name: Equipment
-  m_TagString: Untagged
+  m_TagString: Mop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -725,11 +725,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 50
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -752,8 +752,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773685630}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6999999, y: 1.1, z: 3.849404}
+  m_LocalRotation: {x: -0.19829564, y: 0.66646445, z: -0.2049524, w: -0.68883854}
+  m_LocalPosition: {x: 5.33, y: 2.75, z: 5.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2726,6 +2726,11 @@ PrefabInstance:
       propertyPath: Mop
       value: 
       objectReference: {fileID: 294048666}
+    - target: {fileID: 8602386749532660528, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+        type: 3}
+      propertyPath: Equipment
+      value: 
+      objectReference: {fileID: 294048666}
     - target: {fileID: 8627643615513430240, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2954,6 +2959,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00bc5b5130362844084f6e2b4b615a69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00bc5b5130362844084f6e2b4b615a69,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 00bc5b5130362844084f6e2b4b615a69, type: 3}

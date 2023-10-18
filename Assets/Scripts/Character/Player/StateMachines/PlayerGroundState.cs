@@ -50,9 +50,9 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnMove()
     {
-        if(playerStateMachine.Player.Mop != null)
+        if(playerStateMachine.Player.Equipment != null)
         {
-            if (playerStateMachine.Player.Mop.activeSelf)
+            if (playerStateMachine.Player.Equipment.CompareTag(Tags.MOP))
             {
                 playerStateMachine.ChangeState(playerStateMachine.CleaningState);
             }
