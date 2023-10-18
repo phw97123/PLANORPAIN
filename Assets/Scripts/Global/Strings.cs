@@ -22,4 +22,12 @@ public class Strings
         // OK BUTTON
         public const string OK = "확인";
     }
+
+    public class Sounds
+    {
+        // 개발하기 미니 게임 사운드
+        public const string DEVELOP_GAME_BGM = "DevelopGameScene/developgamescene_bgm";
+        public const string DEVELOP_GAME_SEARCH_SUCCESS = "DevelopGameScene/developgamescene_search_success";
+        public const string DEVELOP_GAME_SEARCH_FAIL = "DevelopGameScene/developgamescene_search_fail";
+    }
 }
