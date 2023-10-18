@@ -753,7 +753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773685630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6999999, y: 1.122, z: 3.8494039}
+  m_LocalPosition: {x: 0.6999999, y: 1.1, z: 3.849404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2095,7 +2095,7 @@ PrefabInstance:
         type: 3}
       propertyPath: virtualCamera
       value: 
-      objectReference: {fileID: 1865242520}
+      objectReference: {fileID: 0}
     - target: {fileID: 5725718048464533007, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       propertyPath: m_Name
@@ -2609,12 +2609,12 @@ PrefabInstance:
     - target: {fileID: 8302515573067989922, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.122
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8302515573067989922, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.11
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8302515573067989922, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
@@ -2992,6 +2992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatAI
       objectReference: {fileID: 0}
+    - target: {fileID: 107397978332058583, guid: 8b8607b2f3fcd0b48a11d670554756a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 735878157078595949, guid: 8b8607b2f3fcd0b48a11d670554756a6,
         type: 3}
       propertyPath: m_RootOrder
@@ -3283,7 +3288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865242519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 1.122, z: 1.1100001}
+  m_LocalPosition: {x: 0.7, y: 1.1, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

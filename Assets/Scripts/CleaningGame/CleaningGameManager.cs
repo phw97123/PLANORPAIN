@@ -12,6 +12,8 @@ using UnityEngine.SceneManagement;
 
 public class CleaningGameManager : MonoBehaviour
 {
+    [SerializeField] private Transform _playerSpawnPosition;
+
     private PlayableDirector _playableDirector;
 
     private GameObject _player;
@@ -32,8 +34,11 @@ public class CleaningGameManager : MonoBehaviour
 
     private void Awake()
     {
-        _player = GameObject.FindWithTag(Tags.PLAYER); 
+        _player = GameObject.FindWithTag(Tags.PLAYER);
+        _player.transform.position = _playerSpawnPosition.position;
+
         _cat = GameObject.FindWithTag(Tags.CAT);
+
         _directorObject = GameObject.FindWithTag(Tags.PLAYABLE);
         _playableDirector = _directorObject.GetComponent<PlayableDirector>();
     }
@@ -48,7 +53,6 @@ public class CleaningGameManager : MonoBehaviour
 
         Time.timeScale = 0;
         _playableDirector.Stop();
-        _cat.gameObject.SetActive(false);
     }
 
     private void Update()
