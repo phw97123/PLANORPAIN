@@ -9,6 +9,8 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private WheelCollider[] _wheelCols = new WheelCollider[4];
     [SerializeField] private GameObject[] _wheels = new GameObject[4];
 
+    private Vector3 _originPlayerPos;
+    private Quaternion _originPlayerRot;
     private Vector2 _curDriveInput;
     private Rigidbody _rigidbody;
     private float _downFroceValue = 100f;
@@ -24,7 +26,10 @@ public class VehicleController : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < _wheelCols.Length; i++)
+        _originPlayerPos = transform.position;
+        _originPlayerRot = transform.rotation;
+
+        for (int i = 0; i < _wheelCols.Length; i++)
         {
             _wheelCols[i].transform.position = _wheels[i].transform.position;
         }
@@ -91,6 +96,16 @@ public class VehicleController : MonoBehaviour
         if (context.phase == InputActionPhase.Started && _interactable != null)
         {
             _interactable.OnInteract();
+        }
+    }
+
+    public void OnRespawn(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            transform.position = _originPlayerPos;
+            transform.rotation = _originPlayerRot;
+            _rigidbody.velocity = Vector3.zero;
         }
     }
 
