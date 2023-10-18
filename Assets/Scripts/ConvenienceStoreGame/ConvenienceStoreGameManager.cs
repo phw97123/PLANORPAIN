@@ -23,7 +23,7 @@ public class ConvenienceStoreGameManager : MonoBehaviour
     private Renderer _riceBallRenderer;
     private Material[] _riceBallMaterials;
 
-
+    private UIManager _uiManager;
 
     private static ConvenienceStoreGameManager _instance;
 
@@ -54,13 +54,15 @@ public class ConvenienceStoreGameManager : MonoBehaviour
         {
             _riceBallMaterials[i] = Resources.Load<Material>($"Materials/Base_Color{i + 2}");
         }
+
+        _uiManager = UIManager.Instance;
     }
 
     private void Start()
     {
-        ConvenienceNotifyUI notifyUI = UIManager.Instance.GetUIComponent<ConvenienceNotifyUI>();
+        ConvenienceNotifyUI notifyUI = _uiManager.GetUIComponent<ConvenienceNotifyUI>();
         notifyUI.ShowPopup();
-        ConvenienceUI gameUI = UIManager.Instance.GetUIComponent<ConvenienceUI>();
+        ConvenienceUI gameUI = _uiManager.GetUIComponent<ConvenienceUI>();
         gameUI.OpenUI();
     }
 
@@ -82,7 +84,7 @@ public class ConvenienceStoreGameManager : MonoBehaviour
                 {
                     if (isEating)
                     {
-                        UI_Popup popupUI = UIManager.Instance.GetUIComponent<UI_Popup>();
+                        UI_Popup popupUI = _uiManager.GetUIComponent<UI_Popup>();
                         popupUI.ShowPopup("아직 씹고 있습니다");
                         return;
                     }
@@ -93,14 +95,14 @@ public class ConvenienceStoreGameManager : MonoBehaviour
 
                     if (isWithinNPCZone)
                     {
-                        UI_Popup popupUI = UIManager.Instance.GetUIComponent<UI_Popup>();
+                        UI_Popup popupUI = _uiManager.GetUIComponent<UI_Popup>();
                         popupUI.ShowPopup("손님이 부스럭대는 소리를\r\n들었습니다");
                         ChangeScore(-1);
                     }
 
                     if (_isInCCTV || _progress == 5)
                     {
-                        UI_GameEndPopup _endingUI = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+                        UI_GameEndPopup _endingUI = _uiManager.GetUIComponent<UI_GameEndPopup>();
                         _endingUI.ShowPopup("삼각김밥을 다 먹었습니다", 50);
                         if (_isInCCTV)
                         {

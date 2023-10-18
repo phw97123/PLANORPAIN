@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ConvenienceStoreScene : BaseScene
 {
+    private UIManager _uIManager;
+    private void Awake()
+    {
+        _uIManager = UIManager.Instance;
+    }
+
     protected override bool Init()
     {
         if (!base.Init()) return false;
@@ -11,16 +17,17 @@ public class ConvenienceStoreScene : BaseScene
         SceneType = Scenes.ConvenienceStoreScene;
 
         GameManager.Instance.GetMiniGameManager<ConvenienceStoreGameManager>();
+        SoundManager.Instance.Play("ConvenienceStoreScene/ConvenienceBGM", AudioType.BGM);
 
         return true;
     }
 
     public override void Clear()
     {
-        UIManager.Instance.RemoveUIComponent<ConvenienceNotifyUI>();
-        UIManager.Instance.RemoveUIComponent<ConvenienceUI>();
-        UIManager.Instance.RemoveUIComponent<UI_GameEndPopup>();
-        UIManager.Instance.RemoveUIComponent<UI_Popup>();
+        _uIManager.RemoveUIComponent<ConvenienceNotifyUI>();
+        _uIManager.RemoveUIComponent<ConvenienceUI>();
+        _uIManager.RemoveUIComponent<UI_GameEndPopup>();
+        _uIManager.RemoveUIComponent<UI_Popup>();
 
     }
 }

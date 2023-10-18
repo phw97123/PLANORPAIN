@@ -25,7 +25,7 @@ public class GameProgressManager : Singleton<GameProgressManager>
     public Dictionary<Scenes, string> UsingGames;
     public List<int> GameStars;
     public int CurStar; // 씬 넘어가기 전에 게임 끝내고 0~3값 대입
-    private string[] _gameIconPath = { "game1Image", "game2Image", "game3Image", "game4Image", "game5Image" };
+    private string[] _gameIconPath = { "game1", "game2", "game3", "game4", "game5" };
 
     private GameProgressManager() { }
 
@@ -34,7 +34,8 @@ public class GameProgressManager : Singleton<GameProgressManager>
         RemainingGames = new Dictionary<Scenes, string>();
         for (int i = 0; i < GameSceneDB.Length - 1; i++) 
         {
-            RemainingGames.Add(GameSceneDB[i + 1], $"Sprites/plannerTest/{_gameIconPath[i]}");
+            RemainingGames.Add(GameSceneDB[i + 1], $"Planner/{_gameIconPath[i]}");
+            // 나중에 ResourceManager이용
         }
         UsingGames = new Dictionary<Scenes, string>();
         GameStars = new List<int>();
