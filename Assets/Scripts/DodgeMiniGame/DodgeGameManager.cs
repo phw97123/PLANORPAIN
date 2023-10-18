@@ -61,7 +61,7 @@ public class DodgeGameManager : MonoBehaviour
         uiDodgeGameScene.timerText.text = "0";
         Time.timeScale = 0;
         uiGameEndPopup.SetScore(uiDodgeGameScene.GetScore());
-        GameProgressManager.Instance.CurStar = uiDodgeGameScene.GetScore();
+        //GameProgressManager.Instance.CurStar = uiDodgeGameScene.GetScore();
         uiGameEndPopup.ShowPopup();
     }
 }
