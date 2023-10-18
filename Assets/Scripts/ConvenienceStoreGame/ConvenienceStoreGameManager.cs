@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Resources;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using System;
-using UnityEngine.SceneManagement;
 
-public class ConvenienceStoreGame : MonoBehaviour
+public class ConvenienceStoreGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject riceBall;
     [SerializeField] private GameObject virtualMainCamera;
@@ -29,18 +25,18 @@ public class ConvenienceStoreGame : MonoBehaviour
 
 
 
-    private static ConvenienceStoreGame _instance;
+    private static ConvenienceStoreGameManager _instance;
 
-    public static ConvenienceStoreGame Instance
+    public static ConvenienceStoreGameManager Instance
     {
         get
         {
             if (_instance != null) { return _instance; }
 
-            _instance = FindObjectOfType<ConvenienceStoreGame>();
+            _instance = FindObjectOfType<ConvenienceStoreGameManager>();
             if (_instance != null) { return _instance; }
 
-            _instance = new GameObject(nameof(ConvenienceStoreGame)).AddComponent<ConvenienceStoreGame>();
+            _instance = new GameObject(nameof(ConvenienceStoreGameManager)).AddComponent<ConvenienceStoreGameManager>();
             return _instance;
         }
     }
@@ -54,7 +50,7 @@ public class ConvenienceStoreGame : MonoBehaviour
         _riceBallRenderer.enabled = true;
 
         _riceBallMaterials = new Material[5];
-        for(int i = 0; i < _riceBallMaterials.Length; i++)
+        for (int i = 0; i < _riceBallMaterials.Length; i++)
         {
             _riceBallMaterials[i] = Resources.Load<Material>($"Materials/Base_Color{i + 2}");
         }
@@ -73,7 +69,7 @@ public class ConvenienceStoreGame : MonoBehaviour
         CheckClickRiceBall();
     }
 
-    private void CheckClickRiceBall() 
+    private void CheckClickRiceBall()
     {
         if (Time.timeScale > 0 && Input.GetMouseButtonDown(0))
         {
@@ -82,7 +78,6 @@ public class ConvenienceStoreGame : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-
                 if (hit.transform.name == riceBall.name)
                 {
                     if (isEating)
@@ -105,19 +100,19 @@ public class ConvenienceStoreGame : MonoBehaviour
 
                     if (_isInCCTV || _progress == 5)
                     {
-                        Time.timeScale = 0;
-                        ConvenienceEndingUI _endingUI = UIManager.Instance.GetUIComponent<ConvenienceEndingUI>();
-                        _endingUI.SetPopupText("»ï°¢±è¹äÀ» ´Ù ¸Ô¾ú½À´Ï´Ù");
-                        if(_isInCCTV)
+                        UI_GameEndPopup _endingUI = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+                        _endingUI.ShowPopup("»ï°¢±è¹äÀ» ´Ù ¸Ô¾ú½À´Ï´Ù", 50);
+                        if (_isInCCTV)
                         {
-                            _endingUI.SetPopupText("CCTV¸¦ º¸°í ÀÖ´ø Á¡Àå´Ô²² µü µéÄ×½À´Ï´Ù");
+                            _endingUI.ShowPopup("CCTV¸¦ º¸°í ÀÖ´ø Á¡Àå´Ô²² µü µéÄ×½À´Ï´Ù", 50);
                             ChangeScore(-score);
                         }
+
+                        Time.timeScale = 0;
 
                         //°ÔÀÓ Á¤º¸ °ÔÀÓÁøÇà¸Å´ÏÀú¿¡ ÀúÀå
                         GameProgressManager.Instance.CurStar = score;
                         _endingUI.SetScore(score);
-                        _endingUI.ShowPopup();
                     }
                 }
             }
@@ -127,7 +122,7 @@ public class ConvenienceStoreGame : MonoBehaviour
     private void ChangeScore(int change)
     {
         score += change;
-        if(score < 0) score = 0;
+        if (score < 0) score = 0;
         ChangeScoreEvent?.Invoke();
     }
 
@@ -142,5 +137,4 @@ public class ConvenienceStoreGame : MonoBehaviour
 
         _progress++;
     }
-
 }
