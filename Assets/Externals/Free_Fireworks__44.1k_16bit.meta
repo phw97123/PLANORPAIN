@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Externals/convenience-store/Materials/Ornamental_Tiles_ambientocclusion.mat.meta
+guid: 9dd9c72238fd8b84bb1792732c089fa2
+NativeFormatImporter:
+========
 guid: 558b08d13f763644ba3ff5fe674a1fa3
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> main:Assets/Externals/Free_Fireworks__44.1k_16bit.meta
   externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -7,23 +7,43 @@ using UnityEngine.InputSystem;
 
 public class InteractGymMinigame : MonoBehaviour
 {
-    [SerializeField] private BackSquatMiniGameUI _gameUI;
+    [SerializeField] private MiniGameUI _miniGameUI;
+    [SerializeField] private int _miniGameSelect;
     private Outline _outline;
-    private bool _isStartMiniGame = false;
+    private bool _isInteract = false;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
         _outline = GetComponent<Outline>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
+    {
+        _coroutine = StartCoroutine(BlinkOutlingCO());
+    }
+
+    IEnumerator BlinkOutlingCO()
+    {
+        _outline.OutlineWidth = 6f;
+
+        yield return new WaitForSecondsRealtime(2f);
+
+        _outline.OutlineWidth = 0f;
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _outline.OutlineWidth = 6f;
-            SceneVisibilityManager.instance.TogglePicking(gameObject, true);
-            _isStartMiniGame = true;
-            Debug.Log("Interact : On");
+            if (!_isInteract)
+            {
+                if (_coroutine != null)
+                    StopCoroutine(_coroutine);
+                _coroutine = StartCoroutine(BlinkOutlingCO());
+                _miniGameUI.isInterct = true;
+                _miniGameUI.selector = _miniGameSelect;
+            }
         }
     }
 
@@ -32,21 +52,7 @@ public class InteractGymMinigame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _outline.OutlineWidth = 0f;
-            _isStartMiniGame = false;
-            Debug.Log("Interact : Off");
-        }
-    }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Started)
-        {
-            if (_isStartMiniGame)
-            {
-                Debug.Log("Interact : TestObject");
-                _gameUI.StartMiniGame();
-                _outline.OutlineWidth = 0f;
-            }
+            _miniGameUI.isInterct = false;
         }
     }
 }

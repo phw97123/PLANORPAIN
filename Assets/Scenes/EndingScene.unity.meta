@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ScriptableObjects/Scripts/Variable.meta
+guid: fc72d81141b126a4db148ec3698209da
+folderAsset: yes
+========
 guid: 2f977b4965d2caa4293af721d6d816b1
+>>>>>>>> main:Assets/Scenes/EndingScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
