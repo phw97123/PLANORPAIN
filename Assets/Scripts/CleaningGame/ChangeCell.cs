@@ -30,7 +30,7 @@ public class ChangeCell : MonoBehaviour
             fromCell.SetActive(false);
             toCell.SetActive(true);
 
-            CleaningGameManager.Instance.ChangeScore(amount);
+            GameManager.Instance.GetMiniGameManager<CleaningGameManager>().ChangeScore(amount);
         }
     }
 }
