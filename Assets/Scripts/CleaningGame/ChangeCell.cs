@@ -13,6 +13,8 @@ public class ChangeCell : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(ChangeCellCoroutine(DustFloor, CleanFloor,1));
+            SoundManager.Instance.Play("CleaningGameScene/Mop_Effect", AudioType.EFFECT);
+
         }
 
         if (collision.gameObject.CompareTag("Cat"))
