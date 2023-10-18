@@ -15,13 +15,13 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
     public Image[] StarImage;
     public bool IsDestoryed = true;
 
-    private GameProgressManager _progressManager;
+    private GameManager _gameManager;
     private RectTransform _rectTransform;
     private GameObject _curSlotGame;
 
     private void Awake()
     {
-        _progressManager = GameProgressManager.Instance;
+        _gameManager = GameManager.Instance;
         _rectTransform = GetComponent<RectTransform>();
     }
 
@@ -45,7 +45,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnClickExitButton()
     {
-        _progressManager.CurGame = Scenes.Unknown;
+        _gameManager.CurGame = Scenes.Unknown;
         GoStartPointPrevSlot();
 
         _exitButton.gameObject.SetActive(false);
@@ -54,9 +54,9 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnClickStartButton()
     {
-        if(_progressManager.CurGame != Scenes.Unknown)
+        if(_gameManager.CurGame != Scenes.Unknown)
         {
-            _progressManager.LoadGameScene();
+            _gameManager.LoadGameScene();
         }
     }
 
@@ -69,7 +69,7 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
             _curSlotGame = eventData.pointerDrag;
             _curSlotGame.GetComponent<RectTransform>().anchoredPosition = _rectTransform.anchoredPosition;
             _curSlotGame.GetComponent<PlannerGameIcon>().setSlot = true;
-            _progressManager.CurGame = _curSlotGame.GetComponent<PlannerGameIcon>().GameScene;
+            _gameManager.CurGame = _curSlotGame.GetComponent<PlannerGameIcon>().GameScene;
 
             _exitButton.gameObject.SetActive(true);
             _startButton.gameObject.SetActive(true);
