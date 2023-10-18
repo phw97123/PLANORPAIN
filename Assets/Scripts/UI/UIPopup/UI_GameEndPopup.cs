@@ -4,22 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UI_GameEndPopup : UIBase
+public class UI_GameEndPopup : UI_BasePopup
 {
-    public delegate void Callback();
-    private Callback callbackOk;
+    private const string DEFAULT_CONTENT = "GAME CLEAR";
+    private const int DEFAULT_FONT_SIZE = 90;
 
     [SerializeField] private GameObject _filledStarParent;
     [SerializeField] private Button _OkButton;
 
     private GameObject[] _filledStars;
 
-    private void Awake()
+    protected override void Awake()
     {
         _filledStars = new GameObject[_filledStarParent.transform.childCount];
         _OkButton.onClick.AddListener(ClosePopup);
         InitScore();
-        CloseUI();
+        base.Awake();
     }
 
     private void InitScore()
@@ -40,16 +40,15 @@ public class UI_GameEndPopup : UIBase
         }
     }
 
-    public void ShowPopup(Callback OkAction)
+    public void ShowPopup(string content = DEFAULT_CONTENT, int fontSize = DEFAULT_FONT_SIZE)
     {
-        callbackOk = OkAction;
+        SetPopupContent(content, fontSize);
         OpenUI();
     }
 
     public void ClosePopup()
     {
         SceneManagerEx.Instance.LoadScene(Scenes.MainScene);
-        callbackOk?.Invoke();
         CloseUI();
     }
 }

@@ -601,6 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a6f524f371d4c40867aec0f1a02c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupBackgroundImage: {fileID: 138238988977116553}
+  _contentTextObject: {fileID: 2819695628015015799}
   _filledStarParent: {fileID: 242276111471093248}
   _OkButton: {fileID: 5708724509768433519}
 --- !u!1 &6277395099312868492

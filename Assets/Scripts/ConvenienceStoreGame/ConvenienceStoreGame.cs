@@ -117,7 +117,7 @@ public class ConvenienceStoreGame : MonoBehaviour
                         //게임 정보 게임진행매니저에 저장
                         GameProgressManager.Instance.CurStar = score;
                         _endingUI.SetScore(score);
-                        _endingUI.ShowPopup(() => { Time.timeScale = 1; GameProgressManager.Instance.LoadPlannerScene(); });
+                        _endingUI.ShowPopup();
                     }
                 }
             }
