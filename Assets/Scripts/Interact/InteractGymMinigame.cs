@@ -11,6 +11,7 @@ public class InteractGymMinigame : MonoBehaviour
     [SerializeField] private int _miniGameSelect;
     private Outline _outline;
     private bool _isInteract = false;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class InteractGymMinigame : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(BlinkOutlingCO());
+        _coroutine = StartCoroutine(BlinkOutlingCO());
     }
 
     IEnumerator BlinkOutlingCO()
@@ -37,7 +38,9 @@ public class InteractGymMinigame : MonoBehaviour
         {
             if (!_isInteract)
             {
-                StartCoroutine(BlinkOutlingCO());
+                if (_coroutine != null)
+                    StopCoroutine(_coroutine);
+                _coroutine = StartCoroutine(BlinkOutlingCO());
                 _miniGameUI.isInterct = true;
                 _miniGameUI.selector = _miniGameSelect;
             }

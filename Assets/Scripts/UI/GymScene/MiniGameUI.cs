@@ -19,6 +19,7 @@ public class MiniGameUI : MonoBehaviour
     private Vector3 _originPlayerPosition;
     private bool _isPlayBackSquat = false;
     private bool _isPlayTreadmil = false;
+    private float _lastPlayTime = 0f;
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class MiniGameUI : MonoBehaviour
         {
             if (_isPlayBackSquat && _isPlayTreadmil)
             {
+                yield return new WaitForSecondsRealtime(_lastPlayTime);
+
                 _interactGTDPoint.BlickOutLine();
                 _door.GetComponent<Collider>().enabled = true;
                 isEnd = true;
@@ -52,12 +55,18 @@ public class MiniGameUI : MonoBehaviour
                 {
                     case 1:
                         if (!_isPlayBackSquat)
+                        {
                             _bsGameUI.StartMiniGame();
+                            _lastPlayTime = 100f;
+                        }
                         _isPlayBackSquat = true;
                         break;
                     case 2:
                         if (!_isPlayTreadmil)
+                        {
                             _tmGameUI.StartMiniGame();
+                            _lastPlayTime = 70f;
+                        }
                         _isPlayTreadmil = true;
                         break;
                     case -1:
@@ -90,4 +99,5 @@ public class MiniGameUI : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
             _player.transform.position = _originPlayerPosition;
     }
+
 }

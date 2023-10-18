@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936b3ae649c6ce44d82c9902e813c097, type: 3}
   m_Name: Outdoor_StarAmount
   m_EditorClassIdentifier: 
-  value: 0
+  value: 5

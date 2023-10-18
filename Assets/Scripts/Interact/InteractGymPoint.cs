@@ -1,10 +1,14 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class InteractGymPoint : MonoBehaviour, IInteractable
 {
+    public IntVariable starAmount;
+
     [SerializeField] private GameObject _interactionUI;
+    [SerializeField] private TMP_Text _todoListText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,8 +33,11 @@ public class InteractGymPoint : MonoBehaviour, IInteractable
 
     IEnumerator LoadSceneCO()
     {
+        starAmount.value += 1;
+        _todoListText.fontStyle = FontStyles.Strikethrough;
+
         yield return new WaitForSecondsRealtime(1f);
+
         SceneManager.LoadScene("GymScene");
-        Debug.Log("LoadScene : GymScene");
     }
 }
