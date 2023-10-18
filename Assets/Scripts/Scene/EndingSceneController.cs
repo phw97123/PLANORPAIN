@@ -8,24 +8,20 @@ using UnityEngine.Rendering.Universal;
 public class EndingSceneController : MonoBehaviour
 {
     [SerializeField] private PlayableDirector goodEndingDirector;
-    //[SerializeField] private PlayableDirector badEndingDirector;
+    [SerializeField] private PlayableDirector badEndingDirector;
 
     [SerializeField] private Volume volume;
     private DepthOfField _depthOfField;
 
-    private bool _isGoodEnding;
+    private bool _isGoodEnding = true;
 
-    private void Awake()
-    {
-        volume.profile.TryGet(out _depthOfField);
-    }
 
     private void Start()
     {
         goodEndingDirector.stopped += OnTimelineFinished;
-        //badEndingDirector.stopped += OnTimelineFinished;
+        badEndingDirector.stopped += OnTimelineFinished;
         if (!_isGoodEnding) goodEndingDirector.gameObject.SetActive(false);
-        //else badEndingDirector.gameObject.SetActive(false);
+        else badEndingDirector.gameObject.SetActive(false);
     }
 
     private void OnTimelineFinished(PlayableDirector director)
@@ -35,6 +31,7 @@ public class EndingSceneController : MonoBehaviour
 
     public void SetGoodEndingCameraFocus()
     {
+        volume.profile.TryGet(out _depthOfField);
         if (_depthOfField == null) return;
         _depthOfField.focusDistance.value = 5.0f;
     }
