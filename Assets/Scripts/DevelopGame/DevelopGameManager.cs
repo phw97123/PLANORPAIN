@@ -55,6 +55,6 @@ public class DevelopGameManager : MonoBehaviour
     public void GameOver()
     {
         _uiGameEndPopup.SetScore(GetScore());
-        _uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
+        _uiGameEndPopup.ShowPopup();
     }
 }

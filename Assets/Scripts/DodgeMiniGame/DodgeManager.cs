@@ -59,6 +59,6 @@ public class DodgeManager : MonoBehaviour
         uiDodgeGameScene.timerText.text = "0";
         Time.timeScale = 0;
         uiGameEndPopup.SetScore(uiDodgeGameScene.GetScore());
-        uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
+        uiGameEndPopup.ShowPopup();
     }
 }
