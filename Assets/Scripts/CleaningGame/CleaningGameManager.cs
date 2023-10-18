@@ -37,6 +37,8 @@ public class CleaningGameManager : MonoBehaviour
         _player = GameObject.FindWithTag(Tags.PLAYER);
         _player.transform.position = _playerSpawnPosition.position;
 
+        _player.GetComponent<Player>().EnableActions(InputActions.Movement); 
+
         _cat = GameObject.FindWithTag(Tags.CAT);
 
         _directorObject = GameObject.FindWithTag(Tags.PLAYABLE);
