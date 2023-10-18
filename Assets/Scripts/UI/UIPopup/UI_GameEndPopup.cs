@@ -48,7 +48,7 @@ public class UI_GameEndPopup : UI_BasePopup
 
     public void ClosePopup()
     {
-        SceneManagerEx.Instance.LoadScene(Scenes.MainScene);
+        GameProgressManager.Instance.LoadPlannerScene();
         CloseUI();
     }
 }

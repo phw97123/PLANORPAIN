@@ -110,7 +110,6 @@ public class ConvenienceStoreGameManager : MonoBehaviour
 
                         Time.timeScale = 0;
 
-                        //게임 정보 게임진행매니저에 저장
                         GameProgressManager.Instance.CurStar = score;
                         _endingUI.SetScore(score);
                     }
