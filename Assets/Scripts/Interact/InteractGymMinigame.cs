@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class InteractGymMinigame : MonoBehaviour
 {
-    [SerializeField] private MiniGameUI _miniGameUI;
+    [SerializeField] private GymMiniGameUI _miniGameUI;
     [SerializeField] private int _miniGameSelect;
     private Outline _outline;
     private bool _isInteract = false;

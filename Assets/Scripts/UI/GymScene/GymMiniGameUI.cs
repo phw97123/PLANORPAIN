@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MiniGameUI : MonoBehaviour
+public class GymMiniGameUI : MonoBehaviour
 {
     [SerializeField] private BackSquatMiniGameUI _bsGameUI;
     [SerializeField] private TreadmilMiniGameUI _tmGameUI;
@@ -19,7 +19,6 @@ public class MiniGameUI : MonoBehaviour
     private Vector3 _originPlayerPosition;
     private bool _isPlayBackSquat = false;
     private bool _isPlayTreadmil = false;
-    private float _lastPlayTime = 0f;
 
     private void Start()
     {
@@ -30,16 +29,13 @@ public class MiniGameUI : MonoBehaviour
 
     IEnumerator UpdateDoorColliderCO()
     {
-        bool isEnd = false;
-        while (!isEnd)
+        while (true)
         {
             if (_isPlayBackSquat && _isPlayTreadmil)
             {
-                yield return new WaitForSecondsRealtime(_lastPlayTime);
-
-                _interactGTDPoint.BlickOutLine();
+                _interactGTDPoint.MakeOutLine();
                 _door.GetComponent<Collider>().enabled = true;
-                isEnd = true;
+                break;
             }
             yield return null;
         }
@@ -55,18 +51,14 @@ public class MiniGameUI : MonoBehaviour
                 {
                     case 1:
                         if (!_isPlayBackSquat)
-                        {
                             _bsGameUI.StartMiniGame();
-                            _lastPlayTime = 100f;
-                        }
+
                         _isPlayBackSquat = true;
                         break;
                     case 2:
                         if (!_isPlayTreadmil)
-                        {
                             _tmGameUI.StartMiniGame();
-                            _lastPlayTime = 70f;
-                        }
+
                         _isPlayTreadmil = true;
                         break;
                     case -1:

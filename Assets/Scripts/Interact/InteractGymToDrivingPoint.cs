@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
 {
-    [SerializeField] private MiniGameUI _miniGameUI;
+    [SerializeField] private GymMiniGameUI _miniGameUI;
     private Outline _outline;
     private int _selector = -1;
 
@@ -14,18 +14,9 @@ public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
         _outline = GetComponent<Outline>();
     }
 
-    public void BlickOutLine()
-    {
-        StartCoroutine(BlinkOutlingCO());
-    }
-
-    IEnumerator BlinkOutlingCO()
+    public void MakeOutLine()
     {
         _outline.OutlineWidth = 6f;
-
-        yield return new WaitForSecondsRealtime(2f);
-
-        _outline.OutlineWidth = 0f;
     }
 
     public void OnCollisionStay(Collision collision)
