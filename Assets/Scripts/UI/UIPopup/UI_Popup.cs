@@ -182,7 +182,7 @@ public class UI_Popup : UIBase
 
     // 팝업 내용 텍스트 폰트 사이즈 조절
     // ShowPopup 이후에 호출해야 함!
-    public void SetContextFontSize(int fontSize)
+    public void SetContentFontSize(int fontSize)
     {
         _contentText.fontSize = fontSize;
     }

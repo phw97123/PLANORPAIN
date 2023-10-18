@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlannerClickEvent : MonoBehaviour
 {
-    // 추후 UI Manager에게 요청하는 방식으로 리팩토링 예정
-    [SerializeField] private GameObject _plannerUI;
+    private UI_Planner _uiPlanner;
 
     private void Update()
     {
@@ -18,7 +17,8 @@ public class PlannerClickEvent : MonoBehaviour
             {
                 if (hit.transform.name == gameObject.name)
                 {
-                    _plannerUI.SetActive(true);
+                    if (_uiPlanner == null) _uiPlanner = UIManager.Instance.GetUIComponent<UI_Planner>();
+                    _uiPlanner.OpenUI();
                 }
             }
         }

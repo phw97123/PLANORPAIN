@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlannerUI : MonoBehaviour
+public class UI_Planner : UIBase
 {
     [SerializeField] private Image[] grayMasks; //꼭 월~금 순서대로 넣기
     [SerializeField] private RectTransform backGround;
@@ -47,7 +47,7 @@ public class PlannerUI : MonoBehaviour
     {
 
         Image curDayMask = grayMasks[(int)_gameProgressManager.CurDay];
-        GameObject curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/Planner/PlannerGameSlot"));
+        GameObject curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameSlot"));
         curSlot.transform.SetParent(backGround.transform);
         curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
@@ -55,7 +55,7 @@ public class PlannerUI : MonoBehaviour
         foreach (var gamePair in _gameProgressManager.UsingGames)
         {
             curDayMask = grayMasks[dayIndex];
-            curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/Planner/PlannerGameSlot"));
+            curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameSlot"));
             curSlot.transform.SetParent(backGround.transform);
             curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
@@ -86,7 +86,7 @@ public class PlannerUI : MonoBehaviour
         int index = 0;
         foreach (var gamePair in _gameProgressManager.RemainingGames)
         {
-            _gameIcons[index] = Instantiate(Resources.Load<GameObject>($"Prefabs/Planner/PlannerGameIcon")).GetComponent<RectTransform>();
+            _gameIcons[index] = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameIcon")).GetComponent<RectTransform>();
             _gameIcons[index].transform.SetParent(backGround.transform);
             PlannerGameIcon plannerGameIcon = _gameIcons[index].gameObject.GetComponent<PlannerGameIcon>();
             plannerGameIcon.GameIcon.sprite = Resources.Load<Sprite>(gamePair.Value);

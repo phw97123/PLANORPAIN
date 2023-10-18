@@ -33,7 +33,7 @@ public class Node : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !_isActive)
         {
             _uiPopup.ShowPopup(name, Strings.PopupButtons.CONFIRM_ACTIVE, Strings.PopupButtons.CANCEL, () => SearchThisNode(), null);
-            _uiPopup.SetContextFontSize(80);
+            _uiPopup.SetContentFontSize(80);
         }
     }
 
