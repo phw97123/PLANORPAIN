@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlannerGameIcon : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public Image GameIcon;
-    public GameScene GameScene;
+    public Scenes GameScene;
     public Vector3 StartPosition;
     public bool setSlot;
     private Canvas _canvas;

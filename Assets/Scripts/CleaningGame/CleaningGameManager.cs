@@ -12,17 +12,17 @@ using UnityEngine.SceneManagement;
 
 public class CleaningGameManager : MonoBehaviour
 {
-    public static CleaningGameManager Instance;
+    [SerializeField] private Transform _playerSpawnPosition;
 
-    [SerializeField] private PlayableDirector playableDirector;
-
-    private CleaningGameSceneUI _logicUI;
+    private PlayableDirector _playableDirector;
 
     private GameObject _player;
-    private GameObject _cat; 
+    private GameObject _cat;
+    private GameObject _directorObject; 
 
     private UI_Popup _uiPopup;
     private UI_GameEndPopup _uiGameEndPopup;
+    private CleaningGameSceneUI _logicUI;
 
     private bool _isTimelinePlay = false;
 
@@ -34,10 +34,13 @@ public class CleaningGameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this; 
+        _player = GameObject.FindWithTag(Tags.PLAYER);
+        _player.transform.position = _playerSpawnPosition.position;
 
-        _player = GameObject.FindWithTag(Tags.PLAYER); 
         _cat = GameObject.FindWithTag(Tags.CAT);
+
+        _directorObject = GameObject.FindWithTag(Tags.PLAYABLE);
+        _playableDirector = _directorObject.GetComponent<PlayableDirector>();
     }
 
     private void Start()
@@ -49,8 +52,7 @@ public class CleaningGameManager : MonoBehaviour
         _uiPopup.ShowPopup(Strings.PopupContent.CLEANING_GAME_NOTIFICATION, Strings.PopupButtons.OK, StartTimeScale);
 
         Time.timeScale = 0;
-        playableDirector.Stop();
-        _cat.gameObject.SetActive(false);
+        _playableDirector.Stop();
     }
 
     private void Update()
@@ -61,7 +63,7 @@ public class CleaningGameManager : MonoBehaviour
 
             if (TimeRemaining <= 30f && !_isTimelinePlay)
             {
-                playableDirector.Play();
+                _playableDirector.Play();
                 _isTimelinePlay = true;
             }
         }
@@ -85,7 +87,7 @@ public class CleaningGameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         _uiGameEndPopup.SetScore(GetScore());
-        _uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
+        _uiGameEndPopup.ShowPopup();
     }
 
     private void UpdateTimer()

@@ -13,7 +13,7 @@ public enum PopupButtonType
     NOTIFY,
 }
 
-public class UI_Popup : UIBase
+public class UI_Popup : UI_BasePopup
 {
     #region const values
     // 기본 팝업 사이즈
@@ -39,13 +39,10 @@ public class UI_Popup : UIBase
     private Callback callbackCancel;
     private Callback callbackOk;
 
-    [SerializeField] private Image _popupBackgroundImage;
-    [SerializeField] private GameObject _contentTextObject;
     [SerializeField] private GameObject _confirmButtonObject;
     [SerializeField] private GameObject _cancelButtonObject;
     [SerializeField] private GameObject _okButtonObject;
 
-    private TMP_Text _contentText;
     private Button _confirmButton;
     private Button _cancelButton;
     private Button _okButton;
@@ -54,17 +51,15 @@ public class UI_Popup : UIBase
     private TMP_Text _cancelButtonText;
     private TMP_Text _okButtonText;
 
-    private void Awake()
+    protected override void Awake()
     {
         InitBind();
-        CloseUI();
+        base.Awake();
     }
 
     #region Bind Datas
     private void InitBind()
     {
-        _contentText = _contentTextObject.GetComponent<TMP_Text>();
-
         _confirmButton = _confirmButtonObject.GetComponent<Button>();
         _cancelButton = _cancelButtonObject.GetComponent<Button>();
         _okButton = _okButtonObject.GetComponent<Button>();
@@ -104,13 +99,13 @@ public class UI_Popup : UIBase
 
     #region ShowPopup
     // 확인, 취소 버튼이 있는 팝업
-    public void ShowPopup(string content, string confirmButtonText, string cancelButtonText, Callback ConfirmAction, Callback CancelAction)
+    public void ShowPopup(string content, string confirmButtonText, string cancelButtonText, 
+        Callback ConfirmAction, Callback CancelAction, int fontSize = DEFAULT_FONT_SIZE)
     {
         SetPopupAttributes(PopupButtonType.CONFIRM);
         SetButtonActive(PopupButtonType.CONFIRM);
 
-        _contentText.text = content;
-        _contentText.fontSize = DEFAULT_FONT_SIZE;
+        SetPopupContent(content, fontSize);
         _confirmButtonText.text = confirmButtonText;
         _cancelButtonText.text = cancelButtonText;
 
@@ -120,13 +115,12 @@ public class UI_Popup : UIBase
     }
 
     // 확인 버튼만 있는 팝업
-    public void ShowPopup(string content, string okButtonText, Callback OkAction)
+    public void ShowPopup(string content, string okButtonText, Callback OkAction, int fontSize = DEFAULT_FONT_SIZE)
     {
         SetPopupAttributes(PopupButtonType.OK);
         SetButtonActive(PopupButtonType.OK);
 
-        _contentText.text = content;
-        _contentText.fontSize = DEFAULT_FONT_SIZE;
+        SetPopupContent(content, fontSize);
         _okButtonText.text = okButtonText;
 
         callbackOk = OkAction;
@@ -134,12 +128,12 @@ public class UI_Popup : UIBase
     }
 
     // 버튼 없는 알림 팝업
-    public void ShowPopup(string content)
+    public void ShowPopup(string content, int fontSize = DEFAULT_FONT_SIZE)
     {
         SetPopupAttributes(PopupButtonType.NOTIFY);
         SetButtonActive(PopupButtonType.NOTIFY);
 
-        _contentText.text = content;
+        SetPopupContent(content, fontSize);
 
         OpenUI();
         CloseUIWithDelay();
@@ -168,23 +162,20 @@ public class UI_Popup : UIBase
             case PopupButtonType.CONFIRM:
             case PopupButtonType.CANCEL:
             case PopupButtonType.OK:
-                _popupBackgroundImage.rectTransform.sizeDelta = new Vector2(DEFAULT_POPUP_WIDTH, DEFAULT_POPUP_HEIGHT);
-                _contentText.rectTransform.sizeDelta = new Vector2(DEFAULT_TEXT_WIDTH, DEFAULT_TEXT_HEIGHT);
-                _contentText.rectTransform.anchoredPosition = new Vector3(0, 35f, 0);
+                SetPopupAttributesSize(
+                    new Vector2(DEFAULT_POPUP_WIDTH, DEFAULT_POPUP_HEIGHT),
+                    new Vector2(DEFAULT_TEXT_WIDTH, DEFAULT_TEXT_HEIGHT),
+                    new Vector3(0, 35f, 0)
+                    ); 
                 break;
             case PopupButtonType.NOTIFY:
-                _popupBackgroundImage.rectTransform.sizeDelta = new Vector2(NOTIFICATION_POPUP_WIDTH, NOTIFICATION_POPUP_HEIGHT);
-                _contentText.rectTransform.sizeDelta = new Vector2(NOTIFICATION_TEXT_WIDTH, NOTIFICATION_TEXT_HEIGHT);
-                _contentText.rectTransform.anchoredPosition = new Vector3(0, -20f, 0);
+                SetPopupAttributesSize(
+                    new Vector2(NOTIFICATION_POPUP_WIDTH, NOTIFICATION_POPUP_HEIGHT),
+                    new Vector2(NOTIFICATION_TEXT_WIDTH, NOTIFICATION_TEXT_HEIGHT),
+                    new Vector3(0, -20f, 0)
+                    );
                 break;
         }
-    }
-
-    // 팝업 내용 텍스트 폰트 사이즈 조절
-    // ShowPopup 이후에 호출해야 함!
-    public void SetContextFontSize(int fontSize)
-    {
-        _contentText.fontSize = fontSize;
     }
     #endregion
 }

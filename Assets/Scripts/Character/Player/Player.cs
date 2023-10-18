@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
+    public CapsuleCollider Collider { get; private set; }
 
     [field: SerializeField]  public LayerMask groundLayerMask { get; private set; }
     [field: SerializeField]  public LayerMask LavaLayerMask { get; private set; }
@@ -29,9 +31,11 @@ public class Player : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
+        Collider = GetComponent<CapsuleCollider>();
         //ForceReceiver = GetComponent<ForceReceiver>();
 
-        playerStateMachine = new PlayerStateMachine(this); 
+        playerStateMachine = new PlayerStateMachine(this);
+
     }
 
     private void Start()
@@ -44,9 +48,23 @@ public class Player : MonoBehaviour
         playerStateMachine.HandleInput();
         playerStateMachine.Update();
     }
+
     private void FixedUpdate()
     {
         playerStateMachine.PhysicsUpdate();
+    }
+
+    public void EnableActions(params InputActions[] actionNames)
+    {
+        Input.OnDisable(); 
+        foreach (InputActions actionName in actionNames)
+        {
+            InputAction action = Input.InputActions.FindAction(actionName.ToString());
+            if (action != null)
+                action.Enable();
+            else
+                Debug.LogError($"{action} 는 존재하지 않습니다."); 
+        }
     }
 
     public bool IsGrounded()
@@ -88,6 +106,26 @@ public class Player : MonoBehaviour
             }
         }
 
+        return false;
+    }
+
+    public bool IsStepping()
+    {
+        Ray[] rays = new Ray[4]
+{
+            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+};
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.2f, LavaLayerMask))
+            {
+                return true;
+            }
+        }
         return false;
     }
 }

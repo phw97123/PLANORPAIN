@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// 개발하기 미니 게임을 관리하는 미니 게임 매니저
 public class DevelopGameManager : MonoBehaviour
 {
-    // TODO GameManager가 각 미니 게임을 관리하는 관리자를 갖고 있도록 수정
     [SerializeField] private Transform _playerSpawnPosition;
 
     private int _tryCount = 1;
@@ -55,6 +55,6 @@ public class DevelopGameManager : MonoBehaviour
     public void GameOver()
     {
         _uiGameEndPopup.SetScore(GetScore());
-        _uiGameEndPopup.ShowPopup(() => { SceneManager.LoadScene("MainScene"); });
+        _uiGameEndPopup.ShowPopup();
     }
 }
