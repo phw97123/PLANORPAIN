@@ -10,4 +10,5 @@ public enum Scenes
     LoadingScene,
     ConvenienceStoreScene,
     DevelopGameScene,
+    CleaningGameScene,
 }

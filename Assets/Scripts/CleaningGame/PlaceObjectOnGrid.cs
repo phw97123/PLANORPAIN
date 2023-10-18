@@ -29,6 +29,7 @@ public class PlaceObjectOnGrid : MonoBehaviour
                 Transform obj = Instantiate(GridCellPrefab, worldPosition * 2, Quaternion.identity);
 
                 obj.name = "Floor" + name;
+                obj.SetParent(transform);
                 name++;
             }
         }
