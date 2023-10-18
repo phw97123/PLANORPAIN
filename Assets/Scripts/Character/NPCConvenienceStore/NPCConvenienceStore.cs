@@ -28,7 +28,7 @@ public class NPCConvenienceStore : MonoBehaviour
     private float _playerDistance;
     private int _walkParameterHash;
 
-    private ConvenienceStoreGame _convenienceStoreGame;
+    private ConvenienceStoreGameManager _convenienceStoreGame;
     private GameObject _player;
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -39,11 +39,11 @@ public class NPCConvenienceStore : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
 
         _walkParameterHash = Animator.StringToHash("walk");
-
-        _convenienceStoreGame = ConvenienceStoreGame.Instance;
     }
     private void Start()
     {
+        _convenienceStoreGame = ConvenienceStoreGameManager.Instance;
+
         SetState(AIState.Wandering);
         _agent.speed = walkSpeed;
         _player = _convenienceStoreGame.Player;

@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class ConvenienceUI : UIBase
 {
     [SerializeField] private Image[] stars;
-    private ConvenienceStoreGame _convenienceStoreGame;
+    private ConvenienceStoreGameManager _convenienceStoreGame;
 
     private void Start()
     {
-        _convenienceStoreGame = ConvenienceStoreGame.Instance;
+        _convenienceStoreGame = ConvenienceStoreGameManager.Instance;
         _convenienceStoreGame.ChangeScoreEvent += ChangeStarImage;
     }
 
