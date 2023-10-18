@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// 모든 Scene 클래스의 부모 클래스
 public class BaseScene : MonoBehaviour
 {
     public Scenes SceneType = Scenes.Unknown;

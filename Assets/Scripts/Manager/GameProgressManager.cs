@@ -42,6 +42,7 @@ public class GameProgressManager : Singleton<GameProgressManager>
 
     public void LoadGameScene()
     {
+        //SceneManagerEx.Instance.LoadScene(Scenes.LoadingScene, Scenes.DevelopGameScene);
         SceneManager.LoadScene(CurGame.ToString());
         RemainingGames.Remove(CurGame);
         UsingGames.Add(CurGame, $"Sprites/plannerTest/{_gameIconPath[(int)CurGame - 1]}");

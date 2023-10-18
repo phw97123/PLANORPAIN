@@ -11,6 +11,7 @@ public enum AudioType
 
 public class SoundManager : Singleton<SoundManager>
 {
+    // Resources/Sounds 폴더 안의 사운드 소스들을 저장하는 딕셔너리
     public Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
 
     private AudioSource _audioSource;
@@ -24,12 +25,17 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (!audioClips.ContainsKey(name))
         {
-            var obj = Instantiate(Resources.Load($"Prefabs/Sprites/{name}"));
+            // 요청 시점에 사운드 클립이 없다면 Load
+            var obj = Instantiate(Resources.Load($"Sounds/{name}"));
             audioClips.Add(name, obj.GetComponent<AudioClip>());
         }
         return audioClips[name];
     }
 
+    // 배경 음악 또는 효과음 재생
+    // 배경 음악 재생 : SoundManager.Instance.Play("오디오 클립 이름");
+    // 효과음 재생 : SoundManager.Instance.Play("오디오 클립 이름", AudioType.EFFECT);
+    // pitch 조절 필요할 시 pitch 값도 전달
     public void Play(string audioClipName, AudioType audioType = AudioType.BGM, float pitch = 1.0f)
     {
         AudioClip audioClip = LoadAudioClip(audioClipName);
