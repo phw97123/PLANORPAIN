@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ResourceManager : Singleton<ResourceManager>
@@ -13,8 +12,8 @@ public class ResourceManager : Singleton<ResourceManager>
         if (!sprites.ContainsKey(name))
         {
             // 이미지 소스가 요청 시점에 딕셔너리에 존재하지 않는다면 Load
-            var obj = Instantiate(Resources.Load($"Sprites/{name}"));
-            sprites.Add(name, obj.GetComponent<Sprite>());
+            Sprite sprite = Resources.Load<Sprite>($"Sprites/{name}");
+            sprites.Add(name, sprite);
         }
         return sprites[name];
     }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum AudioType
@@ -26,8 +25,8 @@ public class SoundManager : Singleton<SoundManager>
         if (!audioClips.ContainsKey(name))
         {
             // 요청 시점에 사운드 클립이 없다면 Load
-            var obj = Instantiate(Resources.Load($"Sounds/{name}"));
-            audioClips.Add(name, obj.GetComponent<AudioClip>());
+            AudioClip audioClip = Resources.Load<AudioClip>($"Sounds/{name}");
+            audioClips.Add(name, audioClip);
         }
         return audioClips[name];
     }
