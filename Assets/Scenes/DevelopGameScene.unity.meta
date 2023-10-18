@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ScriptableObjects/Datas/Variable.meta
+guid: 6c7d094abee126045b49c12ec12d99a5
+folderAsset: yes
+========
 guid: 29b605353d67a214bbdddae95d7662dc
+>>>>>>>> main:Assets/Scenes/DevelopGameScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

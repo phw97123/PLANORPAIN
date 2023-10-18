@@ -5,9 +5,12 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BackSquatMiniGameUI : MonoBehaviour
 {
+    public IntVariable startAmount;
+
     [SerializeField] private GameObject _miniGameUI;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _playerHand;
@@ -22,8 +25,10 @@ public class BackSquatMiniGameUI : MonoBehaviour
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private TMP_Text _StartText;
     [SerializeField] private TMP_Text _SpaceText;
+    [SerializeField] private TMP_Text _ScheduleText;
 
     private Vector3 _originPlayerPosition;
+    private Quaternion _originPlayerQuaternion;
     private Vector3 _originObjPosition;
     private int _gaugeAmount = 1;
     private int _hitPointAmount = 20;
@@ -37,7 +42,6 @@ public class BackSquatMiniGameUI : MonoBehaviour
 
     private void Start()
     {
-        _originPlayerPosition = _player.transform.position;
         _originObjPosition = _gymObject.transform.position;
         _timeText.text = $"{_timeCount} s";
         _countText.text = $"{_count} / {_maxCount}";
@@ -46,10 +50,23 @@ public class BackSquatMiniGameUI : MonoBehaviour
 
     public void StartMiniGame()
     {
+        _gaugeAmount = 1;
+        _hitPointAmount = 20;
+        _timeCount = 60;
+        _count = 0;
+
+        _player.GetComponent<PlayerInput>().enabled = false;
+        _gymObject.GetComponent<Collider>().enabled = false;
+
         _backSquatCamera.SetActive(true);
         _miniGameUI.SetActive(true);
+
         _playerAnimator.runtimeAnimatorController = _animBackSquartController;
+
+        _originPlayerPosition = _player.transform.position;
+        _originPlayerQuaternion = _player.transform.rotation;
         _player.transform.position = new Vector3(_gymObject.transform.position.x, 0, _gymObject.transform.position.z);
+        _player.transform.rotation = Quaternion.Euler(Vector3.zero);
         _playerAnimator.SetBool("IsBackSquatStart", true);
         StartCoroutine(FollowPlayerHandCO());
         StartCoroutine(TimeCountDownCO());
@@ -58,12 +75,25 @@ public class BackSquatMiniGameUI : MonoBehaviour
 
     public void EndMiniGame()
     {
-        _miniGameUI.SetActive(false);
+        if (_count >= _maxCount)
+        {
+            startAmount.value += 1;
+            _ScheduleText.color = Color.gray;
+            _ScheduleText.fontStyle = FontStyles.Strikethrough;
+        }
+
         _playerAnimator.runtimeAnimatorController = _animPlayerController;
+
         _player.transform.position = _originPlayerPosition;
+        _player.transform.rotation = _originPlayerQuaternion;
         _gymObject.transform.position = _originObjPosition;
+
         StopAllCoroutines();
+
+        _miniGameUI.SetActive(false);
         _backSquatCamera.SetActive(false);
+
+        _player.GetComponent<PlayerInput>().enabled = true;
     }
 
     public void OnHitGauge(InputAction.CallbackContext context)
@@ -79,7 +109,6 @@ public class BackSquatMiniGameUI : MonoBehaviour
                 {
                     StartCoroutine(FailHitCO());
                 }
-
             }
     }
 
@@ -87,6 +116,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.green;
+        _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
         _count += 1;
         if (_count >= _maxCount)
@@ -186,7 +216,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
 
                 _gaugeImage.fillAmount = (float)_gaugeAmount * 0.01f;
 
-                yield return new WaitForSecondsRealtime(0.002f);
+                yield return new WaitForSecondsRealtime(Time.deltaTime);
             }
             yield return null;
         }

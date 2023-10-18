@@ -19,6 +19,7 @@ public class PlannerClickEvent : MonoBehaviour
                 {
                     if (_uiPlanner == null) _uiPlanner = UIManager.Instance.GetUIComponent<UI_Planner>();
                     _uiPlanner.OpenUI();
+                    SoundManager.Instance.Play("MainScene/DiaryEffect");
                 }
             }
         }
