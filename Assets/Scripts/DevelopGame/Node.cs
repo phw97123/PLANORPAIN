@@ -6,6 +6,7 @@ public class Node : MonoBehaviour
 {
     private const int INACTIVE = 0;
     private const int ACTIVE = 1;
+    private const int POPUP_FONT_SIZE = 80;
 
     [SerializeField] private bool _isActive;
     [SerializeField] private Material[] matList;
@@ -32,8 +33,7 @@ public class Node : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !_isActive)
         {
-            _uiPopup.ShowPopup(name, Strings.PopupButtons.CONFIRM_ACTIVE, Strings.PopupButtons.CANCEL, () => SearchThisNode(), null);
-            _uiPopup.SetContentFontSize(80);
+            _uiPopup.ShowPopup(name, Strings.PopupButtons.CONFIRM_ACTIVE, Strings.PopupButtons.CANCEL, () => SearchThisNode(), null, POPUP_FONT_SIZE);
         }
     }
 
