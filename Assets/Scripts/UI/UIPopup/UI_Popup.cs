@@ -145,6 +145,7 @@ public class UI_Popup : UI_BasePopup
         if (buttonType == PopupButtonType.CONFIRM) callbackConfirm?.Invoke();
         else if (buttonType == PopupButtonType.CANCEL) callbackCancel?.Invoke();
         else if (buttonType == PopupButtonType.OK) callbackOk?.Invoke();
+        SoundManager.Instance.Play("UI/BTN_click");
         CloseUI();
     }
 
