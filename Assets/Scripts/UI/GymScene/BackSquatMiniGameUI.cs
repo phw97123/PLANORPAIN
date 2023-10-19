@@ -83,7 +83,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _ScheduleText.color = Color.gray;
         _ScheduleText.fontStyle = FontStyles.Strikethrough;
 
-        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerTreadmilAnimatorController") as RuntimeAnimatorController;
+        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerAnimatorController") as RuntimeAnimatorController;
 
         _player.transform.position = _originPlayerPosition;
         _player.transform.rotation = _originPlayerQuaternion;
