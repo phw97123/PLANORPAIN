@@ -32,9 +32,9 @@ public class InteractGymMinigame : MonoBehaviour
         _outline.OutlineWidth = 0f;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             if (!_isInteract)
             {
@@ -47,12 +47,36 @@ public class InteractGymMinigame : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             _outline.OutlineWidth = 0f;
             _miniGameUI.isInterct = false;
         }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        if (!_isInteract)
+    //        {
+    //            if (_coroutine != null)
+    //                StopCoroutine(_coroutine);
+    //            _coroutine = StartCoroutine(BlinkOutlingCO());
+    //            _miniGameUI.isInterct = true;
+    //            _miniGameUI.selector = _miniGameSelect;
+    //        }
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        _outline.OutlineWidth = 0f;
+    //        _miniGameUI.isInterct = false;
+    //    }
+    //}
 }

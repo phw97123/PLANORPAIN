@@ -9,6 +9,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
     [SerializeField] private GymMiniGameUI _miniGameUI;
     private Outline _outline;
     private int _selector = -1;
+    private bool _isInteract = false;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
         _outline.OutlineWidth = 6f;
     }
 
-    public void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.collider.CompareTag("Player")){
             _outline.OutlineWidth = 6f;
@@ -30,7 +31,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
         }
     }
 
-    public void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -42,10 +43,14 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+        if (!_isInteract)
+        {
+            UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
 
-        int value = _starAmount.value <= 3 ? _starAmount.value : 3;
-        endPopup.SetScore(value);
-        endPopup.ShowPopup();
+            int value = _starAmount.value <= 3 ? _starAmount.value : 3;
+            endPopup.SetScore(value);
+            endPopup.ShowPopup();
+            _isInteract = true;
+        }
     }
 }
