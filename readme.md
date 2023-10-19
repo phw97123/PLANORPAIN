@@ -386,4 +386,42 @@ public class UI_Popup : UI_BasePopup
 <br>
 <br>
 
+## 플레이어 구현
 
+### New Input System 활용.
+
+<br>
+
+![image](https://github.com/phw97123/PLANORPAIN/assets/141595995/580d5c85-5c4b-47ef-8408-d22b894b1d20)
+
+<br>
+
+* 지정한 버튼이 눌린다면, 눌린 형태 (Performed, Canceled, started) 까지 이벤트에 대한 콜백 함수로 사용하요 지정한 동작 수행.
+
+* 각 게임 별로 동일한 플레이어를 사용하고 있고, 게임마다 필요한 Input System 이 다른 것은, 필요한 모든 이벤트를 저장한 후, 씬 별로 선택적으로 액션을 적용하여 구현함.
+
+<br>
+
+```c#
+// Player.cs
+
+    public void EnableActions(params InputActions[] actionNames)
+    {
+        Input.OnDisable(); 
+        foreach (InputActions actionName in actionNames)
+        {
+            InputAction action = Input.InputActions.FindAction(actionName.ToString());
+            if (action != null)
+                action.Enable();
+            else
+                Debug.LogError($"{action} 는 존재하지 않습니다."); 
+        }
+    }
+```
+
+### FSM 활용.
+
+<br>
+
+* FSM 을 활용하여, 플레이어의 각 State를 정의하고, State 별 전환 조건을 충족시킬 때마다, State를 전환시킴.
+* State 별 전환 및 정보를 관리하는 [PlayerStateMachine.cs](https://github.com/phw97123/PLANORPAIN/blob/1b917e6e680dfec71a4def9ba1e69c1268d531a9/Assets/Scripts/Character/Player/StateMachines/PlayerStateMachine.cs#L3) 과 애니메이션 해시 정보를 관리하는 [PlayerAnimationData.cs](https://github.com/phw97123/PLANORPAIN/blob/1b917e6e680dfec71a4def9ba1e69c1268d531a9/Assets/Scripts/Character/Player/PlayerAnimationData.cs#L5) 를 통해 각 State 별 필요한 물리적 움직임과 애니메이션(애니메이터 파라미터 조절)을 불러옴.
