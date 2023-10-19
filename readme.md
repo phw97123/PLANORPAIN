@@ -22,6 +22,24 @@
 <br>
 <br>
 
+#### EndingScene
+
+<br>
+
+* 진행한 미니게임의 점수(별)을 합산해, 별에 개수에 맞는 Ending Playable Director을 보여줌.
+
+* GoodEnding과 BadEnding 2가지 엔딩이 존재
+
+<br>
+
+|기능|기능 설명|스크립트|메서드|
+|:---:|:---|:---:|:---:|
+|씬 스크립트|UI와 EndingSceneController를 가져와 씬을 시작한다.|[EndingScene.cs](https://github.com/phw97123/PLANORPAIN/blob/91c32455c0e882c34a7b0bd4a65af0614edfca9d/Assets/Scripts/Scene/EndingScene.cs#L1)||
+|엔딩 씬 결정|미니게임에서 얻은 점수를 기준으로 BadEnding, GoodEnding을 정하고, 맞는 Playable Director을 재생한다.|[EndingSceneController.cs](https://github.com/phw97123/PLANORPAIN/blob/d2d6de46338e9d2a2665a3be7e698ec0d883c94a/Assets/Scripts/Scene/EndingSceneController.cs#L6)||
+
+<br>
+<br>
+
 ### 미니게임
 #### CleaningGameScene
 <br>
