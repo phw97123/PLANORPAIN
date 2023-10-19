@@ -116,8 +116,12 @@ public class BackSquatMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.green;
+
         _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
+
+        SoundManager.Instance.Play("OutdoorGame/BackSquat_01",AudioType.EFFECT, 0.2f);
+
         _count += 1;
         if (_count >= _maxCount)
             _countText.color = Color.green;
@@ -143,7 +147,10 @@ public class BackSquatMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.red;
+
         _playerAnimator.SetTrigger("Fail");
+
+        SoundManager.Instance.Play("OutdoorGame/Fail", AudioType.EFFECT, 0.5f);
 
         yield return new WaitForSecondsRealtime(_failDelayTime);
 

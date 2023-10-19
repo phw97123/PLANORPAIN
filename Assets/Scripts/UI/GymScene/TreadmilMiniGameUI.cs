@@ -114,8 +114,12 @@ public class TreadmilMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.green;
+
         _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
+
+        SoundManager.Instance.Play("OutdoorGame/Treadmil_Step");
+
         _blendValue += 0.1f;
         _playerAnimator.SetFloat("Blend", _blendValue);
 
@@ -149,7 +153,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.red;
+
         _playerAnimator.SetTrigger("Fail");
+
+        SoundManager.Instance.Play("OutdoorGame/Fail");
 
         StartCoroutine(ToastExpressionTextCO("Bad!", Color.red));
 
