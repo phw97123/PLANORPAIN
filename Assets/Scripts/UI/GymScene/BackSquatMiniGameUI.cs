@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
     [SerializeField] private GameObject _gymObject;
     [SerializeField] private GameObject _backSquatCamera;
     [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Animator _npcAnimator;
     [SerializeField] private AnimatorController _animPlayerController;
     [SerializeField] private AnimatorController _animBackSquartController;
     [SerializeField] private Image _gaugeImage;
@@ -157,6 +159,8 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _SpaceText.color = _red;
 
         _playerAnimator.SetTrigger("Fail");
+        _npcAnimator.ResetTrigger("LookOver");
+        _npcAnimator.SetTrigger("LookOver");
 
         SoundManager.Instance.Play("OutdoorGame/Fail", AudioType.EFFECT, 0.5f);
 

@@ -12,9 +12,11 @@ public class TreadmilMiniGameUI : MonoBehaviour
 
     [SerializeField] private GameObject _miniGameUI;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _npc;
     [SerializeField] private GameObject _gymObject;
     [SerializeField] private GameObject _treadmilCamera;
     [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Animator _npcAnimator;
     [SerializeField] private AnimatorController _animPlayerController;
     [SerializeField] private AnimatorController _animTreadmilController;
     [SerializeField] private Image _dropBarImage;
@@ -28,6 +30,7 @@ public class TreadmilMiniGameUI : MonoBehaviour
 
     private Vector3 _originPlayerPosition;
     private Quaternion _originPlayerQuaternion;
+    private Vector3 _originNPCPosition;
     private Vector3 _originDropBarPos;
     private int _timeCount = 60;
     private int _score = 0;
@@ -67,6 +70,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _treadmilCamera.SetActive(true);
         _miniGameUI.SetActive(true);
 
+        _npcAnimator.SetBool("Run", true);
+        _originNPCPosition = _npc.transform.position;
+        _npc.transform.position = new Vector3(_gymObject.transform.position.x - 2.8f, 0.2f, _gymObject.transform.position.z + 0.5f);
+
         _playerAnimator.runtimeAnimatorController = _animTreadmilController;
 
         _originPlayerPosition = _player.transform.position;
@@ -84,6 +91,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
 
         _ScheduleText.color = Color.gray;
         _ScheduleText.fontStyle = FontStyles.Strikethrough;
+
+        _npcAnimator.ResetTrigger("LookOver");
+        _npcAnimator.SetBool("Run", false);
+        _npc.transform.position = _originNPCPosition;
 
         _playerAnimator.runtimeAnimatorController = _animPlayerController;
 
@@ -163,6 +174,8 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _SpaceText.color = _red;   // red
 
         _playerAnimator.SetTrigger("Fail");
+        _npcAnimator.ResetTrigger("LookOver");
+        _npcAnimator.SetTrigger("LookOver");
 
         SoundManager.Instance.Stop();
         SoundManager.Instance.Play("OutdoorGame/Fail");
