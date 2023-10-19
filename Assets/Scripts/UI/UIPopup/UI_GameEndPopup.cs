@@ -38,6 +38,15 @@ public class UI_GameEndPopup : UI_BasePopup
         {
             _filledStars[i].SetActive(true);
         }
+        SoundManager.Instance.Stop();
+        if (score > 0)
+        {
+            SoundManager.Instance.Play("UI/EndPopup");
+        }
+        else
+        {
+            SoundManager.Instance.Play("UI/FailPopup");
+        }
         GameManager.Instance.CurStar = score;
     }
 
