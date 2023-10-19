@@ -198,6 +198,27 @@
 <br>
 <br>
 
+### 씬별 UI
+<br>
+
+* 각 씬별로 필요한 정보 (ex. 남은 시간, 현재 점수 ... etc)를 메서드로 구현한다.
+* 각 씬별 UI는 상단의 "씬 별 설명" 의 인게임 UI 항목 참고.
+
+
+<br>
+
+|씬|UI|
+|:---:|:---:|
+|StartScene|[UI_StartScene.cs](https://github.com/phw97123/PLANORPAIN/blob/3b0c67266bb23924d410f3549811b2336bfdf7de/Assets/Scripts/UI/Scene/UI_StartScene.cs#L4)|
+|MainScene|[UI_MainScene.cs](https://github.com/phw97123/PLANORPAIN/blob/3b0c67266bb23924d410f3549811b2336bfdf7de/Assets/Scripts/UI/Scene/UI_MainScene.cs#L5)|
+|CleaningGameScene|[CleaningGameSceneUI.cs](https://github.com/phw97123/PLANORPAIN/blob/fedb8d0b27f8c3fc22113b649f987d68872caf0a/Assets/Scripts/UI/Scene/CleaningGameScene/CleaningGameSceneUI.cs#L8)|
+|DevelopGameScene|[UI_DevelopGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/3b0c67266bb23924d410f3549811b2336bfdf7de/Assets/Scripts/UI/Scene/UI_DevelopGameScene.cs#L5)|
+|ConvenienceGameScene|[ConvenienceUI.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L7)|
+|DodgeGameScene|[UI_DodgeGameScene](https://github.com/phw97123/PLANORPAIN/blob/3b0c67266bb23924d410f3549811b2336bfdf7de/Assets/Scripts/UI/Scene/DodgeGameScene/UI_DodgeGameScene.cs#L5)|
+
+<br>
+<br>
+
 ### UI_basePopup
 
 <br>
@@ -286,3 +307,9 @@ public class UI_Popup : UI_BasePopup
 |팝업 닫기|[ClosePopup()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L140)|버튼을 클릭할 시, 각 버튼에 연결되어 있는 콜백 메서드를 실행하고, 열려있는 팝업을 닫는다.|
 |팝업 지연 닫기|[CloseUIWithDelay()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L149)|1초 뒤에 UI를 닫는다.|
 |팝업 크기 및 텍스트 위치 조절|[SetPopupAttributes](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L156)|파라미터로 받는 팝업 버튼의 종류에 따라, 버튼 크기와 텍스트 위치를 지정한다.|
+
+<br>
+<br>
+
+## Manager 구성
+
