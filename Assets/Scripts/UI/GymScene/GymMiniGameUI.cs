@@ -14,6 +14,7 @@ public class GymMiniGameUI : MonoBehaviour
     public int selector = 0;
     public bool isInterct = false;
 
+    private InteractGymMinigame _interactGymMinigame;
     private Vector3 _originPlayerPosition;
     private bool _isPlayBackSquat = false;
     private bool _isPlayTreadmil = false;
@@ -52,11 +53,15 @@ public class GymMiniGameUI : MonoBehaviour
                         if (!_isPlayBackSquat)
                             _bsGameUI.StartMiniGame();
                         _isPlayBackSquat = true;
+                        _interactGymMinigame?.SetInteract(true);
+                        _interactGymMinigame?.SetOutlineWidth(0f);
                         break;
                     case 2:
                         if (!_isPlayTreadmil)
                             _tmGameUI.StartMiniGame();
                         _isPlayTreadmil = true;
+                        _interactGymMinigame?.SetInteract(true);
+                        _interactGymMinigame?.SetOutlineWidth(0f);
                         break;
                     case -1:
                         if (_isPlayBackSquat && _isPlayTreadmil)
@@ -89,4 +94,8 @@ public class GymMiniGameUI : MonoBehaviour
             _player.transform.position = _originPlayerPosition;
     }
 
+    public void SetInteractGymMinigame(InteractGymMinigame interactGymMinigame)
+    {
+        _interactGymMinigame = interactGymMinigame;
+    }
 }
