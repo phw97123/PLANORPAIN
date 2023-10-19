@@ -10,7 +10,7 @@ public class StartScene : BaseScene
 
         SceneType = Scenes.StartScene;
         UIManager.Instance.GetUIComponent<UI_StartScene>();
-
+        SoundManager.Instance.Play("StartScene/StartSceneBGM", AudioType.BGM);
         return true;
     }
 
