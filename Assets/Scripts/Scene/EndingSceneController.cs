@@ -12,16 +12,33 @@ public class EndingSceneController : MonoBehaviour
 
     [SerializeField] private Volume volume;
     private DepthOfField _depthOfField;
+    private SoundManager _soundManager;
 
-    private bool _isGoodEnding = true;
+    private bool _isGoodEnding;
 
+    private void Awake()
+    {
+        _soundManager = SoundManager.Instance;
+    }
 
     private void Start()
     {
         goodEndingDirector.stopped += OnTimelineFinished;
         badEndingDirector.stopped += OnTimelineFinished;
-        if (!_isGoodEnding) goodEndingDirector.gameObject.SetActive(false);
-        else badEndingDirector.gameObject.SetActive(false);
+
+        _isGoodEnding = GameManager.Instance.IsGoodEnding;
+
+        _soundManager.Stop();
+        if (_isGoodEnding)
+        {
+            goodEndingDirector.gameObject.SetActive(true);
+            _soundManager.Play("Ending/GoodEndingBGM");
+        }
+        else
+        {
+            badEndingDirector.gameObject.SetActive(true);
+            _soundManager.Play("Ending/BadEndingBGM");
+        }
     }
 
     private void OnTimelineFinished(PlayableDirector director)

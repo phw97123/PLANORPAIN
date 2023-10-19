@@ -11,12 +11,14 @@ public class UI_Planner : UIBase
     [SerializeField] private Image[] grayMasks; //꼭 월~금 순서대로 넣기
     [SerializeField] private RectTransform backGround;
     [SerializeField] private RectTransform gameIconPosition;
+    [SerializeField] private Button EndingButton;
     private GameManager _gameManager;
     private RectTransform[] _gameIcons;
 
     private void Awake()
     {
         _gameManager = GameManager.Instance;
+        EndingButton.onClick.AddListener(GameManager.Instance.LoadEndingScene);
     }
 
     private void OnEnable()
@@ -31,6 +33,8 @@ public class UI_Planner : UIBase
         LoadGameSlots();
 
         LoadGameIcons();
+
+        if(_gameManager.CurDay == Day.Saturday) EndingButton.gameObject.SetActive(true);
     }
 
     private void ChangeAlphaGrayMask()
