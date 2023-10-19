@@ -40,6 +40,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
     private bool _isHit = true;
     private Color _originSpaceTextColor;
 
+    private Color32 _red = new Color32(245, 80, 80, 255);
+    private Color32 _green = new Color32(182, 217, 136, 255);
+    private Color32 _blue = new Color32(92, 210, 230, 255);
+
     private void Start()
     {
         _hitPointImagePosY = _hitPointImage.transform.position.y;
@@ -117,7 +121,7 @@ public class TreadmilMiniGameUI : MonoBehaviour
     IEnumerator SuccessHitCO()
     {
         _isHit = true;
-        _SpaceText.color = Color.green;
+        _SpaceText.color = _green; // green
 
         _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
@@ -129,18 +133,18 @@ public class TreadmilMiniGameUI : MonoBehaviour
 
         if (_hitPointImagePosY - 0.003f < _dropBarImage.transform.position.y && _dropBarImage.transform.position.y < _hitPointImagePosY + 0.003f)
         {
-            StartCoroutine(ToastExpressionTextCO("Perfect!", Color.blue));
+            StartCoroutine(ToastExpressionTextCO("Perfect!", _blue));  // blue
             _score += 100;
         }
         else
         {
-            StartCoroutine(ToastExpressionTextCO("Good!", Color.green));
+            StartCoroutine(ToastExpressionTextCO("Good!", _green));    // green
             _score += 50;
         }
 
         if (_score >= _maxScore)
         {
-            _scoreText.color = Color.green;
+            _scoreText.color = _green; // green
         }
 
         _scoreText.text = $"{_score} / {_maxScore}";
@@ -156,14 +160,14 @@ public class TreadmilMiniGameUI : MonoBehaviour
     IEnumerator FailHitCO()
     {
         _isHit = true;
-        _SpaceText.color = Color.red;
+        _SpaceText.color = _red;   // red
 
         _playerAnimator.SetTrigger("Fail");
 
         SoundManager.Instance.Stop();
         SoundManager.Instance.Play("OutdoorGame/Fail");
 
-        StartCoroutine(ToastExpressionTextCO("Bad!", Color.red));
+        StartCoroutine(ToastExpressionTextCO("Bad!", _red));   // red
 
         yield return new WaitForSecondsRealtime(_failDelayTime);
 

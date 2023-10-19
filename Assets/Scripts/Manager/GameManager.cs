@@ -21,11 +21,11 @@ public class GameManager : Singleton<GameManager>
     public bool IsGoodEnding { get; private set; }
     public bool gameEnd {  get; private set; }
     private string[] _gameIconPath = { 
-        Strings.Sprites.CLEANING_GAME_THUMBNAIL,
-        Strings.Sprites.WORKING_GAME_THUMBNAIL,
-        Strings.Sprites.DEVELOP_GAME_THUMBNAIL,
-        Strings.Sprites.PLAY_GAME_THUMBNAIL,
-        Strings.Sprites.OUTING_GAME_THUMBNAIL,
+        Strings.Sprites.CLEANING_GAME_ICON_IMAGE,
+        Strings.Sprites.WORKING_GAME_ICON_IMAGE,
+        Strings.Sprites.DEVELOP_GAME_ICON_IMAGE,
+        Strings.Sprites.PLAY_GAME_ICON_IMAGE,
+        Strings.Sprites.OUTING_GAME_ICON_IMAGE,
     };
 
     // 미니 게임 매니저 호출 시 사용

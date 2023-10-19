@@ -64,7 +64,7 @@ public class UI_Planner : UIBase
             curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
             PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
-            slot.GameImage.sprite = ResourceManager.Instance.LoadSprite($"{gamePair.Value}Image"); 
+            slot.GameImage.sprite = ResourceManager.Instance.LoadSprite($"{gamePair.Value}_thumbnail"); 
             slot.IsDestoryed = false;
             slot.enabled = false;
             for(int i = 0; i < 3; i++)
