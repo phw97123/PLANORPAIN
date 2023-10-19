@@ -202,7 +202,7 @@
 <br>
 
 * 각 씬별로 필요한 정보 (ex. 남은 시간, 현재 점수 ... etc)를 메서드로 구현한다.
-* 각 씬별 UI는 상단의 "씬 별 설명" 의 인게임 UI 항목 참고.
+* 각 씬별 UI는 상단의 "씬 별 설명" 의 인게임 UI 항목 참고 혹은 하단 표 참고.
 
 
 <br>
@@ -313,3 +313,25 @@ public class UI_Popup : UI_BasePopup
 
 ## Manager 구성
 
+### [GameManager](https://github.com/phw97123/PLANORPAIN/blob/98a33ae535c8fb95d9a486ea815b17bae9e04288/Assets/Scripts/Manager/GameManager.cs#L7)
+<br>
+
+* 각 미니 게임들을 관리하는 미니 게임 매니저들을 Dictionary로 관리한다.
+* 각 미니 게임의 플레이 여부와 엔딩 여부를 관리한다.
+* 각 미니 게임간 Scene을 로드한다.
+
+|필드값|기능 설명|
+|:---:|:---|
+|CurDay|현재 요일을 결정한다.|
+|GameSceneDB|모든 씬의 이름을 요소로 가지고 있는 배열.|
+|CurGame|현재 플레이하고 있는 씬.|
+|RemainingGames|아직 플레이 하지 않은 미니게임 씬을 key 값, 해당 미니게임의 아이콘 이미지 스프라이트의 이름을 value 값으로 가지고 있는 딕셔너리.|
+|UsingGames|플레이한 미니게임 씬을 key 값, 해당 미니게임의 아이콘 이미지 스프라이트의 이름을 value 값으로 가지고 있는 딕셔너리.|
+|GameStars|플레이 결과 (3점 만점) 에서 각 1점씩을 요소(1점 혹은 0점)로 하는 리스트.|
+|CurStar|가장 최근에 플레이한 미니게임의 플레이 결과를 나타낸 int.|
+|IsGoodEnding|GoodEnding 여부를 판단하는 bool.|
+|gameEnd|모든 미니게임을 플레이해 엔딩씬으로 넘어가는지 여부를 판단하는 bool.|
+|_gameIconPath|각 미니게임의 아이콘 이미지 스프라이트의 이름을 요소로 가진 배열|
+
+
+<br>
