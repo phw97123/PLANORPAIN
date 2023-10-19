@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -16,8 +15,6 @@ public class BackSquatMiniGameUI : MonoBehaviour
     [SerializeField] private GameObject _backSquatCamera;
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Animator _npcAnimator;
-    [SerializeField] private AnimatorController _animPlayerController;
-    [SerializeField] private AnimatorController _animBackSquartController;
     [SerializeField] private Image _gaugeImage;
     [SerializeField] private Image _hitPointImage;
     [SerializeField] private TMP_Text _timeText;
@@ -66,7 +63,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _backSquatCamera.SetActive(true);
         _miniGameUI.SetActive(true);
 
-        _playerAnimator.runtimeAnimatorController = _animBackSquartController;
+        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerBackSquartAnimatorController") as RuntimeAnimatorController;
 
         _originPlayerPosition = _player.transform.position;
         _originPlayerQuaternion = _player.transform.rotation;
@@ -86,7 +83,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _ScheduleText.color = Color.gray;
         _ScheduleText.fontStyle = FontStyles.Strikethrough;
 
-        _playerAnimator.runtimeAnimatorController = _animPlayerController;
+        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerTreadmilAnimatorController") as RuntimeAnimatorController;
 
         _player.transform.position = _originPlayerPosition;
         _player.transform.rotation = _originPlayerQuaternion;
