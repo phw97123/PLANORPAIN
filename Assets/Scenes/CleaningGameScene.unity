@@ -996,6 +996,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &900652689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8006173874062619180, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+    type: 3}
+  m_PrefabInstance: {fileID: 963902868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &900652691
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900652689}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.5, z: 0.1}
 --- !u!1001 &963902868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1873,6 +1900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.99436086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309486305704226078, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4401641203215284691, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
@@ -2939,14 +2971,23 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.09735831
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5255562364960245813, guid: 60b93a9290ea3f544ac16d4e9a27ec34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4401641203215284691, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 294048667}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5725718048464533007, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2029947573}
+    - targetCorrespondingSourceObject: {fileID: 8006173874062619180, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 900652691}
   m_SourcePrefab: {fileID: 100100000, guid: 60b93a9290ea3f544ac16d4e9a27ec34, type: 3}
 --- !u!1 &1012164824
 GameObject:
@@ -3496,7 +3537,7 @@ PrefabInstance:
     - target: {fileID: 1540145840196085742, guid: 8b8607b2f3fcd0b48a11d670554756a6,
         type: 3}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1540145840196085742, guid: 8b8607b2f3fcd0b48a11d670554756a6,
         type: 3}
@@ -3506,7 +3547,7 @@ PrefabInstance:
     - target: {fileID: 1540145840196085742, guid: 8b8607b2f3fcd0b48a11d670554756a6,
         type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2283101422298223245, guid: 8b8607b2f3fcd0b48a11d670554756a6,
         type: 3}
@@ -4237,6 +4278,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029947568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5725718048464533007, guid: 60b93a9290ea3f544ac16d4e9a27ec34,
+    type: 3}
+  m_PrefabInstance: {fileID: 963902868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2029947573
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029947568}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &2064782577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107397978332058583, guid: 8b8607b2f3fcd0b48a11d670554756a6,
