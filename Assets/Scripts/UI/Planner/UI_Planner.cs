@@ -34,7 +34,7 @@ public class UI_Planner : UIBase
 
         LoadGameIcons();
 
-        if(_gameManager.CurDay == Day.Saturday) EndingButton.gameObject.SetActive(true);
+        if(_gameManager.gameEnd) EndingButton.gameObject.SetActive(true);
     }
 
     private void ChangeAlphaGrayMask()
