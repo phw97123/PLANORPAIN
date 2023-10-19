@@ -110,9 +110,25 @@
 |자동차 이동 구현(1)|지정한 InputSystem에서 전해주는 방향벡터를 토대로 자동차 이동을 구현한다.|VehicleController.cs|[OnDriveInput()](https://github.com/phw97123/PLANORPAIN/blob/a78b21f9eed1517319b7a7a88ae51b152bc11943/Assets/Scripts/OutdoorGame/Vehicle/VehicleController.cs#L82)|
 |자동차 이동 구현(2)|자동차 바퀴들과 Wheel Collider들 각 4개의 transform.position을 동일하게 맞추고, Wheel Collider로 움직임과 방향을 조정한다.|VehicleController.cs|[Move()](https://github.com/phw97123/PLANORPAIN/blob/a78b21f9eed1517319b7a7a88ae51b152bc11943/Assets/Scripts/OutdoorGame/Vehicle/VehicleController.cs#L49)|
 |자동차 위치 조정|자동차가 뒤집혔을 때, 처음의 위치로 자동차를 다시 구현한다.|VehicleController.cs|[OnRespawn()](https://github.com/phw97123/PLANORPAIN/blob/a78b21f9eed1517319b7a7a88ae51b152bc11943/Assets/Scripts/OutdoorGame/Vehicle/VehicleController.cs#L102C17-L102C26)|
-|gym 이동|화면에서 지정한 Interact Point 에서, 지정한 버튼을 눌렀을 때, gymScene으로 이동할 수 있음을 보여주는 물어보는 UI를 표시한다.|[InteractGymPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/255cf515581694d3b87f8771bf5544f5e98cb8e7/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L5)||
-|gym 이동(2)|지정한 버튼을 눌렀을 때, 1초 뒤에 gymScene으로 이동한다.|InteractGymPoint.cs|[LoadSceneCO()](https://github.com/phw97123/PLANORPAIN/blob/fbd513b01adc83150c54b2543b14014e162244b4/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L39)|
+|gym 이동|화면에서 지정한 Interact Point 에서, 지정한 버튼을 눌렀을 때, gymScene으로 이동할 수 있음을 보여주는 UI를 표시한다.|[InteractGymPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/255cf515581694d3b87f8771bf5544f5e98cb8e7/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L5)||
+|gym 이동(2)|지정한 버튼을 눌렀을 때, 1초 뒤에 gymScene을 로드한다.|InteractGymPoint.cs|[LoadSceneCO()](https://github.com/phw97123/PLANORPAIN/blob/fbd513b01adc83150c54b2543b14014e162244b4/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L39)|
 
 #### 2. GymScene
 |기능|기능 설명|스크립트|메서드|
 |:---:|:---|:---:|:---:|
+|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[GymScene.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/Scene/GymScene.cs#L3)||
+|오브젝트 접촉|오브젝트와 접촉하여 특정 미니게임 UI를 불러온다.|[InteractGymMinigame.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L4)||
+|오브젝트 표시 (1)|미니게임 UI와 연결된 오브젝트를 주황색 outline으로 강조한다.|[Outline.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Externals/QuickOutline/Scripts/Outline.cs#L16)||
+|오브젝트 표시 (2)|미니게임 UI와 연결된 오브젝트를 주황색 outline으로 강조하고, outline의 크기를 변화시킨다.|InteractGymMinigame.cs|[BlinkOutlingCO](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L22)|
+|오브젝트 상호작용|미니게임 UI와 연결된 오브젝트와 상호작용하여 미니게임을 시작한다.|InteractGymMinigame.cs|[OnCollisionStay()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L31)|
+|러닝머신 미니게임 UI|러닝머신 미니게임을 관리 및 진행하는 UI.<br> 성공여부, 실패여부, 남은 시간, 요구 횟수 등을 표시한다.|[TreadmilMiniGameUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L8)||
+|힛 바 적용(1)|미니게임의 힛 바를 space로 고정했을 때, 실패 혹은 성공여부를 판단한다.|TreadmilMiniGameUI.cs|[OnHitBar()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L114C17-L114C25)|
+|힛 바 적용(2)|미니게임의 힛 바 움직임을 구현한다.|TreadmilMiniGameUI.cs|[DropBarImageChangeCO()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L235)|
+|성공, 실패 적용|게임의 진행에 따라 성공과 실패했을 때의 상황을 구현한다.|TreadmilMiniGameUI.cs|[SuccessHitCO()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L131)<br>[FailHitCO()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L170C17-L170C28)|
+|스쿼트 미니게임 UI|백스쿼트 미니게임을 관리 및 진행하는 UI.<br> 성공여부, 실패여부, 남은 시간, 요구 횟수 등을 표시한다.|[BackSquatMiniGameUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/BackSquatMiniGameUI.cs#L8C14-L8C34)||
+|현재 점수 반영 UI|화면 우측 상단에 해야할 일을 마칠 때마다, 별 이미지의 개수로써 현재 점수를 표시한다.|[StarUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/StarUI.cs#L3)||
+|출입구 표시|모든 미니게임을 마친 후, 나가는 문을 강조한다.<br>나가는 문과 상호작용 시, 게임이 끝나고, End Popup을 표시한다.|[InteractGymToOutPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymToOutPoint.cs#L3)||
+
+
+<br>
+<br>
