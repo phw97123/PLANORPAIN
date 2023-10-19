@@ -40,6 +40,10 @@ public class BackSquatMiniGameUI : MonoBehaviour
     private bool _isHit = true;
     private Color _originSpaceTextColor;
 
+    private Color32 _red = new Color32(245, 80, 80, 255);
+    private Color32 _green = new Color32(182, 217, 136, 255);
+    private Color32 _blue = new Color32(92, 210, 230, 255);
+
     private void Start()
     {
         _originObjPosition = _gymObject.transform.position;
@@ -119,7 +123,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
     IEnumerator SuccessHitCO()
     {
         _isHit = true;
-        _SpaceText.color = Color.green;
+        _SpaceText.color = _green;
 
         _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
@@ -128,7 +132,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
 
         _count += 1;
         if (_count >= _maxCount)
-            _countText.color = Color.green;
+            _countText.color = _green;
 
         _countText.text = $"{_count} / {_maxCount}";
 
@@ -150,7 +154,7 @@ public class BackSquatMiniGameUI : MonoBehaviour
     IEnumerator FailHitCO()
     {
         _isHit = true;
-        _SpaceText.color = Color.red;
+        _SpaceText.color = _red;
 
         _playerAnimator.SetTrigger("Fail");
 

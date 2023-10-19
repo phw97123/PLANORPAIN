@@ -25,10 +25,18 @@ public class Strings
 
     public class Sprites
     {
+        // 게임 썸네일
+        public const string CLEANING_GAME_ICON_IMAGE = "Planner/cleaning_game";
+        public const string WORKING_GAME_ICON_IMAGE = "Planner/work_game";
+        public const string DEVELOP_GAME_ICON_IMAGE = "Planner/develop_game";
+        public const string PLAY_GAME_ICON_IMAGE = "Planner/play_game";
+        public const string OUTING_GAME_ICON_IMAGE = "Planner/outing_game";
+
+        // 로딩 씬 이미지
         public const string LOADING_CLEANING_IMAGE = "LoadingScene/loading_cleaning";
         public const string LOADING_WORKING_IMAGE = "LoadingScene/loading_work";
         public const string LOADING_DEVELOP_IMAGE = "LoadingScene/loading_develop";
-        public const string LOADING_GAME_IMAGE = "LoadingScene/loading_game";
+        public const string LOADING_PLAY_IMAGE = "LoadingScene/loading_play";
         public const string LOADING_OUTING_IMAGE = "LoadingScene/loading_outing";
     }
 
