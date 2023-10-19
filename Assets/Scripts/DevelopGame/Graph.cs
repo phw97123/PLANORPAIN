@@ -24,6 +24,7 @@ public class Graph : MonoBehaviour
         if (nodeNum == _searchOrder[_curOrderIdx])
         {
             _curOrderIdx++;
+            _developGameManager.UpdateNodeIcon();
             if (_curOrderIdx == _searchOrder.Length)
             {
                 _developGameManager.GameOver();

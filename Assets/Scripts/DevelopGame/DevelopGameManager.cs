@@ -53,6 +53,12 @@ public class DevelopGameManager : MonoBehaviour
     {
         _tryCount++;
         _uiDevelopGameScene.SetSearchTryCountText(_tryCount);
+        _uiDevelopGameScene.SetDefaultNodeIcons();
+    }
+
+    public void UpdateNodeIcon()
+    {
+        _uiDevelopGameScene.UpdateNodeIcon();
     }
 
     // 게임 종료
