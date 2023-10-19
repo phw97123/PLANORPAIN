@@ -263,6 +263,7 @@ public class UI_BasePopup : UIBase
 * 인 게임 내에서 자주 쓰이는 팝업 정의.
 * content 텍스트 및 버튼 오브젝트들을 GameObject로 저굥한 뒤, InitBind 함수 내에서 해당하는 Button과 TMP_Text를 연결.
 * [const values region](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L15) 에서 팝업 사이즈와 관련된 상수 정의
+* [Global/Strings](https://github.com/phw97123/PLANORPAIN/blob/2be575db0da474bf3578cc580cbb7d1031412e2e/Assets/Scripts/Global/Strings.cs#L9) 에서 정의한 버튼 타입에 따른 텍스트를 부여한다.
 
 <br>
 
@@ -369,8 +370,8 @@ public class UI_Popup : UI_BasePopup
 <br>
 
 * 사운드 소스의 경로를 key값으로, 사운드 clip을 value 값으로 하는 딕셔너리를 통해, 사운드를 관리한다.
-* [AudioType](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L4) 으로 지정한 오디오 클립의 타입에 따라 다른 방식으로 재생하는 메서드를 가지고 있다.
-* 사운드를 정지시키는 메서드를 가지고 있다.
+* [AudioType](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L4) 으로 지정한 오디오 클립의 타입에 따라 다른 방식으로 지정한 audioSource를 재생할 수 있다.
+* audioSource에 상관없이 플레이 중인 사운드를 정지할 수 있다.
 
 <br>
 <br>
