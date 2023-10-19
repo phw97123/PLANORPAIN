@@ -376,4 +376,14 @@ public class UI_Popup : UI_BasePopup
 <br>
 <br>
 
+### [UIManager](https://github.com/phw97123/PLANORPAIN/blob/fd6ccb92c452dc317de6cca4b0cb815ba18ebea5/Assets/Scripts/Manager/UIManager.cs#L5)
+
+<br>
+
+* 특정 UI 컴포넌트를 지닌 프리팹의 경로를 key값으로, UI 컴포넌트를 value값으로 하는 딕셔너리를 통해 UI 컴포넌트를 관리한다.
+* 지정한 경로에서의 프리팹을 Instantiate 한 후, UI 컴포넌트를 가져온다.
+
+<br>
+<br>
+
 
