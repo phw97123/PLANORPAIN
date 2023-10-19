@@ -419,7 +419,14 @@ public class UI_Popup : UI_BasePopup
     }
 ```
 
+<br>
+<br>
+
 ### FSM 활용.
+
+<br>
+
+![image](https://github.com/phw97123/PLANORPAIN/assets/141595995/797db143-13c2-44cf-8888-da2710edffa8)
 
 <br>
 
