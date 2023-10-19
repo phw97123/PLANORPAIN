@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CheckFall : MonoBehaviour
 {
-    [SerializeField] private Transform _playerSpawnPosition;
+    private DevelopGameManager _developGameManager;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(Tags.PLAYER))
         {
-            collision.transform.position = _playerSpawnPosition.position;
+            if (_developGameManager == null) _developGameManager = GameManager.Instance.GetMiniGameManager<DevelopGameManager>();
+            _developGameManager.Respawn();
         }
     }
 }

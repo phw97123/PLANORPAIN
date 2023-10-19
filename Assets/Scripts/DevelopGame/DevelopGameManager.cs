@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 // 개발하기 미니 게임을 관리하는 미니 게임 매니저
 public class DevelopGameManager : MonoBehaviour
 {
-    [SerializeField] private Transform _playerSpawnPosition;
+    private Vector3 _playerSpawnPosition = Vector3.zero;
 
     private int _tryCount = 1;
 
@@ -20,6 +20,9 @@ public class DevelopGameManager : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindWithTag(Tags.PLAYER);
+        _playerSpawnPosition = _player.transform.position;
+
+        _player.GetComponent<Player>().EnableActions(InputActions.Movement, InputActions.Run, InputActions.Jump);
     }
 
     private void Start()
@@ -41,7 +44,8 @@ public class DevelopGameManager : MonoBehaviour
     // 플레이어 리스폰
     public void Respawn()
     {
-        _player.transform.position = _playerSpawnPosition.position;
+        _player.transform.position = _playerSpawnPosition;
+        SoundManager.Instance.Play(Strings.Sounds.DEVELOP_GAME_SEARCH_FAIL, volume: 0.5f);
     }
 
     // 시도 횟수 업데이트

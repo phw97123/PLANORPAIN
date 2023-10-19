@@ -27,6 +27,9 @@ public class Graph : MonoBehaviour
             if (_curOrderIdx == _searchOrder.Length)
             {
                 _developGameManager.GameOver();
+            } else
+            {
+                SoundManager.Instance.Play(Strings.Sounds.DEVELOP_GAME_SEARCH_SUCCESS, volume: 0.7f);
             }
             return true;
         } else

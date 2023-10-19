@@ -13,6 +13,8 @@ public class DevelopGameScene : BaseScene
         // 개발하기 미니 게임 시작 시 미니 게임의 매니저를 GameManager로부터 호출 (프리팹 생성됨)
         GameManager.Instance.GetMiniGameManager<DevelopGameManager>();
 
+        SoundManager.Instance.Play(Strings.Sounds.DEVELOP_GAME_BGM, AudioType.BGM);
+
         return true;
     }
 
