@@ -582,6 +582,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0603
       objectReference: {fileID: 0}
+    - target: {fileID: 8181545838144526824, guid: 06a9ba05acd531548b08d71af610ed71,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8330158959401724834, guid: 06a9ba05acd531548b08d71af610ed71,
         type: 3}
       propertyPath: m_IsActive
@@ -636,7 +641,6 @@ PrefabInstance:
     - {fileID: 813475988560126058, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
     - {fileID: 5881017263700511025, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
     - {fileID: 8346254829244652461, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
-    - {fileID: 8181545838144526824, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
     - {fileID: 7256909765279504099, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
     - {fileID: 237729464571963048, guid: 06a9ba05acd531548b08d71af610ed71, type: 3}
     m_RemovedGameObjects:
@@ -667,10 +671,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 30678457}
-    - targetCorrespondingSourceObject: {fileID: 2115924095176936650, guid: 06a9ba05acd531548b08d71af610ed71,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 527804395}
     - targetCorrespondingSourceObject: {fileID: 8381116249234134928, guid: 06a9ba05acd531548b08d71af610ed71,
         type: 3}
       insertIndex: -1
@@ -1084,33 +1084,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1027129815}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &527804390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2115924095176936650, guid: 06a9ba05acd531548b08d71af610ed71,
-    type: 3}
-  m_PrefabInstance: {fileID: 143811036}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &527804395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527804390}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.82546043, y: 2.689259, z: 1.1439489}
-  m_Center: {x: 0, y: 0, z: 0.00000023841858}
 --- !u!1 &563536642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 427718665466243730, guid: 06a9ba05acd531548b08d71af610ed71,
