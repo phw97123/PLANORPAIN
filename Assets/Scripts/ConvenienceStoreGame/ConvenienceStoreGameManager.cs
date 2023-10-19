@@ -47,6 +47,7 @@ public class ConvenienceStoreGameManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Player.GetComponent<Player>().EnableActions(InputActions.Movement);
         virtualMainCamera.transform.parent = Player.transform;
+        virtualMainCamera.transform.localPosition = new Vector3(0.2f, 1.2f, 0);
 
         _riceBallRenderer = riceBall.GetComponent<Renderer>();
         _riceBallRenderer.enabled = true;
