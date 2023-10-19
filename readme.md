@@ -340,12 +340,16 @@ public class UI_Popup : UI_BasePopup
 
 ### [ResourceManager](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/ResourceManager.cs#L4)
 
+<br>
+
 * 이미지 소스의 경로를 key값으로 이미지 소스 Sprite을 value값으로 하는 딕셔너리를 통해, 리소스를 관리한다.
 
 <br>
 <br>
 
 ### [SceneMangerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
+
+<br>
 
 * 현재 씬과 다음 씬을 토대로, 씬 전환을 관리한다.
 * [Global/Scenes.cs](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Global/Scenes.cs#L1) 에서 씬 타입을 정의하고, 정의한 씬을 호출한다.
@@ -356,6 +360,17 @@ public class UI_Popup : UI_BasePopup
 |:---:|:---|
 |_curSceneType|현재 씬|
 |_nextSceneType|현재 씬이 LoadingScene일 경우 다음에 호출 될 씬|
+
+<br>
+<br>
+
+### [SoundManager](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L10)
+
+<br>
+
+* 사운드 소스의 경로를 key값으로, 사운드 clip을 value 값으로 하는 딕셔너리를 통해, 사운드를 관리한다.
+* [AudioType](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L4) 으로 지정한 오디오 클립의 타입에 따라 다른 방식으로 재생하는 메서드를 가지고 있다.
+* 사운드를 정지시키는 메서드를 가지고 있다.
 
 <br>
 <br>
