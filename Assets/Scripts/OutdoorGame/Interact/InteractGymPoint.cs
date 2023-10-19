@@ -10,6 +10,8 @@ public class InteractGymPoint : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _interactionUI;
     [SerializeField] private TMP_Text _todoListText;
 
+    private bool _isInteract = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Vehicle"))
@@ -28,7 +30,11 @@ public class InteractGymPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        StartCoroutine(LoadSceneCO());
+        if (!_isInteract)
+        {
+            StartCoroutine(LoadSceneCO());
+            _isInteract = true;
+        }
     }
 
     IEnumerator LoadSceneCO()
