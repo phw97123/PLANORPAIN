@@ -25,8 +25,6 @@ public class EndingSceneController : MonoBehaviour
     {
         PlayerInput playerInput = GameObject.FindWithTag(Tags.PLAYER).GetComponent<PlayerInput>();
         playerInput.OnDisable();
-        volume.profile.TryGet(out _depthOfField);
-        _depthOfField.focusDistance.value = 0.1f;
 
         goodEndingDirector.stopped += OnTimelineFinished;
         badEndingDirector.stopped += OnTimelineFinished;
@@ -36,6 +34,8 @@ public class EndingSceneController : MonoBehaviour
         _soundManager.Stop();
         if (_isGoodEnding)
         {
+            volume.profile.TryGet(out _depthOfField);
+            _depthOfField.focusDistance.value = 0.1f;
             goodEndingDirector.gameObject.SetActive(true);
             _soundManager.Play("Ending/GoodEndingBGM");
         }
