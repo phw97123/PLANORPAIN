@@ -182,3 +182,54 @@
 <br>
 
 ## UI 구성
+### UIBase
+<br>
+
+* 모든 UI는 UI_base를 상속받음.
+* 모든 팝업을 상속하는 UI_basePopup 또한 UI_base를 상속받음.
+
+<br>
+
+|메서드|기능 설명|
+|:---:|:---|
+|[OpenUI()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/Parent/UIBase.cs#L5)|연결된 게임오브젝트(UI)를 활성화|
+|[CloseUI()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/Parent/UIBase.cs#L10)|연결된 게임오브젝트(UI)를 비활성화|
+
+<br>
+<br>
+
+### UI_basePopup
+
+<br>
+
+* 모든 팝업은 UI_basePopup을 상속받음.
+* UI_basePopup은 다음의 필드값을 지니고 있음.
+
+<br>
+
+```c#
+public class UI_BasePopup : UIBase
+{
+    [SerializeField] protected Image _popupBackgroundImage;
+    [SerializeField] protected GameObject _contentTextObject;
+
+    protected TMP_Text _contentText;
+
+    protected virtual void Awake()
+    {
+        _contentText = _contentTextObject.GetComponent<TMP_Text>();
+        CloseUI();
+    }
+    //... 생략 ...
+
+```
+
+<br>
+
+|메서드|기능 설명|
+|:---:|:---|
+|[SetPopupAttributesSize()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/UIPopup/UI_BasePopup.cs#L19)|팝업의 크기 및 텍스트 위치 조절|
+|[SetPopupContent()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/UIPopup/UI_BasePopup.cs#L27C20-L27C35)|팝업 내용 텍스트 및 폰트 사이즈 조절|
+
+<br>
+<br>
