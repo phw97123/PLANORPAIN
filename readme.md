@@ -64,5 +64,34 @@
 <br>
 <br>
 
+#### ConvenienceStoreScene
+
+<br>
+
+* 아르바이트를 하던 중, 문득 배가 고파졌다. 점장의 CCTV 감시와, 손님이 눈치채지 못하게 몰래 삼각김밥을 섭취해야하는 게임.
+
+*  점장의 CCTV 감시는 화면상 왼쪽 아래 모니터로 알 수 있다.
+
+*  손님은 또한 눈치챌 수 있는 범위를 지니고 있는데, 이 범위 밖에 있을 때만 삼각김밥을 섭취해야한다.
+
+<br>
+
+|기능|기능 설명|스크립트|메서드|
+|:---:|:---|:---:|:---:|
+|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[ConvenienceStoreScene.cs](https://github.com/phw97123/PLANORPAIN/blob/96057e87d3aebbd939d28d3ec374be5cc21a35ec/Assets/Scripts/Scene/ConvenienceStoreScene.cs#L5)||
+|미니게임 매니저|게임 로직과 Popup UI를 관리한다.|[ConvenienceStoreGameManager.cs](https://github.com/phw97123/PLANORPAIN/blob/96057e87d3aebbd939d28d3ec374be5cc21a35ec/Assets/Scripts/ConvenienceStoreGame/ConvenienceStoreGameManager.cs#L7)||
+|삼각김밥 섭취|삼각김밥을 클릭해서 섭취하고 있을 때, 다른 오브젝트들의 정보를 불러와 상황에 맞는 결과를 불러온다.|ConvenienceStoreGameManager.cs|[CheckClickRiceBall()](https://github.com/phw97123/PLANORPAIN/blob/96057e87d3aebbd939d28d3ec374be5cc21a35ec/Assets/Scripts/ConvenienceStoreGame/ConvenienceStoreGameManager.cs#L77)|
+|삼각김밥 모양 반영|게임 진행 상태를 삼각김밥의 모양으로 표시한다.|ConvenienceStoreGameManager.cs|[ChangeRiceBallModel()](https://github.com/phw97123/PLANORPAIN/blob/96057e87d3aebbd939d28d3ec374be5cc21a35ec/Assets/Scripts/ConvenienceStoreGame/ConvenienceStoreGameManager.cs#L138C18-L138C37)|
+|점수 반영|지정한 조건을 충족할 때마다, 점수를 감점시킨다.|ConvenienceStoreGameManager.cs|[ChangeScore()](https://github.com/phw97123/PLANORPAIN/blob/96057e87d3aebbd939d28d3ec374be5cc21a35ec/Assets/Scripts/ConvenienceStoreGame/ConvenienceStoreGameManager.cs#L126)|
+|게임 방법 안내|게임 방법에 대해 설명하는 팝업을 표시한다.|[ConvenienceNotifyUI.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceNotifyUI.cs#L7C42-L7C42)||
+|손님 움직임 정의|손님의 움직임을 FSM으로 구현한다. 손님은 Idle, Wandering State를 가진다.|[NPCConvenienceStore.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/Character/NPCConvenienceStore/NPCConvenienceStore.cs#L12C14-L12C33)||
+|손님 상태 적용|손님의 상태를 AIState에 따라 정의하여, 관련된 변수를 초기화한다.|NPCConvenienceStore.cs|[SetState(AIState newState)](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/Character/NPCConvenienceStore/NPCConvenienceStore.cs#L51C18-L51C44)|
+|인게임 UI|현재 점수의 상태를 별 모양 이미지로 나타내는 UI를 적용한다.|[ConvenienceUI.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L7)||
+|현재 점수 표시|현재 점수를 별 모양 이미지의 개수로 표시한다.|ConvenienceUI.cs|[ChangeStarImage()](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L18)|
+
+
+<br>
+<br>
+
 
 
