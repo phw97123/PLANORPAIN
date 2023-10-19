@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday }
+public enum Day { Monday, Tuesday, Wednesday, Thursday, Friday }
 
 public class GameManager : Singleton<GameManager>
 {
@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     public List<int> GameStars;
     public int CurStar; // 씬 넘어가기 전에 게임 끝내고 0~3값 대입
     public bool IsGoodEnding { get; private set; }
+    public bool gameEnd {  get; private set; }
     private string[] _gameIconPath = { "game1", "game2", "game3", "game4", "game5" };
 
     // 미니 게임 매니저 호출 시 사용
@@ -60,7 +61,8 @@ public class GameManager : Singleton<GameManager>
         SceneManagerEx.Instance.LoadScene(Scenes.LoadingScene, CurGame);
         UsingGames.Add(CurGame, RemainingGames[CurGame]);
         RemainingGames.Remove(CurGame);
-        CurDay = (Day)((int)CurDay + 1);
+        if (CurDay != Day.Friday) CurDay = (Day)((int)CurDay + 1);
+        else gameEnd = true;
     }
     public void LoadPlannerScene()
     {
