@@ -320,6 +320,8 @@ public class UI_Popup : UI_BasePopup
 * 각 미니 게임의 플레이 여부와 엔딩 여부를 관리한다.
 * 각 미니 게임간 Scene을 로드한다.
 
+<br>
+
 |필드값|기능 설명|
 |:---:|:---|
 |CurDay|현재 요일을 결정한다.|
@@ -333,5 +335,29 @@ public class UI_Popup : UI_BasePopup
 |gameEnd|모든 미니게임을 플레이해 엔딩씬으로 넘어가는지 여부를 판단하는 bool.|
 |_gameIconPath|각 미니게임의 아이콘 이미지 스프라이트의 이름을 요소로 가진 배열|
 
+<br>
+<br>
+
+### [ResourceManager](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/ResourceManager.cs#L4)
+
+* 이미지 소스의 경로를 key값으로 이미지 소스 Sprite을 value값으로 하는 딕셔너리를 통해, 리소스를 관리한다.
 
 <br>
+<br>
+
+### [SceneMangerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
+
+* 현재 씬과 다음 씬을 토대로, 씬 전환을 관리한다.
+* [Global/Scenes.cs](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Global/Scenes.cs#L1) 에서 씬 타입을 정의하고, 정의한 씬을 호출한다.
+
+<br>
+
+|필드값|기능 설명|
+|:---:|:---|
+|_curSceneType|현재 씬|
+|_nextSceneType|현재 씬이 LoadingScene일 경우 다음에 호출 될 씬|
+
+<br>
+<br>
+
+
