@@ -33,6 +33,7 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (_isPlayBackSquat && _isPlayTreadmil)
             {
+                Cursor.lockState = CursorLockMode.None;
                 _interactGTOPoint.MakeOutLine();
                 _door.GetComponent<Collider>().enabled = true;
                 break;
