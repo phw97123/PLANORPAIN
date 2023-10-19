@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
+public class InteractGymToOutPoint : MonoBehaviour, IInteractable
 {
+    [SerializeField] private IntVariable _starAmount;
     [SerializeField] private GymMiniGameUI _miniGameUI;
     private Outline _outline;
     private int _selector = -1;
@@ -41,6 +42,10 @@ public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        SceneManager.LoadScene("DrivingScene");
+        //SceneManager.LoadScene("MainScene");
+
+        UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+        endPopup.SetScore(_starAmount.value);
+        endPopup.ShowPopup();
     }
 }

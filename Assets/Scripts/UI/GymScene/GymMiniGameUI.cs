@@ -10,7 +10,7 @@ public class GymMiniGameUI : MonoBehaviour
     [SerializeField] private TreadmilMiniGameUI _tmGameUI;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _door;
-    [SerializeField] private InteractGymToDrivingPoint _interactGTDPoint;
+    [SerializeField] private InteractGymToOutPoint _interactGTOPoint;
 
 
     public int selector = 0;
@@ -33,7 +33,7 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (_isPlayBackSquat && _isPlayTreadmil)
             {
-                _interactGTDPoint.MakeOutLine();
+                _interactGTOPoint.MakeOutLine();
                 _door.GetComponent<Collider>().enabled = true;
                 break;
             }
@@ -63,7 +63,7 @@ public class GymMiniGameUI : MonoBehaviour
                         break;
                     case -1:
                         if (_isPlayBackSquat && _isPlayTreadmil)
-                            _interactGTDPoint.OnInteract();
+                            _interactGTOPoint.OnInteract();
                         break;
                 }
             }

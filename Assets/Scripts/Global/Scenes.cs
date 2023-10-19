@@ -11,4 +11,6 @@ public enum Scenes
     ConvenienceStoreScene,
     DevelopGameScene,
     CleaningGameScene,
+    DrivingScene,
+    GymScene,
 }

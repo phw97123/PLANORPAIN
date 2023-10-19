@@ -4388,6 +4388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 721609756}
+  - component: {fileID: 721609757}
   m_Layer: 0
   m_Name: '@Scene'
   m_TagString: Untagged
@@ -4410,6 +4411,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721609757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721609755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b1625337ad8564d968c775e724563b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneType: 8
 --- !u!1 &729207134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,12 +5591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38825b9adf0cbb1499d619850c5f178a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAmount: {fileID: 11400000, guid: 9328ec3f80d5366499c246fcdbe6f58f, type: 2}
   _bsGameUI: {fileID: 891101579}
   _tmGameUI: {fileID: 543104892}
   _player: {fileID: 5952391002858310281}
   _door: {fileID: 5736704619387891111}
-  _interactGTDPoint: {fileID: 6381365233128626609}
+  _interactGTOPoint: {fileID: 6381365233128626609}
   selector: 0
   isInterct: 0
 --- !u!114 &850850920
@@ -23906,6 +23919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8c0602a8f9b6e4db20225cfd2f4fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _starAmount: {fileID: 11400000, guid: 9328ec3f80d5366499c246fcdbe6f58f, type: 2}
   _miniGameUI: {fileID: 850850919}
 --- !u!4 &6383700234251495084
 Transform:
