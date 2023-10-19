@@ -23,6 +23,8 @@ public class EndingSceneController : MonoBehaviour
 
     private void Start()
     {
+        PlayerInput playerInput = GameObject.FindWithTag(Tags.PLAYER).GetComponent<PlayerInput>();
+        playerInput.OnDisable();
         volume.profile.TryGet(out _depthOfField);
         _depthOfField.focusDistance.value = 0.1f;
 
