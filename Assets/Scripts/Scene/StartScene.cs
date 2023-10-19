@@ -5,13 +5,7 @@ public class StartScene : BaseScene
         if (!base.Init()) return false;
 
         SceneType = Scenes.StartScene;
-        UIManager.Instance.GetUIComponent<UI_StartScene>();
-        SoundManager.Instance.Play("StartScene/StartSceneBGM", AudioType.BGM);
-        return true;
-    }
 
-    public override void Clear()
-    {
-        UIManager.Instance.RemoveUIComponent<UI_StartScene>();
+        return true;
     }
 }
