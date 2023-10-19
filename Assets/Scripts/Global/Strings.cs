@@ -23,6 +23,15 @@ public class Strings
         public const string OK = "확인";
     }
 
+    public class Sprites
+    {
+        public const string LOADING_CLEANING_IMAGE = "LoadingScene/loading_cleaning";
+        public const string LOADING_WORKING_IMAGE = "LoadingScene/loading_work";
+        public const string LOADING_DEVELOP_IMAGE = "LoadingScene/loading_develop";
+        public const string LOADING_GAME_IMAGE = "LoadingScene/loading_game";
+        public const string LOADING_OUTING_IMAGE = "LoadingScene/loading_outing";
+    }
+
     public class Sounds
     {
         // 개발하기 미니 게임 사운드
