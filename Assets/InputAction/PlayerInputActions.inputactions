@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActionsTest",
+    "name": "PlayerInputActions",
     "maps": [
         {
             "name": "Player",
@@ -27,15 +27,6 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "4ee340e7-eddb-4e12-bccb-dade023f5eae",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "799be66a-a8eb-4b4e-8fb6-35e5df141b38",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -71,17 +62,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b409dc3a-9efc-4f0b-9c57-dde7641b7fde",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
