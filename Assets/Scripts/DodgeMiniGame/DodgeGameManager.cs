@@ -13,6 +13,8 @@ public class DodgeGameManager : MonoBehaviour
     private UI_DodgeGameScene uiDodgeGameScene;
 
     public float currentHp;
+    public bool isEnded;
+    public bool isLavaEffectPlaying;
 
     private void Awake()
     {
@@ -46,10 +48,13 @@ public class DodgeGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (player.GetComponent<Player>().IsStepping())
+        if (player.GetComponent<Player>().IsStepping() && !isEnded)
         {
             currentHp -= 10 * Time.deltaTime;
-            SoundManager.Instance.Play("DodgeGameScene/OnLaveEffect");
+        }
+        if (player.GetComponent<Player>().IsStepping() && !isEnded)
+        {
+            StartCoroutine(PlayLavaSound());
         }
         if (currentHp < 0 || float.Parse(uiDodgeGameScene.timerText.text) < 0.1f)
         {
@@ -58,10 +63,23 @@ public class DodgeGameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        isEnded = true;
         uiDodgeGameScene.timerText.text = "0";
         Time.timeScale = 0;
         uiGameEndPopup.SetScore(uiDodgeGameScene.GetScore());
         //GameProgressManager.Instance.CurStar = uiDodgeGameScene.GetScore();
         uiGameEndPopup.ShowPopup();
+    }
+
+    IEnumerator PlayLavaSound()
+    {
+        if (isLavaEffectPlaying)
+        {
+            yield break; // 이미 사운드가 재생 중인 경우 중복 재생 방지
+        }
+        isLavaEffectPlaying = true;
+        SoundManager.Instance.Play("DodgeGameScene/OnLaveEffect");
+        yield return new WaitForSeconds(1f);
+        isLavaEffectPlaying = false;
     }
 }
