@@ -233,3 +233,56 @@ public class UI_BasePopup : UIBase
 
 <br>
 <br>
+
+
+### UI_Popup
+
+<br>
+
+* 인 게임 내에서 자주 쓰이는 팝업 정의.
+* content 텍스트 및 버튼 오브젝트들을 GameObject로 저굥한 뒤, InitBind 함수 내에서 해당하는 Button과 TMP_Text를 연결.
+* [const values region](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L15) 에서 팝업 사이즈와 관련된 상수 정의
+
+<br>
+
+```c#
+public class UI_Popup : UI_BasePopup
+{
+   //... 생략 ...
+    public delegate void Callback();
+    private Callback callbackConfirm;
+    private Callback callbackCancel;
+    private Callback callbackOk;
+
+    [SerializeField] private GameObject _confirmButtonObject;
+    [SerializeField] private GameObject _cancelButtonObject;
+    [SerializeField] private GameObject _okButtonObject;
+
+    private Button _confirmButton;
+    private Button _cancelButton;
+    private Button _okButton;
+
+    private TMP_Text _confirmButtonText;
+    private TMP_Text _cancelButtonText;
+    private TMP_Text _okButtonText;
+
+    protected override void Awake()
+    {
+        InitBind();
+        base.Awake();
+    }
+    //... 생략 ...
+
+```
+<br>
+
+|기능|메서드|기능 설명|
+|:---:|:---:|:---|
+|데이터 연결|[InitBind()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L58)|연결된 버튼과 TMP_text, 버튼의 이벤트를 연결한다.|
+|데이터 연결|[SetButtonActive()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L74)|지정한 버튼 타입에 따라, 알맞은 게임오브젝트(버튼)를 활성화 혹은 비활성화시킨다.|
+|팝업 표시(1)|[ShowPopup()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L99)|파라미터로 입력받은 버튼의 콜백마다 알맞은 버튼을 연결한다.<br>Confirm 버튼, Cancel 버튼이 있는 팝업 (= cancel 콜백, confirm 콜백을 파라미터로 받음)|
+|팝업 표시(2)|[ShowPopup()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L115)|파라미터로 입력받은 버튼의 콜백마다 알맞은 버튼을 연결한다.<br>OK 버튼이 있는 팝업(= OK 콜백을 파라미터로 받음)|
+|팝업 표시(3)|[ShowPopup()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L128)|파라미터로 입력받은 버튼의 콜백마다 알맞은 버튼을 연결한다.<br>버튼이 없는 알림 팝업|
+|팝업 닫기|[ClosePopup()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L140)|버튼을 클릭할 시, 각 버튼에 연결되어 있는 콜백 메서드를 실행하고, 열려있는 팝업을 닫는다.|
+|팝업 지연 닫기|[CloseUIWithDelay()](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L149)|1초 뒤에 UI를 닫는다.|
+|팝업 크기 및 텍스트 위치 조절|[SetPopupAttributes](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L156)|파라미터로 받는 팝업 버튼의 종류에 따라, 버튼 크기와 텍스트 위치를 지정한다.|
