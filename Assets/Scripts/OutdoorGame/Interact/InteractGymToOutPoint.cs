@@ -9,6 +9,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
     [SerializeField] private GymMiniGameUI _miniGameUI;
     private Outline _outline;
     private int _selector = -1;
+    private bool _isInteract = false;
 
     private void Awake()
     {
@@ -42,10 +43,14 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+        if (!_isInteract)
+        {
+            UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
 
-        int value = _starAmount.value <= 3 ? _starAmount.value : 3;
-        endPopup.SetScore(value);
-        endPopup.ShowPopup();
+            int value = _starAmount.value <= 3 ? _starAmount.value : 3;
+            endPopup.SetScore(value);
+            endPopup.ShowPopup();
+            _isInteract = true;
+        }
     }
 }

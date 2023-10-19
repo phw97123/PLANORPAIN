@@ -55,6 +55,8 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _score = 0;
         _blendValue = 0f;
 
+        SoundManager.Instance.Stop();
+
         _player.GetComponent<PlayerInput>().enabled = false;
         _gymObject.GetComponent<Collider>().enabled = false;
 

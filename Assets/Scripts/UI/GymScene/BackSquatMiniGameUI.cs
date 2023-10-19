@@ -55,6 +55,8 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _timeCount = 60;
         _count = 0;
 
+        SoundManager.Instance.Stop();
+
         _player.GetComponent<PlayerInput>().enabled = false;
         _gymObject.GetComponent<Collider>().enabled = false;
 
