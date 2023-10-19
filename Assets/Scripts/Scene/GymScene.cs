@@ -15,8 +15,7 @@ public class GymScene : BaseScene
         if (!base.Init()) return false;
 
         SceneType = Scenes.GymScene;
-
-        //SoundManager.Instance.Play("ConvenienceStoreScene/ConvenienceBGM", AudioType.BGM);
+        SoundManager.Instance.Play("OutdoorGame/DrumsAndBass", AudioType.BGM);
 
         return true;
     }

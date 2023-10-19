@@ -33,6 +33,7 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (_isPlayBackSquat && _isPlayTreadmil)
             {
+                Cursor.lockState = CursorLockMode.None;
                 _interactGTOPoint.MakeOutLine();
                 _door.GetComponent<Collider>().enabled = true;
                 break;
@@ -47,6 +48,7 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (context.phase == InputActionPhase.Started)
             {
+                SoundManager.Instance.Stop();
                 switch (selector)
                 {
                     case 1:
