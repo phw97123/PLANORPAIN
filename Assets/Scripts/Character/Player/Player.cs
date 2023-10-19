@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine playerStateMachine;
 
-    public GameObject Mop; 
+    public GameObject Equipment; 
 
     private void Awake()
     {
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         //ForceReceiver = GetComponent<ForceReceiver>();
 
         playerStateMachine = new PlayerStateMachine(this);
-
     }
 
     private void Start()

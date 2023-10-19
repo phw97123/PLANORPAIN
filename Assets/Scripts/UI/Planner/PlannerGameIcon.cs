@@ -39,10 +39,12 @@ public class PlannerGameIcon : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         _canvasGroup.blocksRaycasts = false;
+        SoundManager.Instance.Play("MainScene/Effect_1");
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        SoundManager.Instance.Play("MainScene/Effect_2");
         _canvasGroup.blocksRaycasts = true;
         if(!setSlot) { GoStartPosition();}
         else

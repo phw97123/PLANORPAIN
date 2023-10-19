@@ -54,7 +54,8 @@ public class PlannerGameSlot : MonoBehaviour, IDropHandler
 
     private void OnClickStartButton()
     {
-        if(_gameManager.CurGame != Scenes.Unknown)
+        SoundManager.Instance.Play("MainScene/Effect_3");
+        if (_gameManager.CurGame != Scenes.Unknown)
         {
             _gameManager.LoadGameScene();
         }
