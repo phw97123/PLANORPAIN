@@ -17,11 +17,15 @@ public class GymScene : BaseScene
         SceneType = Scenes.GymScene;
         SoundManager.Instance.Play("OutdoorGame/DrumsAndBass", AudioType.BGM);
 
+        Cursor.lockState = CursorLockMode.Locked;
+
         return true;
     }
 
     public override void Clear()
     {
+        Cursor.lockState = CursorLockMode.None;
+
         _uIManager.RemoveUIComponent<UI_GameEndPopup>();
     }
 }

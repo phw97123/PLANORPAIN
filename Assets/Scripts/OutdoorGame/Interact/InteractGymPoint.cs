@@ -38,6 +38,6 @@ public class InteractGymPoint : MonoBehaviour, IInteractable
 
         yield return new WaitForSecondsRealtime(1f);
 
-        SceneManager.LoadScene("GymScene");
+        SceneManagerEx.Instance.LoadScene(Scenes.GymScene);
     }
 }
