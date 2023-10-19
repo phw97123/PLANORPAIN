@@ -9,6 +9,8 @@ public class MainScene : BaseScene
         if (!base.Init()) return false;
 
         SceneType = Scenes.MainScene;
+
+        Time.timeScale = 1f;
         UIManager.Instance.GetUIComponent<UI_MainScene>();
         SoundManager.Instance.Play("MainScene/MainSceneBGM", AudioType.BGM);
         return true;
