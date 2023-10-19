@@ -48,9 +48,6 @@ public class PlayerBaseState : IState
         input.PlayerActions.Movement.canceled += OnMovementCanceled;
         input.PlayerActions.Run.started += OnRunStarted;
 
-        input.PlayerActions.Attack.performed += OnAttackPerformed;
-        input.PlayerActions.Attack.canceled += OnAttackCanceled;
-
         input.PlayerActions.Jump.started += OnJumpStarted;
     }
 
@@ -59,9 +56,6 @@ public class PlayerBaseState : IState
         PlayerInput input = playerStateMachine.Player.Input;
         input.PlayerActions.Movement.canceled -= OnMovementCanceled;
         input.PlayerActions.Run.started -= OnRunStarted;
-
-        input.PlayerActions.Attack.performed -= OnAttackPerformed;
-        input.PlayerActions.Attack.canceled -= OnAttackCanceled;
 
         input.PlayerActions.Jump.started -= OnJumpStarted;
     }
