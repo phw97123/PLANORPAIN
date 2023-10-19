@@ -91,6 +91,8 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _treadmilCamera.SetActive(false);
 
         _player.GetComponent<PlayerInput>().enabled = true;
+
+        SoundManager.Instance.Play("OutdoorGame/DrumsAndBass", AudioType.BGM);
     }
 
     public void OnHitBar(InputAction.CallbackContext context)
@@ -114,8 +116,12 @@ public class TreadmilMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.green;
+
         _playerAnimator.ResetTrigger("Fail");
         _playerAnimator.SetTrigger("Success");
+
+        SoundManager.Instance.Play("OutdoorGame/Treadmil_Step");
+
         _blendValue += 0.1f;
         _playerAnimator.SetFloat("Blend", _blendValue);
 
@@ -149,7 +155,11 @@ public class TreadmilMiniGameUI : MonoBehaviour
     {
         _isHit = true;
         _SpaceText.color = Color.red;
+
         _playerAnimator.SetTrigger("Fail");
+
+        SoundManager.Instance.Stop();
+        SoundManager.Instance.Play("OutdoorGame/Fail");
 
         StartCoroutine(ToastExpressionTextCO("Bad!", Color.red));
 

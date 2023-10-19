@@ -10,17 +10,15 @@ public class ChangeCell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(ChangeCellCoroutine(DustFloor, CleanFloor,1));
-            SoundManager.Instance.Play("CleaningGameScene/Mop_Effect", AudioType.EFFECT);
-
-        }
-
         if (collision.gameObject.CompareTag("Cat"))
         {
             StartCoroutine(ChangeCellCoroutine(CleanFloor, DustFloor,-1));
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(ChangeCellCoroutine(DustFloor, CleanFloor, 1));
     }
 
     private IEnumerator ChangeCellCoroutine(GameObject fromCell, GameObject toCell, int amount)
@@ -31,6 +29,11 @@ public class ChangeCell : MonoBehaviour
         {
             fromCell.SetActive(false);
             toCell.SetActive(true);
+
+            if(toCell == CleanFloor)
+            {
+                SoundManager.Instance.Play("CleaningGameScene/Mop_Effect", AudioType.EFFECT);
+            }
 
             GameManager.Instance.GetMiniGameManager<CleaningGameManager>().ChangeScore(amount);
         }
