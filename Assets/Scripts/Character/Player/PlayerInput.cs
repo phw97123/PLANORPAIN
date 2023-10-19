@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public PlayerInputActionsTest InputActions { get; private set; } 
-    public PlayerInputActionsTest.PlayerActions PlayerActions { get; private set; } 
+    public PlayerInputActions InputActions { get; private set; } 
+    public PlayerInputActions.PlayerActions PlayerActions { get; private set; } 
 
     private void Awake()
     {
-        InputActions = new PlayerInputActionsTest();
+        InputActions = new PlayerInputActions();
         PlayerActions = InputActions.Player;
 
         OnEnable(); 
