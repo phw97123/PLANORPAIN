@@ -16,7 +16,7 @@ public class DodgeGameScene : BaseScene
     {
         GameManager.Instance.RemoveMiniGameManager<DodgeGameManager>();
 
-        UIManager.Instance.RemoveUIComponent<UI_DevelopGameScene>();
+        UIManager.Instance.RemoveUIComponent<UI_DodgeGameScene>();
         UIManager.Instance.RemoveUIComponent<UI_Popup>();
         UIManager.Instance.RemoveUIComponent<UI_GameEndPopup>();
     }
