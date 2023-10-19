@@ -42,10 +42,10 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        //SceneManager.LoadScene("MainScene");
-
         UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
-        endPopup.SetScore(_starAmount.value);
+
+        int value = _starAmount.value <= 3 ? _starAmount.value : 3;
+        endPopup.SetScore(value);
         endPopup.ShowPopup();
     }
 }
