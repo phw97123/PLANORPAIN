@@ -1,14 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
 
 public class CleaningGameManager : MonoBehaviour
 {
