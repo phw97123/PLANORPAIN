@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ConvenienceStoreGameManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class ConvenienceStoreGameManager : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        Player.GetComponent<Player>().EnableActions(InputActions.Movement);
         virtualMainCamera.transform.parent = Player.transform;
 
         _riceBallRenderer = riceBall.GetComponent<Renderer>();
