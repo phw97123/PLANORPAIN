@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class DevelopGameScene : BaseScene
 {
     protected override bool Init()

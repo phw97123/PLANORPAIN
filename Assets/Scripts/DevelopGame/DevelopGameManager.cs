@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // 개발하기 미니 게임을 관리하는 미니 게임 매니저
 public class DevelopGameManager : MonoBehaviour
