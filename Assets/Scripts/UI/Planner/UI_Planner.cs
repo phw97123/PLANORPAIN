@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UI_Planner : UIBase
 {
     [SerializeField] private Image[] grayMasks; //꼭 월~금 순서대로 넣기
+    [SerializeField] private Image[] sticker;
     [SerializeField] private RectTransform backGround;
     [SerializeField] private RectTransform gameIconPosition;
     [SerializeField] private Button EndingButton;
@@ -29,14 +30,14 @@ public class UI_Planner : UIBase
 
         LoadGameIcons();
 
-        if(_gameManager.gameEnd) EndingButton.gameObject.SetActive(true);
+        if (_gameManager.gameEnd) EndingButton.gameObject.SetActive(true);
     }
 
     private void ChangeAlphaGrayMask()
     {
         Color newColor = Color.white;
         newColor.a = 0;
-        for(int i = 0;i<= (int)_gameManager.CurDay; i++)
+        for (int i = 0; i <= (int)_gameManager.CurDay; i++)
         {
             grayMasks[i].color = newColor;
         }
@@ -59,10 +60,14 @@ public class UI_Planner : UIBase
             curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
             PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
-            slot.GameImage.sprite = ResourceManager.Instance.LoadSprite($"{gamePair.Value}_thumbnail"); 
+            slot.GameImage.sprite = ResourceManager.Instance.LoadSprite($"{gamePair.Value}_thumbnail");
             slot.IsDestoryed = false;
             slot.enabled = false;
-            for(int i = 0; i < 3; i++)
+
+            sticker[dayIndex].sprite = ResourceManager.Instance.LoadSprite($"{gamePair.Value}_sticker");
+            sticker[dayIndex].gameObject.SetActive(true); 
+
+            for (int i = 0; i < 3; i++)
             {
                 slot.StarImage[i].gameObject.SetActive(true);
                 if (i < _gameManager.GameStars[dayIndex]) slot.StarImage[i].sprite = ResourceManager.Instance.LoadSprite("Planner/filledStar");
