@@ -76,11 +76,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
     public void EndMiniGame()
     {
         if (_score >= _maxScore)
-        {
             startAmount.value += 1;
-            _ScheduleText.color = Color.gray;
-            _ScheduleText.fontStyle = FontStyles.Strikethrough;
-        }
+
+        _ScheduleText.color = Color.gray;
+        _ScheduleText.fontStyle = FontStyles.Strikethrough;
 
         _playerAnimator.runtimeAnimatorController = _animPlayerController;
 

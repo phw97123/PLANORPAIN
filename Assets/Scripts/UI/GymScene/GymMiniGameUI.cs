@@ -17,8 +17,8 @@ public class GymMiniGameUI : MonoBehaviour
     public bool isInterct = false;
 
     private Vector3 _originPlayerPosition;
-    private bool _isPlayBackSquat = true;
-    private bool _isPlayTreadmil = true;
+    private bool _isPlayBackSquat = false;
+    private bool _isPlayTreadmil = false;
 
     private void Start()
     {
