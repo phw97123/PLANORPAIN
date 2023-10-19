@@ -55,6 +55,7 @@ public class UI_DodgeGameScene : UIBase
     {
         if (currentScore >= 300) return 3;
         if (currentScore >= 200) return 2;
-        else return 1;
+        if (currentScore >= 100) return 1;
+        else return 0;
     }
 }

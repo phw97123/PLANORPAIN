@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainScene : BaseScene
 {
-    private Player _player; 
+    private Player _player;
     protected override bool Init()
     {
         if (!base.Init()) return false;
@@ -16,7 +16,8 @@ public class MainScene : BaseScene
         SoundManager.Instance.Play("MainScene/MainSceneBGM", AudioType.BGM);
 
         _player = GameObject.FindWithTag(Tags.PLAYER).GetComponent<Player>();
-        _player.EnableActions(InputActions.Movement); 
+        _player.EnableActions(InputActions.Movement);
+
         return true;
     }
 

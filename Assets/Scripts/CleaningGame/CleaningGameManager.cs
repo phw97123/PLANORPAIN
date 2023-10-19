@@ -85,8 +85,9 @@ public class CleaningGameManager : MonoBehaviour
 
     private int GetScore()
     {
+        if (CurrentScore <= 10) return 0; 
         if (CurrentScore <= 30) return 1;
-        if (CurrentScore <= 40) return 2;
+        if (CurrentScore <= 60) return 2;
         else return 3;
     }
 
