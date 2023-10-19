@@ -28,6 +28,7 @@ public class Cat : MonoBehaviour
     {
         Vector3 randomPos = RandomNavMeshPosition(RandomDestinationRadius); 
          agent.SetDestination(randomPos);
+        SoundManager.Instance.Play("CleaningGameScene/Meow2", AudioType.EFFECT);
     }
 
     private Vector3 RandomNavMeshPosition(float radius)

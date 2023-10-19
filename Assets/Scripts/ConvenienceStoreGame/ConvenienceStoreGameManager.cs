@@ -89,6 +89,7 @@ public class ConvenienceStoreGameManager : MonoBehaviour
                         return;
                     }
                     isEating = true;
+                    SoundManager.Instance.Play("ConvenienceStoreScene/Eating_Effect");
                     Invoke("OnCanEating", eatingRate);
 
                     ChangeRiceBallModel();
