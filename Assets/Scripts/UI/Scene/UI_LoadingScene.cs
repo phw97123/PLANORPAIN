@@ -18,6 +18,7 @@ public class UI_LoadingScene : UIBase
         if (_nextSceneType != Scenes.Unknown) StartCoroutine(LoadSceneProcess());
     }
 
+    // Next Scene에 따라 로딩 이미지 변경
     private void SetBackgroundImage()
     {
         switch (_nextSceneType)
@@ -48,21 +49,16 @@ public class UI_LoadingScene : UIBase
         float timer = 0f;
         while (!op.isDone)
         {
-            yield return null;
+            timer += Time.unscaledDeltaTime;
 
-            if (op.progress < 0.9f)
+            _progressBarImage.fillAmount = timer / 3f;
+
+            if (timer > 3f)
             {
-                _progressBarImage.fillAmount = op.progress;
-            } else
-            {
-                timer += Time.unscaledDeltaTime;
-                _progressBarImage.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
-                if (_progressBarImage.fillAmount >= 1f)
-                {
-                    op.allowSceneActivation = true;
-                    yield break;
-                }
+                op.allowSceneActivation = true;
             }
+
+            yield return null;
         }
     }
 }
