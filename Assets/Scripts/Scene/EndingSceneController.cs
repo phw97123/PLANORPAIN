@@ -23,6 +23,9 @@ public class EndingSceneController : MonoBehaviour
 
     private void Start()
     {
+        volume.profile.TryGet(out _depthOfField);
+        _depthOfField.focusDistance.value = 0.1f;
+
         goodEndingDirector.stopped += OnTimelineFinished;
         badEndingDirector.stopped += OnTimelineFinished;
 
