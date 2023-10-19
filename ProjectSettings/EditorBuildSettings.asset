@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GymScene.unity
     guid: 30ed6bab6c8ede0499dcfc596e039332
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: fc72d81141b126a4db148ec3698209da
   m_configObjects: {}
