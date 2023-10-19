@@ -32,7 +32,7 @@ public class UI_LoadingScene : UIBase
                 _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_DEVELOP_IMAGE);
                 break;
             case Scenes.DodgeGameScene:
-                _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_GAME_IMAGE);
+                _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_PLAY_IMAGE);
                 break;
             case Scenes.DrivingScene:
                 _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_OUTING_IMAGE);

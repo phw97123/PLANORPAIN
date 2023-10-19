@@ -20,7 +20,13 @@ public class GameManager : Singleton<GameManager>
     public int CurStar; // 씬 넘어가기 전에 게임 끝내고 0~3값 대입
     public bool IsGoodEnding { get; private set; }
     public bool gameEnd {  get; private set; }
-    private string[] _gameIconPath = { "game1", "game2", "game3", "game4", "game5" };
+    private string[] _gameIconPath = { 
+        Strings.Sprites.CLEANING_GAME_THUMBNAIL,
+        Strings.Sprites.WORKING_GAME_THUMBNAIL,
+        Strings.Sprites.DEVELOP_GAME_THUMBNAIL,
+        Strings.Sprites.PLAY_GAME_THUMBNAIL,
+        Strings.Sprites.OUTING_GAME_THUMBNAIL,
+    };
 
     // 미니 게임 매니저 호출 시 사용
     // ex) GameManager.Instance.GetMiniGameManager<DevelopGameManager>();
@@ -49,7 +55,7 @@ public class GameManager : Singleton<GameManager>
         RemainingGames = new Dictionary<Scenes, string>();
         for (int i = 0; i < GameSceneDB.Length - 1; i++)
         {
-            RemainingGames.Add(GameSceneDB[i + 1], $"Planner/{_gameIconPath[i]}");
+            RemainingGames.Add(GameSceneDB[i + 1], _gameIconPath[i]);
             // 나중에 ResourceManager이용
         }
         UsingGames = new Dictionary<Scenes, string>();
