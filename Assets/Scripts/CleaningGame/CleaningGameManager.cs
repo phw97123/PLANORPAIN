@@ -18,13 +18,14 @@ public class CleaningGameManager : MonoBehaviour
 
     private GameObject _player;
     private GameObject _cat;
-    private GameObject _directorObject; 
+    private GameObject _directorObject;
 
     private UI_Popup _uiPopup;
     private UI_GameEndPopup _uiGameEndPopup;
     private CleaningGameSceneUI _logicUI;
 
     private bool _isTimelinePlay = false;
+    private bool _isGameOver = false;
 
     private float _time = 60;
     private int _score = 0;
@@ -37,7 +38,7 @@ public class CleaningGameManager : MonoBehaviour
         _player = GameObject.FindWithTag(Tags.PLAYER);
         _player.transform.position = _playerSpawnPosition.position;
 
-        _player.GetComponent<Player>().EnableActions(InputActions.Movement); 
+        _player.GetComponent<Player>().EnableActions(InputActions.Movement);
 
         _cat = GameObject.FindWithTag(Tags.CAT);
 
@@ -50,7 +51,7 @@ public class CleaningGameManager : MonoBehaviour
         _uiPopup = UIManager.Instance.GetUIComponent<UI_Popup>();
         _uiGameEndPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
         _logicUI = UIManager.Instance.GetUIComponent<CleaningGameSceneUI>();
-        
+
         _uiPopup.ShowPopup(Strings.PopupContent.CLEANING_GAME_NOTIFICATION, Strings.PopupButtons.OK, StartTimeScale);
 
         Time.timeScale = 0;
@@ -72,17 +73,21 @@ public class CleaningGameManager : MonoBehaviour
         else
         {
             _time = 0;
-            GameOver(); 
+            if (!_isGameOver)
+            {
+                _isGameOver = true;
+                GameOver();
+            }
         }
 
-        UpdateTimer(); 
+        UpdateTimer();
     }
 
     private int GetScore()
     {
-        if (CurrentScore <= 10) return 1;
-        if (CurrentScore <= 20) return 2;
-        else return 3; 
+        if (CurrentScore <= 30) return 1;
+        if (CurrentScore <= 40) return 2;
+        else return 3;
     }
 
     private void GameOver()
