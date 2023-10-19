@@ -14,4 +14,5 @@ public enum Scenes
     DodgeGameScene,
     DrivingScene,
     GymScene,
+    EndingScene
 }
