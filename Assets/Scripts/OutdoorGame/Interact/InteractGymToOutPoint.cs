@@ -21,7 +21,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
         _outline.OutlineWidth = 6f;
     }
 
-    public void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.collider.CompareTag("Player")){
             _outline.OutlineWidth = 6f;
@@ -31,7 +31,7 @@ public class InteractGymToOutPoint : MonoBehaviour, IInteractable
         }
     }
 
-    public void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))
         {

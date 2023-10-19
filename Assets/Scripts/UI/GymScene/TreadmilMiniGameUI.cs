@@ -92,6 +92,7 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _treadmilCamera.SetActive(false);
 
         _player.GetComponent<PlayerInput>().enabled = true;
+        _gymObject.GetComponent<Collider>().enabled = true;
 
         SoundManager.Instance.Play("OutdoorGame/DrumsAndBass", AudioType.BGM);
     }
