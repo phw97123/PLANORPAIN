@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -16,8 +15,6 @@ public class TreadmilMiniGameUI : MonoBehaviour
     [SerializeField] private GameObject _treadmilCamera;
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Animator _npcAnimator;
-    [SerializeField] private AnimatorController _animPlayerController;
-    [SerializeField] private AnimatorController _animTreadmilController;
     [SerializeField] private Image _dropBarImage;
     [SerializeField] private Image _hitPointImage;
     [SerializeField] private TMP_Text _timeText;
@@ -73,7 +70,7 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _originNPCPosition = _npc.transform.position;
         _npc.transform.position = new Vector3(_gymObject.transform.position.x - 2.8f, 0.2f, _gymObject.transform.position.z + 0.5f);
 
-        _playerAnimator.runtimeAnimatorController = _animTreadmilController;
+        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerTreadmilAnimatorController") as RuntimeAnimatorController;
 
         _originPlayerPosition = _player.transform.position;
         _originPlayerQuaternion = _player.transform.rotation;
@@ -95,7 +92,7 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _npcAnimator.SetBool("Run", false);
         _npc.transform.position = _originNPCPosition;
 
-        _playerAnimator.runtimeAnimatorController = _animPlayerController;
+        _playerAnimator.runtimeAnimatorController = Resources.Load("AnimatiorControllers/PlayerAnimatorController") as RuntimeAnimatorController;
 
         _player.transform.position = _originPlayerPosition;
         _player.transform.rotation = _originPlayerQuaternion;
