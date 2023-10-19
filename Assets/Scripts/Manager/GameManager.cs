@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     private Dictionary<string, MonoBehaviour> _miniGameManagers = new Dictionary<string, MonoBehaviour>();
 
     public Day CurDay = Day.Monday;
-    public Scenes[] GameSceneDB = { Scenes.Unknown, Scenes.CleaningGameScene, Scenes.ConvenienceStoreScene, Scenes.DevelopGameScene };
+    public Scenes[] GameSceneDB = { Scenes.Unknown, Scenes.CleaningGameScene, Scenes.ConvenienceStoreScene, Scenes.DevelopGameScene, Scenes.DodgeGameScene, Scenes.DrivingScene };
     public Scenes CurGame = Scenes.Unknown;
     public Dictionary<Scenes, string> RemainingGames;
     public Dictionary<Scenes, string> UsingGames;
