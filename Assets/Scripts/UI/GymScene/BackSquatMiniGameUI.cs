@@ -55,6 +55,8 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _timeCount = 60;
         _count = 0;
 
+        SoundManager.Instance.Stop();
+
         _player.GetComponent<PlayerInput>().enabled = false;
         _gymObject.GetComponent<Collider>().enabled = false;
 
@@ -76,11 +78,10 @@ public class BackSquatMiniGameUI : MonoBehaviour
     public void EndMiniGame()
     {
         if (_count >= _maxCount)
-        {
             startAmount.value += 1;
-            _ScheduleText.color = Color.gray;
-            _ScheduleText.fontStyle = FontStyles.Strikethrough;
-        }
+
+        _ScheduleText.color = Color.gray;
+        _ScheduleText.fontStyle = FontStyles.Strikethrough;
 
         _playerAnimator.runtimeAnimatorController = _animPlayerController;
 

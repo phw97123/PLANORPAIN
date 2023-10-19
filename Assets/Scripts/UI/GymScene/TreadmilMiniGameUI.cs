@@ -55,6 +55,8 @@ public class TreadmilMiniGameUI : MonoBehaviour
         _score = 0;
         _blendValue = 0f;
 
+        SoundManager.Instance.Stop();
+
         _player.GetComponent<PlayerInput>().enabled = false;
         _gymObject.GetComponent<Collider>().enabled = false;
 
@@ -74,11 +76,10 @@ public class TreadmilMiniGameUI : MonoBehaviour
     public void EndMiniGame()
     {
         if (_score >= _maxScore)
-        {
             startAmount.value += 1;
-            _ScheduleText.color = Color.gray;
-            _ScheduleText.fontStyle = FontStyles.Strikethrough;
-        }
+
+        _ScheduleText.color = Color.gray;
+        _ScheduleText.fontStyle = FontStyles.Strikethrough;
 
         _playerAnimator.runtimeAnimatorController = _animPlayerController;
 

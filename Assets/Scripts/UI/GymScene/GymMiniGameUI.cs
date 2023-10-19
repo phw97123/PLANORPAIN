@@ -48,19 +48,16 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (context.phase == InputActionPhase.Started)
             {
-                SoundManager.Instance.Stop();
                 switch (selector)
                 {
                     case 1:
                         if (!_isPlayBackSquat)
                             _bsGameUI.StartMiniGame();
-
                         _isPlayBackSquat = true;
                         break;
                     case 2:
                         if (!_isPlayTreadmil)
                             _tmGameUI.StartMiniGame();
-
                         _isPlayTreadmil = true;
                         break;
                     case -1:
