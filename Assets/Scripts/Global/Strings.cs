@@ -38,6 +38,10 @@ public class Strings
         public const string LOADING_DEVELOP_IMAGE = "LoadingScene/loading_develop";
         public const string LOADING_PLAY_IMAGE = "LoadingScene/loading_play";
         public const string LOADING_OUTING_IMAGE = "LoadingScene/loading_outing";
+
+        // 개발하기 미니 게임 노드 아이콘
+        public const string ACTIVE_NODE_ICON = "DevelopGameScene/active_node_icon";
+        public const string INACTIVE_NODE_ICON = "DevelopGameScene/inactive_node_icon";
     }
 
     public class Sounds
