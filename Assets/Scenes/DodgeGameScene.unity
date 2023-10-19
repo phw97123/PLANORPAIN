@@ -3972,6 +3972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1697920129}
   currentHp: 0
+  isEnded: 0
+  isLavaEffectPlaying: 0
 --- !u!4 &500885443
 Transform:
   m_ObjectHideFlags: 0
@@ -11028,7 +11030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7739bfb6c944a4d809e0589eecd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneType: 9
+  SceneType: 7
 --- !u!1001 &1296452120
 PrefabInstance:
   m_ObjectHideFlags: 0
