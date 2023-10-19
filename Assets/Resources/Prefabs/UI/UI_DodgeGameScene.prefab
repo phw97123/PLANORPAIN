@@ -333,6 +333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 7757867264806911924}
   timerText: {fileID: 5951492570075591505}
+  lavaLayer:
+    serializedVersion: 2
+    m_Bits: 0
   hpbar: {fileID: 0}
   maxHp: 0
   currentHp: 0
@@ -580,8 +583,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282663783
-  m_fontColor: {r: 0.40392157, g: 0.2627451, b: 0.26666668, a: 1}
+    rgba: 4292603391
+  m_fontColor: {r: 1, g: 0.92941177, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -716,8 +719,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282663783
-  m_fontColor: {r: 0.40392157, g: 0.2627451, b: 0.26666668, a: 1}
+    rgba: 4292603391
+  m_fontColor: {r: 1, g: 0.92941177, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
