@@ -1,6 +1,6 @@
 
 
-
+### 미니게임 외 씬
 #### StartScene
 |기능|기능 설명|스크립트|메서드|
 |:---:|:---:|:---:|:---:|
@@ -58,6 +58,7 @@
 |바닥 그리드화|플레이어가 활동할 수 있는 지역을 그리드로 만든다.|[PlaceObjectOnGrid.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/CleaningGame/PlaceObjectOnGrid.cs#L7)||
 |청소 구현|각 캐릭터 태그에 맞게 충돌을 감지하여 바닥 오브젝트를 변경하여 청소 기능을 구현한다.|[ChangeCell.cs](https://github.com/phw97123/PLANORPAIN/blob/fedb8d0b27f8c3fc22113b649f987d68872caf0a/Assets/Scripts/CleaningGame/ChangeCell.cs#L24)|[ChangeCellCoroutine](https://github.com/phw97123/PLANORPAIN/blob/fedb8d0b27f8c3fc22113b649f987d68872caf0a/Assets/Scripts/CleaningGame/ChangeCell.cs#L24)|
 |고양이 구현|시간이 30초 남았을 때, 플레이어가 청소한 타일을 방해하는 고양이를 구현한다.|[Cat.cs](https://github.com/phw97123/PLANORPAIN/blob/fedb8d0b27f8c3fc22113b649f987d68872caf0a/Assets/Scripts/Character/Cat/Cat.cs#L7)||
+|고양이 움직임 구현|고양이는 NavMesh를 활용하여 Object가 배치되지 않은 임의의 그리드를 이동한다.<br>목표지점 주변 이동 후에 새로운 목표지점을 정해 이동한다.|Cat.cs|[RandomNavMeshPosition()](https://github.com/phw97123/PLANORPAIN/blob/486c63f97853214c986c047aaa90a0f74c05cb1c/Assets/Scripts/Character/Cat/Cat.cs#L31)<br>[SetRandomDestination()](https://github.com/phw97123/PLANORPAIN/blob/486c63f97853214c986c047aaa90a0f74c05cb1c/Assets/Scripts/Character/Cat/Cat.cs#L24)|
 
 <br>
 <br>
