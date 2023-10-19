@@ -54,4 +54,10 @@ public class SoundManager : Singleton<SoundManager>
                 break;
         }
     }
+
+    // 재생 중인 배경 음악 멈추기
+    public void Stop()
+    {
+        if (_audioSource.isPlaying) _audioSource.Stop();
+    }
 }

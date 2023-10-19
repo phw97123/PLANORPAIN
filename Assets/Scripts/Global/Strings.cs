@@ -6,26 +6,35 @@ public class Strings
 {
     public class PopupContent
     {
-        public const string DEVELOP_GAME_NOTIFICATION = "WASD·Î ¿òÁ÷ÀÌ¸é¼­\n¸ğµç ³ëµå¸¦ ¼ø¼­´ë·Î \nÈ°¼ºÈ­ ½ÃÅ°¼¼¿ä!";
-        public const string CLEANING_GAME_NOTIFICATION = "WASD·Î ¿òÁ÷ÀÌ¸é\nÃ»¼Ò¸¦ ÇÒ ¼ö ÀÖ¾î¿ä!"; 
+        public const string DEVELOP_GAME_NOTIFICATION = "WASDë¡œ ì›€ì§ì´ë©´ì„œ\nëª¨ë“  ë…¸ë“œë¥¼ ìˆœì„œëŒ€ë¡œ \ní™œì„±í™” ì‹œí‚¤ì„¸ìš”!";
+        public const string CLEANING_GAME_NOTIFICATION = "WASDë¡œ ì›€ì§ì´ë©´\nì²­ì†Œë¥¼ í•  ìˆ˜ ìˆì–´ìš”!"; 
     }
 
     public class PopupButtons
     {
         // CONFIRM BUTTON
-        public const string CONFIRM_ACTIVE = "È°¼ºÈ­";
+        public const string CONFIRM_ACTIVE = "í™œì„±í™”";
 
         // CANCEL BUTTON
-        public const string CANCEL = "Ãë¼Ò";
-        public const string CLOSE = "´İ±â";
+        public const string CANCEL = "ì·¨ì†Œ";
+        public const string CLOSE = "ë‹«ê¸°";
 
         // OK BUTTON
-        public const string OK = "È®ÀÎ";
+        public const string OK = "í™•ì¸";
+    }
+
+    public class Sprites
+    {
+        public const string LOADING_CLEANING_IMAGE = "LoadingScene/loading_cleaning";
+        public const string LOADING_WORKING_IMAGE = "LoadingScene/loading_work";
+        public const string LOADING_DEVELOP_IMAGE = "LoadingScene/loading_develop";
+        public const string LOADING_GAME_IMAGE = "LoadingScene/loading_game";
+        public const string LOADING_OUTING_IMAGE = "LoadingScene/loading_outing";
     }
 
     public class Sounds
     {
-        // °³¹ßÇÏ±â ¹Ì´Ï °ÔÀÓ »ç¿îµå
+        // ê°œë°œí•˜ê¸° ë¯¸ë‹ˆ ê²Œì„ ì‚¬ìš´ë“œ
         public const string DEVELOP_GAME_BGM = "DevelopGameScene/developgamescene_bgm";
         public const string DEVELOP_GAME_SEARCH_SUCCESS = "DevelopGameScene/developgamescene_search_success";
         public const string DEVELOP_GAME_SEARCH_FAIL = "DevelopGameScene/developgamescene_search_fail";

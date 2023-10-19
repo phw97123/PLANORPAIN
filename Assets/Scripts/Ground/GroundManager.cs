@@ -66,7 +66,6 @@ public class GroundManager : MonoBehaviour
         int randNum = UnityEngine.Random.Range(0, grounds.Count() - 1);
         groundPiece = grounds[randNum];
 
-        Debug.Log($"{randNum}번째 땅 ShiverState로");
 
         // 랜덤 오브젝트의 ground -> groundStateMachine 불러오기
         var groundStateMachine = groundPiece.GetComponent<Ground>().groundStateMachine;
@@ -91,7 +90,6 @@ public class GroundManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 0.7f, groundLayerMask))
         {
             GameObject groundObject = hit.transform.gameObject;
-            Debug.Log("플레이어가 " + groundObject.name + " 위에 있습니다!");
             var groundStateMachine = groundObject.GetComponent<Ground>().groundStateMachine;
             groundStateMachine.IsShivering = true;
             grounds.Remove(groundObject);
