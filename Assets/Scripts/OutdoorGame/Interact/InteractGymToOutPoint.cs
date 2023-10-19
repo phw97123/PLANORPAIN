@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
+public class InteractGymToOutPoint : MonoBehaviour, IInteractable
 {
-    [SerializeField] private MiniGameUI _miniGameUI;
+    [SerializeField] private IntVariable _starAmount;
+    [SerializeField] private GymMiniGameUI _miniGameUI;
     private Outline _outline;
     private int _selector = -1;
 
@@ -14,18 +15,9 @@ public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
         _outline = GetComponent<Outline>();
     }
 
-    public void BlickOutLine()
-    {
-        StartCoroutine(BlinkOutlingCO());
-    }
-
-    IEnumerator BlinkOutlingCO()
+    public void MakeOutLine()
     {
         _outline.OutlineWidth = 6f;
-
-        yield return new WaitForSecondsRealtime(2f);
-
-        _outline.OutlineWidth = 0f;
     }
 
     public void OnCollisionStay(Collision collision)
@@ -50,6 +42,10 @@ public class InteractGymToDrivingPoint : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        SceneManager.LoadScene("DrivingScene");
+        //SceneManager.LoadScene("MainScene");
+
+        UI_GameEndPopup endPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
+        endPopup.SetScore(_starAmount.value);
+        endPopup.ShowPopup();
     }
 }
