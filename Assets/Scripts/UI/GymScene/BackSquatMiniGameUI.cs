@@ -94,6 +94,8 @@ public class BackSquatMiniGameUI : MonoBehaviour
         _backSquatCamera.SetActive(false);
 
         _player.GetComponent<PlayerInput>().enabled = true;
+
+        SoundManager.Instance.Play("OutdoorGame/DrumsAndBass", AudioType.BGM);
     }
 
     public void OnHitGauge(InputAction.CallbackContext context)

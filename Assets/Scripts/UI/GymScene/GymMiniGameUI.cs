@@ -47,6 +47,7 @@ public class GymMiniGameUI : MonoBehaviour
         {
             if (context.phase == InputActionPhase.Started)
             {
+                SoundManager.Instance.Stop();
                 switch (selector)
                 {
                     case 1:
