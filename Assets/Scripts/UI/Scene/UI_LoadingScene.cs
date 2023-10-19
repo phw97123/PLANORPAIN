@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UI_LoadingScene : UIBase
 {
+    [SerializeField] private Image _backgroundImage;
     [SerializeField] private Image _progressBarImage;
 
     private Scenes _nextSceneType = Scenes.Unknown;
@@ -13,7 +14,30 @@ public class UI_LoadingScene : UIBase
     private void Start()
     {
         _nextSceneType = SceneManagerEx.Instance.NextSceneType;
+        SetBackgroundImage();
         if (_nextSceneType != Scenes.Unknown) StartCoroutine(LoadSceneProcess());
+    }
+
+    private void SetBackgroundImage()
+    {
+        switch (_nextSceneType)
+        {
+            case Scenes.CleaningGameScene:
+                _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_CLEANING_IMAGE);
+                break;
+            case Scenes.ConvenienceStoreScene:
+                _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_WORKING_IMAGE);
+                break;
+            case Scenes.DevelopGameScene:
+                _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_DEVELOP_IMAGE);
+                break;
+            //case Scenes.:
+            //    _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_GAME_IMAGE);
+            //    break;
+            //case Scenes.:
+            //    _backgroundImage.sprite = ResourceManager.Instance.LoadSprite(Strings.Sprites.LOADING_OUTING_IMAGE);
+            //    break;
+        }
     }
 
     IEnumerator LoadSceneProcess()
