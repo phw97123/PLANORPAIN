@@ -21,7 +21,7 @@ public class VehicleController : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.centerOfMass = new Vector3(0, -1, 0);
+        _rigidbody.centerOfMass = new Vector3(0, -0.5f, 0);
     }
 
     private void Start()
