@@ -1,5 +1,5 @@
 
-
+## 씬별 설명
 ### 미니게임 외 씬
 #### StartScene
 |기능|기능 설명|스크립트|메서드|
@@ -136,10 +136,15 @@
 |기능|기능 설명|스크립트|메서드|
 |:---:|:---|:---:|:---:|
 |씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[GymScene.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/Scene/GymScene.cs#L3)||
+|인 게임 UI|미니게임과 gym 필드에서 플레이어, 상호작용, 위치 조정등을 구현하는 UI|[GymMiniGameUI.cs](https://github.com/phw97123/PLANORPAIN/blob/85a7fed1b083efd2f4dd6cd3ecf5622911f6768c/Assets/Scripts/UI/GymScene/GymMiniGameUI.cs#L5)||
+|플레이어 상호작용|플레이어와 충돌한 물체를 확인 후, 관련된 미니게임을 시작한다.|GymMiniGameUI.cs|[OnInteract()](https://github.com/phw97123/PLANORPAIN/blob/85a7fed1b083efd2f4dd6cd3ecf5622911f6768c/Assets/Scripts/UI/GymScene/GymMiniGameUI.cs#L43)|
+|미니게임 상호작용|미니게임에서 Space 버튼의 상호작용을 구현한다.|GymMiniGameUI.cs|[OnSpace()](https://github.com/phw97123/PLANORPAIN/blob/85a7fed1b083efd2f4dd6cd3ecf5622911f6768c/Assets/Scripts/UI/GymScene/GymMiniGameUI.cs#L70)|
+|플레이어 리스폰|플레이어가 최초 생성한 자리에서 재생성된다.|GymMiniGameUI.cs|[OnRespawn()](https://github.com/phw97123/PLANORPAIN/blob/85a7fed1b083efd2f4dd6cd3ecf5622911f6768c/Assets/Scripts/UI/GymScene/GymMiniGameUI.cs#L86)|
+|출입구 활성화|모든 미니게임이 진행되었는 지 여부를 확인하고, 충족되었다면 출입구를 활성화한다.|GymMiniGameUI.cs|[UpdateDoorColliderCO()](https://github.com/phw97123/PLANORPAIN/blob/85a7fed1b083efd2f4dd6cd3ecf5622911f6768c/Assets/Scripts/UI/GymScene/GymMiniGameUI.cs#L28)|
 |오브젝트 접촉|오브젝트와 접촉하여 특정 미니게임 UI를 불러온다.|[InteractGymMinigame.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L4)||
 |오브젝트 표시 (1)|미니게임 UI와 연결된 오브젝트를 주황색 outline으로 강조한다.|[Outline.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Externals/QuickOutline/Scripts/Outline.cs#L16)||
 |오브젝트 표시 (2)|미니게임 UI와 연결된 오브젝트를 주황색 outline으로 강조하고, outline의 크기를 변화시킨다.|InteractGymMinigame.cs|[BlinkOutlingCO](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L22)|
-|오브젝트 상호작용|미니게임 UI와 연결된 오브젝트와 상호작용하여 미니게임을 시작한다.|InteractGymMinigame.cs|[OnCollisionStay()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L31)|
+|오브젝트 상호작용|미니게임 UI와 연결된 오브젝트와 상호작용하여 GymMiniGameUI 에 자신의 정보를 전달한다.|InteractGymMinigame.cs|[OnCollisionStay()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymMinigame.cs#L31)|
 |러닝머신 미니게임 UI|러닝머신 미니게임을 관리 및 진행하는 UI.<br> 성공여부, 실패여부, 남은 시간, 요구 횟수 등을 표시한다.|[TreadmilMiniGameUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L8)||
 |힛 바 적용(1)|미니게임의 힛 바를 space로 고정했을 때, 실패 혹은 성공여부를 판단한다.|TreadmilMiniGameUI.cs|[OnHitBar()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L114C17-L114C25)|
 |힛 바 적용(2)|미니게임의 힛 바 움직임을 구현한다.|TreadmilMiniGameUI.cs|[DropBarImageChangeCO()](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/TreadmilMiniGameUI.cs#L235)|
@@ -173,3 +178,7 @@
 |그라운드 파괴|FallState로 전환한 땅의 transform.position.y 가 지정한 위치에 도달했을 때, 오브젝트를 파괴한다.|Ground.cs|[OnDestroyObject](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L46)|
 |그라운드 상태 전환|ShiverState로 전환한 땅을 지정한 시간 뒤에 FallState로 전환시킨다.|Ground.cs|[ChangeToFallState](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L51C17-L51C34)|
 
+<br>
+<br>
+
+## UI 구성
