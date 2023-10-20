@@ -1,34 +1,94 @@
+![header](https://capsule-render.vercel.app/api?type=waving&color=EDCDBB&height=300&section=header&text=PLAN%20OR%20PAIN&fontSize=90&fontColor=FFEDDB)
+
 ## 목차
 
-### [1. 씬별 설명](#씬별-설명)
-#### [* 미니게임 외 씬](#미니게임-외-씬)
-#### [* 미니게임 씬](#미니게임)
+| [📅 프로젝트 미리 보기 📅](#프로젝트-미리-보기) |
+| :---: |
+| [🎬 Scene 설명서 🎬](#scene-설명서) |
+| [🎨 UI 구성 🎨](#ui-구성) |
+| [🛠 Manager 구조 🛠](#manager-구조) |
+| [📜 Player 로직 📜](#player-로직) |
+| [💡 만든 사람들 💡](#만든-사람들) |
 
 <br>
 
-### [2. UI 구성](#UI-구성)
+* * *
 
 <br>
 
-### [3. Manager 구성](#Manager-구성)
+## [🎮 YouTube]()
+## [🤍 Team Notion](https://teamsparta.notion.site/B6-eaf3a5d7a8cd48b68f7ea83ec72f7e9e)
 
 <br>
 
-### [4. 플레이어 구현](#플레이어-구현)
+* * *
 
 <br>
+
+## 프로젝트 미리 보기
+
+[📌 목차로 돌아가기 📌](#목차)
+
+![슬라이드1](https://github.com/phw97123/PLANORPAIN/assets/62470991/deb7c0c1-8c51-46b7-aebd-0a303c8fc0e4)
+![슬라이드2](https://github.com/phw97123/PLANORPAIN/assets/62470991/d19cec4f-065e-48b1-b561-a958c8c1dd0c)
+![슬라이드3](https://github.com/phw97123/PLANORPAIN/assets/62470991/5b188a9f-efd5-45de-b017-4c334011021d)
+![슬라이드4](https://github.com/phw97123/PLANORPAIN/assets/62470991/8b2dca5f-58c7-483e-a64c-370c855c7244)
+![슬라이드5](https://github.com/phw97123/PLANORPAIN/assets/62470991/16a49ba4-a2c3-41e7-8843-638931d3ffb4)
+![슬라이드6](https://github.com/phw97123/PLANORPAIN/assets/62470991/5fe1d757-8319-488f-a3be-69146009e3c2)
+![슬라이드7](https://github.com/phw97123/PLANORPAIN/assets/62470991/ceb7f70e-9181-4380-8269-df0f92094d63)
+![슬라이드8](https://github.com/phw97123/PLANORPAIN/assets/62470991/a0c9cda5-82eb-49bf-ad6c-cd8bc55250ec)
+![슬라이드9](https://github.com/phw97123/PLANORPAIN/assets/62470991/ae637470-0648-4307-909e-7572fa9df0ed)
+![슬라이드10](https://github.com/phw97123/PLANORPAIN/assets/62470991/27d0d74f-5c47-45e2-aaec-8bd439b201a6)
+![슬라이드11](https://github.com/phw97123/PLANORPAIN/assets/62470991/f845af58-79e4-4186-9900-c7097fae78d3)
+![슬라이드12](https://github.com/phw97123/PLANORPAIN/assets/62470991/0f43e987-da27-460d-82d6-735ca873a51f)
+![슬라이드14](https://github.com/phw97123/PLANORPAIN/assets/62470991/a0d52cf2-8be1-4887-a231-2a6d5da0ec20)
+![슬라이드15](https://github.com/phw97123/PLANORPAIN/assets/62470991/166d95cd-b55b-4acb-9fc8-64a002fd308f)
+![슬라이드16](https://github.com/phw97123/PLANORPAIN/assets/62470991/0c713a70-1d37-431f-91dd-b7b4a089982f)
+![슬라이드17](https://github.com/phw97123/PLANORPAIN/assets/62470991/23b32cd6-984a-4aec-a16a-55e3db1a0f52)
+![슬라이드18](https://github.com/phw97123/PLANORPAIN/assets/62470991/691f4edb-b0a3-4611-b954-272757f67bfb)
+![슬라이드19](https://github.com/phw97123/PLANORPAIN/assets/62470991/ee6f3766-6034-4bf9-b2b9-830e661f0dd3)
+
 <br>
 
-## 씬별 설명
-### 미니게임 외 씬
+* * *
+
+<br>
+
+## Scene 설명서
+
+<br>
+
+[📌 목차로 돌아가기 📌](#목차)
+
+| [🌏 주요 Scene 🌏](#주요-scene) |
+| :---: |
+| [🌌 미니 게임 Scene 🌌](#미니-게임-scene) |
+
+<br>
+
+* * *
+
+<br>
+
+### 주요 Scene
+
+<br>
+
+[📌 목차로 돌아가기 📌](#목차)
+
+| [🐈 StartScene 🐈](#startscene) |
+| :---: |
+| [🏠 MainScene 🏠](#mainscene) |
+| [🛌 EndingScene 🛌](#endingscene) |
+
+<br>
+
 #### StartScene
 |기능|기능 설명|스크립트|메서드|
 |:---:|:---:|:---:|:---:|
 |게임 인트로 씬|관련된 BGM sound 재생 및 Playable Director 재생, Intro MainGameScene으로 진입할 수 있는 버튼을 표시한다.|[StartScene.cs](https://github.com/phw97123/PLANORPAIN/blob/f13925cf701b6cb917696f02047601c248281a25/Assets/Scripts/Scene/StartScene.cs#L7-L15)|Init()|
 
-<br>
-<br>
-
+<br><br>
 
 #### MainScene
 |기능|기능 설명|스크립트|메서드|
@@ -38,13 +98,9 @@
 |게임 선택(2)|원하는 게임을 드래그 한 후, start 버튼을 누르면 해당 게임의 씬을 로드한다.|[PlannerGameSlot.cs](https://github.com/phw97123/PLANORPAIN/blob/f13925cf701b6cb917696f02047601c248281a25/Assets/Scripts/UI/Planner/PlannerGameSlot.cs#L10)|[OnClickStartButton()](https://github.com/phw97123/PLANORPAIN/blob/f13925cf701b6cb917696f02047601c248281a25/Assets/Scripts/UI/Planner/PlannerGameSlot.cs#L55)|
 |게임 선택(3)|UI_planner 팝업에서 플레이한 게임과 결과, 플레이할 수 있는 게임의 아이콘을 표시한다.|[UI_Planner.cs](https://github.com/phw97123/PLANORPAIN/blob/f13925cf701b6cb917696f02047601c248281a25/Assets/Scripts/UI/Planner/UI_Planner.cs#L9)||
 
-
-<br>
-<br>
+<br><br>
 
 #### EndingScene
-
-<br>
 
 * 진행한 미니게임의 점수(별)을 합산해, 별에 개수에 맞는 Ending Playable Director을 보여줌.
 
@@ -58,11 +114,29 @@
 |엔딩 씬 결정|미니게임에서 얻은 점수를 기준으로 BadEnding, GoodEnding을 정하고, 맞는 Playable Director을 재생한다.|[EndingSceneController.cs](https://github.com/phw97123/PLANORPAIN/blob/d2d6de46338e9d2a2665a3be7e698ec0d883c94a/Assets/Scripts/Scene/EndingSceneController.cs#L6)||
 
 <br>
+
+* * *
+
 <br>
 
-### 미니게임
-#### CleaningGameScene
+### 미니 게임 Scene
+
 <br>
+
+[📌 목차로 돌아가기 📌](#목차)
+
+<br>
+
+| [🐾 집안일 하기 게임 🐾](#집안일-하기-게임) |
+| :---: |
+| [🍙 알바하기 게임 🍙](#알바하기-게임) |
+| [🌵 개발하기 게임 🌵](#개발하기-게임) |
+| [🌋 게임하기 게임 🌋](#게임하기-게임) |
+| [👟 외출하기 게임 👟](#외출하기-게임) |
+
+<br><br>
+
+#### 집안일 하기 게임
 
 * 제한시간 60초 안에 최대한 많은 타일을 청소해야하는 게임.
 
@@ -80,32 +154,9 @@
 |고양이 구현|시간이 30초 남았을 때, 플레이어가 청소한 타일을 방해하는 고양이를 구현한다.|[Cat.cs](https://github.com/phw97123/PLANORPAIN/blob/fedb8d0b27f8c3fc22113b649f987d68872caf0a/Assets/Scripts/Character/Cat/Cat.cs#L7)||
 |고양이 움직임 구현|고양이는 NavMesh를 활용하여 Object가 배치되지 않은 임의의 그리드를 이동한다.<br>목표지점 주변 이동 후에 새로운 목표지점을 정해 이동한다.|Cat.cs|[RandomNavMeshPosition()](https://github.com/phw97123/PLANORPAIN/blob/486c63f97853214c986c047aaa90a0f74c05cb1c/Assets/Scripts/Character/Cat/Cat.cs#L31)<br>[SetRandomDestination()](https://github.com/phw97123/PLANORPAIN/blob/486c63f97853214c986c047aaa90a0f74c05cb1c/Assets/Scripts/Character/Cat/Cat.cs#L24)|
 
-<br>
-<br>
+<br><br>
 
-#### DevelopGameScene
-<br>
-
-* 주어진 Node 탐색을 맵에 있는 Node들을 알맞은 순서로 활성화시켜야 하는 게임.
-
-<br>
-
-|기능|기능 설명|스크립트|메서드|
-|:---:|:---|:---:|:---:|
-|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[DevelopGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/Scene/DevelopGameScene.cs#L5)||
-|미니게임 매니저|게임 로직과 Popup UI를 관리한다.|[DevelopGameManager.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L7)||
-|시도 횟수 카운트|맵에 있는 Node를 알맞은 순서로 모두 활성화시킬 때까지 시도한 횟수를 카운트한다.|DevelopGameManager.cs|[UpdateTryCount()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L52C17-L52C31)|
-|리스폰|맵의 특정 고도 이하로 떨어질 경우, 처음 시작 위치로 플레이어를 강제 이동한다.|DevelopGameManager.cs|[Respawn()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L45C17-L45C24)|
-|노드 관리|캐릭터가 활성화시키는 노드의 순서를 체크한다.|[graph.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/Graph.cs#L6)||
-|노드 표시|캐릭터가 노드 주변에 있을 떄, (노드 주변에 노드보다 큰 투명한 collider 설정) 플레이어에게 해당 노드를 활성화 시킬 지 선택하게 하는 팝업을 표시한다.|Node.cs||
-|충돌 감지|플레이어가 노드 주변에 있을 때를 감지한다.|Node.cs|[OnTriggerEnter()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/Node.cs#L32C18-L32C32)|
-
-<br>
-<br>
-
-#### ConvenienceStoreScene
-
-<br>
+#### 알바하기 게임
 
 * 아르바이트를 하던 중, 문득 배가 고파졌다. 점장의 CCTV 감시와, 손님이 눈치채지 못하게 몰래 삼각김밥을 섭취해야하는 게임.
 
@@ -128,14 +179,25 @@
 |인게임 UI|현재 점수의 상태를 별 모양 이미지로 나타내는 UI를 적용한다.|[ConvenienceUI.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L7)||
 |현재 점수 표시|현재 점수를 별 모양 이미지의 개수로 표시한다.|ConvenienceUI.cs|[ChangeStarImage()](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L18)|
 
+<br><br>
 
-<br>
-<br>
+#### 개발하기 게임
 
+* 주어진 Node 탐색을 맵에 있는 Node들을 알맞은 순서로 활성화시켜야 하는 게임.
 
-#### GymGame
+|기능|기능 설명|스크립트|메서드|
+|:---:|:---|:---:|:---:|
+|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[DevelopGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/Scene/DevelopGameScene.cs#L5)||
+|미니게임 매니저|게임 로직과 Popup UI를 관리한다.|[DevelopGameManager.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L7)||
+|시도 횟수 카운트|맵에 있는 Node를 알맞은 순서로 모두 활성화시킬 때까지 시도한 횟수를 카운트한다.|DevelopGameManager.cs|[UpdateTryCount()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L52C17-L52C31)|
+|리스폰|맵의 특정 고도 이하로 떨어질 경우, 처음 시작 위치로 플레이어를 강제 이동한다.|DevelopGameManager.cs|[Respawn()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/DevelopGameManager.cs#L45C17-L45C24)|
+|노드 관리|캐릭터가 활성화시키는 노드의 순서를 체크한다.|[graph.cs](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/Graph.cs#L6)||
+|노드 표시|캐릭터가 노드 주변에 있을 떄, (노드 주변에 노드보다 큰 투명한 collider 설정) 플레이어에게 해당 노드를 활성화 시킬 지 선택하게 하는 팝업을 표시한다.|Node.cs||
+|충돌 감지|플레이어가 노드 주변에 있을 때를 감지한다.|Node.cs|[OnTriggerEnter()](https://github.com/phw97123/PLANORPAIN/blob/9936e17209c6cf32565e543ffad1709fecbfced7/Assets/Scripts/DevelopGame/Node.cs#L32C18-L32C32)|
 
-<br>
+<br><br>
+
+#### 외출하기 게임
 
 * 자동차를 타고 운전하여 gym에 도착하는 DriveScene과 gym 에서 운동하는 미니게임을 포함한 gymScene 이상의 2가지 씬으로 구성되어있다.
 
@@ -151,6 +213,8 @@
 |자동차 위치 조정|자동차가 뒤집혔을 때, 처음의 위치로 자동차를 다시 구현한다.|VehicleController.cs|[OnRespawn()](https://github.com/phw97123/PLANORPAIN/blob/a78b21f9eed1517319b7a7a88ae51b152bc11943/Assets/Scripts/OutdoorGame/Vehicle/VehicleController.cs#L102C17-L102C26)|
 |gym 이동|화면에서 지정한 Interact Point 에서, 지정한 버튼을 눌렀을 때, gymScene으로 이동할 수 있음을 보여주는 UI를 표시한다.|[InteractGymPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/255cf515581694d3b87f8771bf5544f5e98cb8e7/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L5)||
 |gym 이동(2)|지정한 버튼을 눌렀을 때, 1초 뒤에 gymScene을 로드한다.|InteractGymPoint.cs|[LoadSceneCO()](https://github.com/phw97123/PLANORPAIN/blob/fbd513b01adc83150c54b2543b14014e162244b4/Assets/Scripts/OutdoorGame/Interact/InteractGymPoint.cs#L39)|
+
+<br>
 
 #### 2. GymScene
 |기능|기능 설명|스크립트|메서드|
@@ -173,13 +237,9 @@
 |현재 점수 반영 UI|화면 우측 상단에 해야할 일을 마칠 때마다, 별 이미지의 개수로써 현재 점수를 표시한다.|[StarUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/StarUI.cs#L3)||
 |출입구 표시|모든 미니게임을 마친 후, 나가는 문을 강조한다.<br>나가는 문과 상호작용 시, 게임이 끝나고, End Popup을 표시한다.|[InteractGymToOutPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymToOutPoint.cs#L3)||
 
+<br><br>
 
-<br>
-<br>
-
-#### DodgeGameScene
-
-<br>
+#### 게임하기 게임
 
 * 주어진 시간 안에, 흔들리는 지형 속에서 최대한 용암에 닿지 않고 살아남아야 하는 게임.
 
@@ -199,33 +259,35 @@
 |그라운드 상태 전환|ShiverState로 전환한 땅을 지정한 시간 뒤에 FallState로 전환시킨다.|Ground.cs|[ChangeToFallState](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L51C17-L51C34)|
 
 <br>
+
+* * *
+
 <br>
 
 ## UI 구성
-### UIBase
+
 <br>
+
+[📌 목차로 돌아가기 📌](#목차)
+
+<br>
+
+### UIBase
 
 * 모든 UI는 UI_base를 상속받음.
 * 모든 팝업을 상속하는 UI_basePopup 또한 UI_base를 상속받음.
-
-<br>
 
 |메서드|기능 설명|
 |:---:|:---|
 |[OpenUI()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/Parent/UIBase.cs#L5)|연결된 게임오브젝트(UI)를 활성화|
 |[CloseUI()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/Parent/UIBase.cs#L10)|연결된 게임오브젝트(UI)를 비활성화|
 
-<br>
-<br>
+<br><br>
 
 ### 씬별 UI
-<br>
 
 * 각 씬별로 필요한 정보 (ex. 남은 시간, 현재 점수 ... etc)를 메서드로 구현한다.
 * 각 씬별 UI는 상단의 "씬 별 설명" 의 인게임 UI 항목 참고 혹은 하단 표 참고.
-
-
-<br>
 
 |씬|UI|
 |:---:|:---:|
@@ -236,17 +298,12 @@
 |ConvenienceGameScene|[ConvenienceUI.cs](https://github.com/phw97123/PLANORPAIN/blob/0b22f4916b6a37531b3a5e322b109759cd3bba2c/Assets/Scripts/UI/ConvenienceStoreScene/ConvenienceUI.cs#L7)|
 |DodgeGameScene|[UI_DodgeGameScene](https://github.com/phw97123/PLANORPAIN/blob/3b0c67266bb23924d410f3549811b2336bfdf7de/Assets/Scripts/UI/Scene/DodgeGameScene/UI_DodgeGameScene.cs#L5)|
 
-<br>
-<br>
+<br><br>
 
 ### UI_basePopup
 
-<br>
-
 * 모든 팝업은 UI_basePopup을 상속받음.
 * UI_basePopup은 다음의 필드값을 지니고 있음.
-
-<br>
 
 ```c#
 public class UI_BasePopup : UIBase
@@ -265,27 +322,19 @@ public class UI_BasePopup : UIBase
 
 ```
 
-<br>
-
 |메서드|기능 설명|
 |:---:|:---|
 |[SetPopupAttributesSize()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/UIPopup/UI_BasePopup.cs#L19)|팝업의 크기 및 텍스트 위치 조절|
 |[SetPopupContent()](https://github.com/phw97123/PLANORPAIN/blob/7d8ed77c3582719f8f42a16d4c546da6ec900a23/Assets/Scripts/UI/UIPopup/UI_BasePopup.cs#L27C20-L27C35)|팝업 내용 텍스트 및 폰트 사이즈 조절|
 
-<br>
-<br>
-
+<br><br>
 
 ### UI_Popup
-
-<br>
 
 * 인 게임 내에서 자주 쓰이는 팝업 정의.
 * content 텍스트 및 버튼 오브젝트들을 GameObject로 저굥한 뒤, InitBind 함수 내에서 해당하는 Button과 TMP_Text를 연결.
 * [const values region](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L15) 에서 팝업 사이즈와 관련된 상수 정의
 * [Global/Strings](https://github.com/phw97123/PLANORPAIN/blob/2be575db0da474bf3578cc580cbb7d1031412e2e/Assets/Scripts/Global/Strings.cs#L9) 에서 정의한 버튼 타입에 따른 텍스트를 부여한다.
-
-<br>
 
 ```c#
 public class UI_Popup : UI_BasePopup
@@ -316,7 +365,6 @@ public class UI_Popup : UI_BasePopup
     //... 생략 ...
 
 ```
-<br>
 
 |기능|메서드|기능 설명|
 |:---:|:---:|:---|
@@ -330,18 +378,36 @@ public class UI_Popup : UI_BasePopup
 |팝업 크기 및 텍스트 위치 조절|[SetPopupAttributes](https://github.com/phw97123/PLANORPAIN/blob/fc1edf865e426636bb174a974233540577e46e2f/Assets/Scripts/UI/UIPopup/UI_Popup.cs#L156)|파라미터로 받는 팝업 버튼의 종류에 따라, 버튼 크기와 텍스트 위치를 지정한다.|
 
 <br>
+
+* * *
+
 <br>
 
-## Manager 구성
+## Manager 구조
+
+<br>
+
+[📌 목차로 돌아가기 📌](#목차)
+
+<br>
+
+### [SceneMangerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
+
+* 현재 씬과 다음 씬을 토대로, 씬 전환을 관리한다.
+* [Global/Scenes.cs](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Global/Scenes.cs#L1) 에서 씬 타입을 정의하고, 정의한 씬을 호출한다.
+
+|필드값|기능 설명|
+|:---:|:---|
+|_curSceneType|현재 씬|
+|_nextSceneType|현재 씬이 LoadingScene일 경우 다음에 호출 될 씬|
+
+<br><br>
 
 ### [GameManager](https://github.com/phw97123/PLANORPAIN/blob/98a33ae535c8fb95d9a486ea815b17bae9e04288/Assets/Scripts/Manager/GameManager.cs#L7)
-<br>
 
 * 각 미니 게임들을 관리하는 미니 게임 매니저들을 Dictionary로 관리한다.
 * 각 미니 게임의 플레이 여부와 엔딩 여부를 관리한다.
 * 각 미니 게임간 Scene을 로드한다.
-
-<br>
 
 |필드값|기능 설명|
 |:---:|:---|
@@ -356,71 +422,50 @@ public class UI_Popup : UI_BasePopup
 |gameEnd|모든 미니게임을 플레이해 엔딩씬으로 넘어가는지 여부를 판단하는 bool.|
 |_gameIconPath|각 미니게임의 아이콘 이미지 스프라이트의 이름을 요소로 가진 배열|
 
-<br>
-<br>
+<br><br>
+
+### [UIManager](https://github.com/phw97123/PLANORPAIN/blob/fd6ccb92c452dc317de6cca4b0cb815ba18ebea5/Assets/Scripts/Manager/UIManager.cs#L5)
+
+* 특정 UI 컴포넌트를 지닌 프리팹의 경로를 key값으로, UI 컴포넌트를 value값으로 하는 딕셔너리를 통해 UI 컴포넌트를 관리한다.
+* 지정한 경로에서의 프리팹을 Instantiate 한 후, UI 컴포넌트를 가져온다.
+
+<br><br>
 
 ### [ResourceManager](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/ResourceManager.cs#L4)
 
-<br>
-
 * 이미지 소스의 경로를 key값으로 이미지 소스 Sprite을 value값으로 하는 딕셔너리를 통해, 리소스를 관리한다.
 
-<br>
-<br>
-
-### [SceneMangerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
-
-<br>
-
-* 현재 씬과 다음 씬을 토대로, 씬 전환을 관리한다.
-* [Global/Scenes.cs](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Global/Scenes.cs#L1) 에서 씬 타입을 정의하고, 정의한 씬을 호출한다.
-
-<br>
-
-|필드값|기능 설명|
-|:---:|:---|
-|_curSceneType|현재 씬|
-|_nextSceneType|현재 씬이 LoadingScene일 경우 다음에 호출 될 씬|
-
-<br>
-<br>
+<br><br>
 
 ### [SoundManager](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L10)
-
-<br>
 
 * 사운드 소스의 경로를 key값으로, 사운드 clip을 value 값으로 하는 딕셔너리를 통해, 사운드를 관리한다.
 * [AudioType](https://github.com/phw97123/PLANORPAIN/blob/ca12f4fb5f7bbce6535165bad8a4e81b5b972860/Assets/Scripts/Manager/SoundManager.cs#L4) 으로 지정한 오디오 클립의 타입에 따라 다른 방식으로 지정한 audioSource를 재생할 수 있다.
 * audioSource에 상관없이 플레이 중인 사운드를 정지할 수 있다.
 
-<br>
-<br>
-
-### [UIManager](https://github.com/phw97123/PLANORPAIN/blob/fd6ccb92c452dc317de6cca4b0cb815ba18ebea5/Assets/Scripts/Manager/UIManager.cs#L5)
+<br><br>
 
 <br>
 
-* 특정 UI 컴포넌트를 지닌 프리팹의 경로를 key값으로, UI 컴포넌트를 value값으로 하는 딕셔너리를 통해 UI 컴포넌트를 관리한다.
-* 지정한 경로에서의 프리팹을 Instantiate 한 후, UI 컴포넌트를 가져온다.
+* * *
 
 <br>
+
+## Player 로직
+
 <br>
 
-## 플레이어 구현
+[📌 목차로 돌아가기 📌](#목차)
+
+<br>
 
 ### New Input System 활용.
 
-<br>
-
 ![image](https://github.com/phw97123/PLANORPAIN/assets/141595995/580d5c85-5c4b-47ef-8408-d22b894b1d20)
-
-<br>
 
 * 지정한 버튼이 눌린다면, 눌린 형태 (Performed, Canceled, started) 까지 이벤트에 대한 콜백 함수로 사용하요 지정한 동작 수행.
 
 * 각 게임 별로 동일한 플레이어를 사용하고 있고, 게임마다 필요한 Input System 이 다른 것은, 필요한 모든 이벤트를 저장한 후, 씬 별로 선택적으로 액션을 적용하여 구현함.
-
-<br>
 
 ```c#
 // Player.cs
@@ -439,16 +484,27 @@ public class UI_Popup : UI_BasePopup
     }
 ```
 
-<br>
-<br>
+<br><br>
 
-### FSM 활용.
-
-<br>
+### FSM 활용
 
 ![image](https://github.com/phw97123/PLANORPAIN/assets/141595995/797db143-13c2-44cf-8888-da2710edffa8)
 
-<br>
-
 * FSM 을 활용하여, 플레이어의 각 State를 정의하고, State 별 전환 조건을 충족시킬 때마다, State를 전환시킴.
 * State 별 전환 및 정보를 관리하는 [PlayerStateMachine.cs](https://github.com/phw97123/PLANORPAIN/blob/1b917e6e680dfec71a4def9ba1e69c1268d531a9/Assets/Scripts/Character/Player/StateMachines/PlayerStateMachine.cs#L3) 과 애니메이션 해시 정보를 관리하는 [PlayerAnimationData.cs](https://github.com/phw97123/PLANORPAIN/blob/1b917e6e680dfec71a4def9ba1e69c1268d531a9/Assets/Scripts/Character/Player/PlayerAnimationData.cs#L5) 를 통해 각 State 별 필요한 물리적 움직임과 애니메이션(애니메이터 파라미터 조절)을 불러옴.
+
+<br>
+
+* * *
+
+<br>
+
+## 만든 사람들
+
+[⭐ 목차로 돌아가기 ⭐](#목차)
+
+<a href="https://github.com/phw97123/PLANORPAIN/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=phw97123/PLANORPAIN" />
+  </a>
+
+<br><br>
