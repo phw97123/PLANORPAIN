@@ -14,9 +14,9 @@ public class DrivingScene : BaseScene
 
         SceneType = Scenes.DrivingScene;
 
-        GameManager.Instance.GetMiniGameManager<OutdoorGameManager>();
         SoundManager.Instance.Play("OutdoorGame/Paradise-Hope", AudioType.BGM);
-        
+        GameManager.Instance.GetMiniGameManager<OutdoorGameManager>();
+
         Cursor.lockState = CursorLockMode.Locked;
 
         return true;

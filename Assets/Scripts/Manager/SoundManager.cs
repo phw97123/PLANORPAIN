@@ -34,7 +34,7 @@ public class SoundManager : Singleton<SoundManager>
     // 배경 음악 재생 : SoundManager.Instance.Play("오디오 클립 이름", AudioType.BGM);
     // 효과음 재생 : SoundManager.Instance.Play("오디오 클립 이름");
     // volume 조절 필요할 시 volume 값도 전달
-    public void Play(string audioClipName, AudioType audioType = AudioType.EFFECT, float volume = 1.0f)
+    public void Play(string audioClipName, AudioType audioType = AudioType.EFFECT, float volume = 0.5f)
     {
         AudioClip audioClip = LoadAudioClip(audioClipName);
         
