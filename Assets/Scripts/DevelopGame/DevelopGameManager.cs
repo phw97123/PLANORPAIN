@@ -28,7 +28,9 @@ public class DevelopGameManager : MonoBehaviour
         _uiGameEndPopup = UIManager.Instance.GetUIComponent<UI_GameEndPopup>();
         _uiDevelopGameScene = UIManager.Instance.GetUIComponent<UI_DevelopGameScene>();
 
-        _uiPopup.ShowPopup(Strings.PopupContent.DEVELOP_GAME_NOTIFICATION, Strings.PopupButtons.OK, null);
+        _uiPopup.ShowPopup(Strings.PopupContent.DEVELOP_GAME_NOTIFICATION, Strings.PopupButtons.OK, StartTimeScale);
+
+        Time.timeScale = 0;
     }
 
     private int GetScore()
@@ -63,5 +65,10 @@ public class DevelopGameManager : MonoBehaviour
     {
         _uiGameEndPopup.SetScore(GetScore());
         _uiGameEndPopup.ShowPopup();
+    }
+
+    private void StartTimeScale()
+    {
+        Time.timeScale = 1;
     }
 }

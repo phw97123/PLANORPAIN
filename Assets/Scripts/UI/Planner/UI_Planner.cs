@@ -48,7 +48,7 @@ public class UI_Planner : UIBase
 
         Image curDayMask = grayMasks[(int)_gameManager.CurDay];
         GameObject curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameSlot"));
-        curSlot.transform.SetParent(backGround.transform);
+        curSlot.transform.SetParent(backGround.transform, false);
         curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
         int dayIndex = 0;
@@ -56,7 +56,7 @@ public class UI_Planner : UIBase
         {
             curDayMask = grayMasks[dayIndex];
             curSlot = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameSlot"));
-            curSlot.transform.SetParent(backGround.transform);
+            curSlot.transform.SetParent(backGround.transform, false);
             curSlot.GetComponent<RectTransform>().anchoredPosition = curDayMask.GetComponent<RectTransform>().anchoredPosition;
 
             PlannerGameSlot slot = curSlot.GetComponent<PlannerGameSlot>();
@@ -91,7 +91,7 @@ public class UI_Planner : UIBase
         foreach (var gamePair in _gameManager.RemainingGames)
         {
             _gameIcons[index] = Instantiate(Resources.Load<GameObject>($"Prefabs/UI/Planner/PlannerGameIcon")).GetComponent<RectTransform>();
-            _gameIcons[index].transform.SetParent(backGround.transform);
+            _gameIcons[index].transform.SetParent(backGround.transform, false);
             PlannerGameIcon plannerGameIcon = _gameIcons[index].gameObject.GetComponent<PlannerGameIcon>();
             plannerGameIcon.GameIcon.sprite = ResourceManager.Instance.LoadSprite(gamePair.Value);
             plannerGameIcon.GameScene = gamePair.Key;
