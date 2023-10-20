@@ -1,6 +1,6 @@
 ## 목차
 
-### [1. 씬별 설명](https://github.com/phw97123/PLANORPAIN/blob/a75b0c989fab5e53a90dd6e750b535bec9202c43/readme.md?plain=1#L21)
+### [1. 씬별 설명](https://github.com/phw97123/PLANORPAIN/blob/db1e1c2848860c77601603d6bad7589e08d435f4/readme.md?plain=1#L21)
 #### [* 미니게임 외 씬](https://github.com/phw97123/PLANORPAIN/blob/a75b0c989fab5e53a90dd6e750b535bec9202c43/readme.md?plain=1#L22)
 #### [* 미니게임 씬](https://github.com/phw97123/PLANORPAIN/blob/a75b0c989fab5e53a90dd6e750b535bec9202c43/readme.md?plain=1#L62)
 
