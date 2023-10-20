@@ -34,7 +34,7 @@
 ![슬라이드3](https://github.com/phw97123/PLANORPAIN/assets/62470991/5b188a9f-efd5-45de-b017-4c334011021d)
 ![슬라이드4](https://github.com/phw97123/PLANORPAIN/assets/62470991/8b2dca5f-58c7-483e-a64c-370c855c7244)
 ![슬라이드5](https://github.com/phw97123/PLANORPAIN/assets/62470991/16a49ba4-a2c3-41e7-8843-638931d3ffb4)
-![슬라이드6](https://github.com/phw97123/PLANORPAIN/assets/62470991/5fe1d757-8319-488f-a3be-69146009e3c2)
+![슬라이드6](https://github.com/phw97123/PLANORPAIN/assets/62470991/0fa9090c-eaba-42ce-8238-c2d149969d5d)
 ![슬라이드7](https://github.com/phw97123/PLANORPAIN/assets/62470991/ceb7f70e-9181-4380-8269-df0f92094d63)
 ![슬라이드8](https://github.com/phw97123/PLANORPAIN/assets/62470991/a0c9cda5-82eb-49bf-ad6c-cd8bc55250ec)
 ![슬라이드9](https://github.com/phw97123/PLANORPAIN/assets/62470991/ae637470-0648-4307-909e-7572fa9df0ed)
