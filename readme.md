@@ -16,8 +16,9 @@
 
 <br>
 
-## [🎮 YouTube]()
+## [📹 YouTube]()
 ## [🤍 Team Notion](https://teamsparta.notion.site/B6-eaf3a5d7a8cd48b68f7ea83ec72f7e9e)
+## [📁 Download]()
 
 <br>
 
