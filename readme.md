@@ -60,6 +60,10 @@
 
 [📌 목차로 돌아가기 📌](#목차)
 
+<br>
+
+#### Scene 설명서 목차
+
 | [🌏 주요 Scene 🌏](#주요-scene) |
 | :---: |
 | [🌌 미니 게임 Scene 🌌](#미니-게임-scene) |
@@ -74,7 +78,9 @@
 
 <br>
 
-[📌 목차로 돌아가기 📌](#목차)
+[🎥 Scene 설명서 목차로 돌아가기 🎥](#scene-설명서-목차)
+
+<br>
 
 | [🐈 StartScene 🐈](#startscene) |
 | :---: |
@@ -123,9 +129,11 @@
 
 <br>
 
-[📌 목차로 돌아가기 📌](#목차)
+[🎥 Scene 설명서 목차로 돌아가기 🎥](#scene-설명서-목차)
 
 <br>
+
+#### 미니 게임 Scene 목차
 
 | [🐾 집안일 하기 게임 🐾](#집안일-하기-게임) |
 | :---: |
@@ -137,6 +145,12 @@
 <br><br>
 
 #### 집안일 하기 게임
+
+<br>
+
+[🎮 미니 게임 Scene 목차로 돌아가기 🎮](#미니-게임-scene-목차)
+
+<br>
 
 * 제한시간 60초 안에 최대한 많은 타일을 청소해야하는 게임.
 
@@ -157,6 +171,12 @@
 <br><br>
 
 #### 알바하기 게임
+
+<br>
+
+[🎮 미니 게임 Scene 목차로 돌아가기 🎮](#미니-게임-scene-목차)
+
+<br>
 
 * 아르바이트를 하던 중, 문득 배가 고파졌다. 점장의 CCTV 감시와, 손님이 눈치채지 못하게 몰래 삼각김밥을 섭취해야하는 게임.
 
@@ -183,6 +203,12 @@
 
 #### 개발하기 게임
 
+<br>
+
+[🎮 미니 게임 Scene 목차로 돌아가기 🎮](#미니-게임-scene-목차)
+
+<br>
+
 * 주어진 Node 탐색을 맵에 있는 Node들을 알맞은 순서로 활성화시켜야 하는 게임.
 
 |기능|기능 설명|스크립트|메서드|
@@ -197,7 +223,40 @@
 
 <br><br>
 
+#### 게임하기 게임
+
+<br>
+
+[🎮 미니 게임 Scene 목차로 돌아가기 🎮](#미니-게임-scene-목차)
+
+<br>
+
+* 주어진 시간 안에, 흔들리는 지형 속에서 최대한 용암에 닿지 않고 살아남아야 하는 게임.
+
+<br>
+
+|기능|기능 설명|스크립트|메서드|
+|:---:|:---|:---:|:---:|
+|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[DodgeGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/Scene/DodgeGameScene.cs#L1)||
+|미니게임 매니저|게임 로직과 Popup UI를 관리한다.|[DodgeGameManager.cs](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/DodgeMiniGame/DodgeGameManager.cs#L4)||
+|용암 접촉시 소리 재생|용암 접촉시, 지속적으로 소리를 재생한다.|DodgeGameManager.cs|[PlayLavaSound()](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/DodgeMiniGame/DodgeGameManager.cs#L72)|
+|인게임 UI|남은 HP, 남은 시간, 획득한 점수를 반영하는 인게임 UI를 구현한다.|[UI_DodgeGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/UI/Scene/DodgeGameScene/UI_DodgeGameScene.cs#L5)||
+|그라운드 관리|여러 개의 그라운드 조각들을 리스트로 관리하여, 지정한 시간마다 그라운드 조각을 ShiverState로 전환한다.|[GroundManager.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L6)||
+|그라운드 관리 (1)|지정한 시간마다 임의의 조각을 ShiverState로 전환한다.|GroundManager.cs|[ShiverGround()](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L62)|
+|그라운드 관리 (2)|지정한 시간마다 플레이어가 서 있는 그라운드 조각을 ShiverState로 전환한다.|GroundManger.cs|[CheckPlayerOnGround()](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L82)|
+|그라운드|땅에 대한 정보와 State 전환을 관리한다.|[Ground.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L4)||
+|그라운드 파괴|FallState로 전환한 땅의 transform.position.y 가 지정한 위치에 도달했을 때, 오브젝트를 파괴한다.|Ground.cs|[OnDestroyObject](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L46)|
+|그라운드 상태 전환|ShiverState로 전환한 땅을 지정한 시간 뒤에 FallState로 전환시킨다.|Ground.cs|[ChangeToFallState](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L51C17-L51C34)|
+
+<br><br>
+
 #### 외출하기 게임
+
+<br>
+
+[🎮 미니 게임 Scene 목차로 돌아가기 🎮](#미니-게임-scene-목차)
+
+<br>
 
 * 자동차를 타고 운전하여 gym에 도착하는 DriveScene과 gym 에서 운동하는 미니게임을 포함한 gymScene 이상의 2가지 씬으로 구성되어있다.
 
@@ -237,27 +296,6 @@
 |현재 점수 반영 UI|화면 우측 상단에 해야할 일을 마칠 때마다, 별 이미지의 개수로써 현재 점수를 표시한다.|[StarUI.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/UI/GymScene/StarUI.cs#L3)||
 |출입구 표시|모든 미니게임을 마친 후, 나가는 문을 강조한다.<br>나가는 문과 상호작용 시, 게임이 끝나고, End Popup을 표시한다.|[InteractGymToOutPoint.cs](https://github.com/phw97123/PLANORPAIN/blob/4e25fb5662896defaa3cb6869ba108aa117b3e34/Assets/Scripts/OutdoorGame/Interact/InteractGymToOutPoint.cs#L3)||
 
-<br><br>
-
-#### 게임하기 게임
-
-* 주어진 시간 안에, 흔들리는 지형 속에서 최대한 용암에 닿지 않고 살아남아야 하는 게임.
-
-<br>
-
-|기능|기능 설명|스크립트|메서드|
-|:---:|:---|:---:|:---:|
-|씬 스크립트|UI와 게임의 매니저를 가져와 씬을 시작한다.|[DodgeGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/Scene/DodgeGameScene.cs#L1)||
-|미니게임 매니저|게임 로직과 Popup UI를 관리한다.|[DodgeGameManager.cs](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/DodgeMiniGame/DodgeGameManager.cs#L4)||
-|용암 접촉시 소리 재생|용암 접촉시, 지속적으로 소리를 재생한다.|DodgeGameManager.cs|[PlayLavaSound()](https://github.com/phw97123/PLANORPAIN/blob/19c67a7168b8b5d97ea49534fa909cdc662f7644/Assets/Scripts/DodgeMiniGame/DodgeGameManager.cs#L72)|
-|인게임 UI|남은 HP, 남은 시간, 획득한 점수를 반영하는 인게임 UI를 구현한다.|[UI_DodgeGameScene.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/UI/Scene/DodgeGameScene/UI_DodgeGameScene.cs#L5)||
-|그라운드 관리|여러 개의 그라운드 조각들을 리스트로 관리하여, 지정한 시간마다 그라운드 조각을 ShiverState로 전환한다.|[GroundManager.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L6)||
-|그라운드 관리 (1)|지정한 시간마다 임의의 조각을 ShiverState로 전환한다.|GroundManager.cs|[ShiverGround()](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L62)|
-|그라운드 관리 (2)|지정한 시간마다 플레이어가 서 있는 그라운드 조각을 ShiverState로 전환한다.|GroundManger.cs|[CheckPlayerOnGround()](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/GroundManager.cs#L82)|
-|그라운드|땅에 대한 정보와 State 전환을 관리한다.|[Ground.cs](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L4)||
-|그라운드 파괴|FallState로 전환한 땅의 transform.position.y 가 지정한 위치에 도달했을 때, 오브젝트를 파괴한다.|Ground.cs|[OnDestroyObject](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L46)|
-|그라운드 상태 전환|ShiverState로 전환한 땅을 지정한 시간 뒤에 FallState로 전환시킨다.|Ground.cs|[ChangeToFallState](https://github.com/phw97123/PLANORPAIN/blob/3e4f40de77a65d299d706b0b0f0f8930d5db4082/Assets/Scripts/Ground/Ground.cs#L51C17-L51C34)|
-
 <br>
 
 * * *
@@ -284,7 +322,7 @@
 
 <br><br>
 
-### 씬별 UI
+### Scene UI
 
 * 각 씬별로 필요한 정보 (ex. 남은 시간, 현재 점수 ... etc)를 메서드로 구현한다.
 * 각 씬별 UI는 상단의 "씬 별 설명" 의 인게임 UI 항목 참고 혹은 하단 표 참고.
@@ -300,10 +338,10 @@
 
 <br><br>
 
-### UI_basePopup
+### UI_BasePopup
 
-* 모든 팝업은 UI_basePopup을 상속받음.
-* UI_basePopup은 다음의 필드값을 지니고 있음.
+* 모든 팝업은 UI_BasePopup을 상속받음.
+* UI_BasePopup은 다음의 필드값을 지니고 있음.
 
 ```c#
 public class UI_BasePopup : UIBase
@@ -391,7 +429,7 @@ public class UI_Popup : UI_BasePopup
 
 <br>
 
-### [SceneMangerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
+### [SceneManagerEx](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Manager/SceneManagerEx.cs#L4C14-L4C29)
 
 * 현재 씬과 다음 씬을 토대로, 씬 전환을 관리한다.
 * [Global/Scenes.cs](https://github.com/phw97123/PLANORPAIN/blob/4bf0791cfcbed240d2324f3f3d05ffdccf9334b3/Assets/Scripts/Global/Scenes.cs#L1) 에서 씬 타입을 정의하고, 정의한 씬을 호출한다.
