@@ -9,7 +9,7 @@ public class Graph : MonoBehaviour
 
     private Node[] nodeList;
 
-    private void Awake()
+    private void Start()
     {
         nodeList = GetComponentsInChildren<Node>();
         // 게임 매니저를 통해서 미니 게임을 관리할 매니저 호출

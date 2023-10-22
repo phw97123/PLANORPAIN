@@ -43,7 +43,7 @@ public class ConvenienceNotifyUI : UIBase
 
     public void ShowPopup()
     {
-        OpenUI();
         SetPopupText(strings[_page++]);
+        OpenUI();
     }
 }

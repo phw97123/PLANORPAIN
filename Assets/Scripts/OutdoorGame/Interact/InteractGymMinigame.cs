@@ -36,9 +36,10 @@ public class InteractGymMinigame : MonoBehaviour
             {
                 if (_coroutine != null)
                     StopCoroutine(_coroutine);
-                _coroutine = StartCoroutine(BlinkOutlingCO());
+                _outline.OutlineWidth = 6f;
                 _miniGameUI.isInterct = true;
                 _miniGameUI.selector = _miniGameSelect;
+                _miniGameUI.SetInteractGymMinigame(this);
             }
         }
     }
@@ -52,27 +53,13 @@ public class InteractGymMinigame : MonoBehaviour
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if (!_isInteract)
-    //        {
-    //            if (_coroutine != null)
-    //                StopCoroutine(_coroutine);
-    //            _coroutine = StartCoroutine(BlinkOutlingCO());
-    //            _miniGameUI.isInterct = true;
-    //            _miniGameUI.selector = _miniGameSelect;
-    //        }
-    //    }
-    //}
+    public void SetInteract(bool isinteract)
+    {
+        _isInteract = isinteract;
+    }
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        _outline.OutlineWidth = 0f;
-    //        _miniGameUI.isInterct = false;
-    //    }
-    //}
+    public void SetOutlineWidth(float value)
+    {
+        _outline.OutlineWidth = value;
+    }
 }

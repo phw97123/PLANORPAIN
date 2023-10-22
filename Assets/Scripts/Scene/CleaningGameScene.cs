@@ -6,8 +6,8 @@ public class CleaningGameScene : BaseScene
 
         SceneType = Scenes.CleaningGameScene;
 
-        GameManager.Instance.GetMiniGameManager<CleaningGameManager>();
         SoundManager.Instance.Play("CleaningGameScene/CleaningGameBGM", AudioType.BGM);
+        GameManager.Instance.GetMiniGameManager<CleaningGameManager>();
 
         return true;
     }

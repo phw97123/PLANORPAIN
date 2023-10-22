@@ -12,8 +12,8 @@ public class ConvenienceStoreScene : BaseScene
 
         SceneType = Scenes.ConvenienceStoreScene;
 
-        GameManager.Instance.GetMiniGameManager<ConvenienceStoreGameManager>();
         SoundManager.Instance.Play("ConvenienceStoreScene/ConvenienceBGM", AudioType.BGM);
+        GameManager.Instance.GetMiniGameManager<ConvenienceStoreGameManager>();
 
         return true;
     }
